@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <link rel="shortcut icon" href="https://img.icons8.com/pastel-glyph/64/000000/umbrella.png"/>
-    <meta name="color-scheme" content="light dark" />
     <title>Mateus Notes</title>
 </head>
 <body>
@@ -22,7 +21,7 @@
         <ion-tab tab="music">
             <ion-header translucent>
                 <ion-toolbar>
-                    <ion-title><ion-icon name="umbrella-outline"></ion-icon> Mateus Notes</ion-title>
+                    <ion-title size="large"><ion-icon name="umbrella-outline"></ion-icon> Mateus Notes</ion-title>
                 </ion-toolbar>
             </ion-header>
 
@@ -34,12 +33,30 @@
         <ion-tab tab="movies">
             <ion-header translucent>
                 <ion-toolbar>
-                    <ion-title>Movies</ion-title>
+                    <ion-title>Artigos</ion-title>
                 </ion-toolbar>
             </ion-header>
 
             <ion-content fullscreen class="ion-padding">
-                <h1>Movies</h1>
+
+
+
+                <ion-list>
+                    <ion-list-header>Linux</ion-list-header>
+
+                    <ion-item>
+                        <ion-label>
+                            <h2>Finn</h2>
+                            <h3>I'm a big deal</h3>
+                            <p>Listen, I've had a pretty messed up day...</p>
+                            <ion-button href="post1.html">Anchor</ion-button>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+
+
+
+
             </ion-content>
         </ion-tab>
 
@@ -47,6 +64,9 @@
             <ion-header translucent>
                 <ion-toolbar>
                     <ion-title>Games</ion-title>
+                    <ion-buttons slot="start">
+                        <ion-back-button default-href="home"></ion-back-button>
+                    </ion-buttons>
                 </ion-toolbar>
             </ion-header>
 
