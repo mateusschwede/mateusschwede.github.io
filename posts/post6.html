@@ -89,6 +89,7 @@ CREATE TABLE arquivo (
     	if (move_uploaded_file($temp,$dir)) {echo 'Upload  concluido.';}
     	else {echo 'Erro no upload.';}
     }
+
 ?&gt
 &ltform action="upload.php"  method="post" enctype="multipart/form-data"&gt
     &ltp&gt&ltinput type="file" name="arquivo"&gt&lt/p&gt
