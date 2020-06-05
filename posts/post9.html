@@ -40,7 +40,7 @@
         <div class="col-sm-12">
             <h4>Estrutura</h4>
             <p id="textoPost"><b>MySQL:</b> <small>Database -> Table -> Row -> Column e Value -> Index</small><br><b>MongoDB:</b> <small>Database -> Collection -> Document -> Field e Value -> Index</small></p>
-            <p id="textoPost">No MongoDB os dados são do tipo BSON, como um JSON. Todo document possui um field 'id', gerado automaticamente, que serve como uma primary key, para relacionar e identificá-lo. Cada document tem um field com value, possuindo um tipo específico. Recomendo download do MongoDB Community, gratuito, no link https://docs.mongodb.com/manual/administration/install-on-linux. Use o SGBD GUI MongoDB Compass Community, também gratuito, no link https://www.mongodb.com/download-center/compass</p>
+            <p id="textoPost">No MongoDB os dados são do tipo BSON, como um JSON. Todo document possui um field 'id', gerado automaticamente, que serve como uma primary key, para relacionar e identificá-lo. Cada document tem um field com value, possuindo um tipo específico. Recomendo download do MongoDB Community, gratuito, no link https://docs.mongodb.com/manual/administration/install-on-linux. Use o SGBD GUI MongoDB Compass Community, também gratuito, no link https://www.mongodb.com/download-center/compass. Todos os códigos abaixo foram retirados do site oficial MongoDB.</p>
             <hr>
             <h4>Exemplo de document</h4>
 <small><pre><code>
@@ -69,16 +69,6 @@
 <b>db.auth("nomeUser","senhaUser"):</b> Autentica user(feedback 1 para autenticado / 0 para barrado)
 <b>db.dropUser("nomUser"):</b> Deleta user
 </code></pre></small><br>
-
-
-
-
-
-
-
-
-
-
             <h4>Create Table</h4>
 <small><pre><code>
 <b>MySQL</b>
@@ -250,6 +240,9 @@ myCursor.objsLeftInBatch(); //com if's
 <i>Importa arquivo para determinada collection de db. Headerline pega os títulos das colunas e transforma em nome de parâmetros nos documents.<br>'ubs.csv' baixado de http://www.dados.gov.br/dataset/pac_ubs</i>
 mongoimport -d dbNome -c nomeCollection --type csv --file arquivo.csv --headerline
 </code></pre></small><br>
+            <h4>Não encontrou o que precisava?</h4>
+            <p id="textoPost">Tenho, no Github, um resumo com praticamente toda a sintaxe do MongoDB, retirada do próprio site oficial.</p>
+            <a class="btn btn-secondary" href="https://github.com/mateusschwede/resumos/blob/master/mongodb/sintaxemongo.md" target="_blank">Confira aqui</a>
         </div>
     </div>
 
