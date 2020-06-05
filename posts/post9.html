@@ -82,6 +82,8 @@
             <h4>Create Table</h4>
 <small><pre><code>
 <b>MySQL</b>
+CREATE DATABASE teste
+
 CREATE TABLE people (
     id MEDIUMINT NOT NULL AUTO_INCREMENT,
     user_id Varchar(30),
@@ -91,7 +93,8 @@ CREATE TABLE people (
 )
 
 <b>MongoDB</b>
-use bancoX
+use teste (cria db automaticamente qndo cria collection nele)
+
 db.createCollection("people")
 db.people.insertOne({
     user_id: "abc123",
@@ -117,9 +120,11 @@ db.people.createIndex( {user_id:1,age:-1} )
 <small><pre><code>
 <b>MySQL</b>
 DROP TABLE people
+DROP DATABASE teste
 
 <b>MongoDB</b>
 db.people.drop()
+use teste; db.dropDatabase()
 </code></pre></small><br>
             <h4>Insert Into</h4>
 <small><pre><code>
