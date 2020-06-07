@@ -39,22 +39,21 @@
 
         <div class="col-sm-12">
             <h4>Conceitos Iniciais</h4>
-            <p id="textoPost"><b>OBJETIVO Poo:</b> Aproximar o mundo digital com o real<br><b>Criador:</b> Matemático e biólogo Alan Kay</p>
+            <p id="textoPost"><b>Objetivo OOP:</b> Aproximar o mundo digital com o real.<br><b>Criador:</b> Matemático e biólogo Alan Kay.</p>
             <br>
             <h4>Vantagens</h4>
-            <i>comernada</i>
+            <i>comern_ada</i>
             <ol>
-                <li><b>Confiável:</b> O isolamento entre as partes gera software seguro. Ao alterar uma parte, nenhuma outra é afetada</li>
-                <li><b>Oportuno:</b> Ao dividir tdo em partes, várias dela pdm ser desenvolvidas em paralelo</li>
-                <li><b>Manutenível:</b> Atualizar um software é mais fácil. Uma pequena modificação vai beneficiar todas as partes que usarem o objeto</li>
-                <li><b>Extensível:</b> O software não é estático. Ele deve crescer para permanecer útil</li>
-                <li><b>Reutilizável:</b> Utilização de determinados estrutura, como atributos e métodos, através de herança</li>
-                <li><b>Natural:</b> Mais fácil de entender. Você se preocupa mais na funcionalidade do que nos detalhes de implementação</li>
+                <li><b>Confiável:</b> O isolamento entre as partes gera software seguro. Ao alterar uma parte, nenhuma outra é afetada;</li>
+                <li><b>Oportuno:</b> Ao dividir tdo em partes, várias dela pdm ser desenvolvidas em paralelo;</li>
+                <li><b>Manutenível:</b> Atualizar um software é mais fácil. Uma pequena modificação vai beneficiar todas as partes que usarem o objeto;</li>
+                <li><b>Extensível:</b> O software não é estático. Ele deve crescer para permanecer útil;</li>
+                <li><b>Reutilizável:</b> Utilização de determinados estrutura, como atributos e métodos, através de herança;</li>
+                <li><b>Natural:</b> Mais fácil de entender. Você se preocupa mais na funcionalidade do que nos detalhes de implementação.</li>
             </ol>
-            <p id="textoPost"><u>Obs:</u> Relacionamentos fracos (Realização, Dependência) não são armazenados em BD.</p>
             <br>
             <h4>Como o polimorfismo “acontece”</h4>
-            <p id="textoPost">O mecanismo de ligação tardia entende que p1 é instância(criação) de Brasileiro, mesmo sendo “armazenado” dentro de Pessoa</p>
+            <p id="textoPost">O mecanismo de ligação tardia entende que p1 é instância(criação) de Brasileiro, mesmo sendo “armazenado” dentro de Pessoa.</p>
 <small><pre><code>
 public class Main {
     public static void main (String[] args) {
@@ -89,7 +88,7 @@ b.comer(); //resultado TRIÂNGULO
 </code></pre></small>
         <br>
         <h4>Objeto</h4>
-        <p id="textoPost">Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características (estado atual). Possui identidade única.</p>
+        <p id="textoPost">Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características(estado atual). Possui identidade única.</p>
         <br>
         <h4>Classe</h4>
         <p id="textoPost">Define os atributos e métodos comuns que serão compartilhados por um conjunto de objetos.</p>
@@ -189,7 +188,7 @@ b.comer(); //resultado TRIÂNGULO
         </ul>
         <br>
         <h4>Agregação <small>(Tem um)</small></h4>
-        <p id="textoPost">Relação de classes, gera código diferenciado (definição do atributo). Um Canil é um agregado de Cachorro(0..*). "a classe B tem um atributo da classe A".<br><u>Ex:</u> Classe Mercado addProduto(p1); //p1, instancia da classe Produto, foi criado na classe produto e só adicionado, sendo pronto, na classe Mercado.<br><u>Ex:</u> Lutador * - disputa&gt -&lt&gt 0..* Luta</p>
+        <p id="textoPost">Relação de classes, gera código diferenciado (definição do atributo). Um Canil é um agregado de Cachorro(0..*). "a classe B tem um atributo da classe A".<br><u>Ex:</u> Classe Mercado addProduto(p1); //p1, instancia da classe Produto, foi criado na classe produto e só adicionado, sendo pronto, na classe Mercado.<br><u>Ex:</u> Lutador * - disputa&gt -&lt&gt 0..* Luta.</p>
         <br>
         <h4>Associação</h4>
         <p id="textoPost">Um Canil tem um ou mais Cachorros(1..*), não muda código.</p>
@@ -212,6 +211,9 @@ public class Canil {
         <h4>Composição</h4>
         <p id="textoPost">"Relaciona-se exclusivamente".<br>Um Canil é composto por 0..* Cachorros, então se não existir Canil, também não existirão Cachorros.<br><u>Ex:</u> Classe Mercado mercado tem addProduto("vassoura",25.9); //objeto Produto não é criado na classe Produto, sendo dependente de sua criação na classe Mercado.<br><u>Ex:</u> Na Agregação/Associação, os objetos que são adicionados na classe Canil, podem ter sido criados em outra classe. Na Composição, um Canil cria Cachorro.</p>
         <br>
+        <h4>Relacionamentos Fracos</h4>
+        <p id="textoPost">Relacionamentos fracos, Realização e Dependência, não são armazenados em banco de dados.</p>
+        <br>
         <h4>Dependência</h4>
         <p id="textoPost">Relacionamento fraco entre classes, quando um objeto manipula objetos de outra classe em seus métodos, mas não tem qualquer outro relacionamento com a classe dos objetos que manipula.<br><u>Ex:</u> <i>AddNf( )</i> Só posso criar Nf na classe Canil, pq a Canil depende do Nf para instanciar as mesmas, mas não há qualquer outro relacionamento entre a classe Nf e Canil.</p>
         <br>
@@ -219,7 +221,7 @@ public class Canil {
         <p id="textoPost">Relacionamento entre Interface e Classe. Classe realiza o comportamento de uma Interface quando ocorre a implementação da mesma na primeira, permitindo assim o relacionamento "é um tipo de".</p>
         <br>
         <h4>Interface</h4>
-        <p id="textoPost">Lista de serviços fornecidos por um componente ou classe. É o contato com o mundo exterior, que define o que pd ser feito com um objeto dessa classe. Possui, em sua composição, somente métodos public abstratos que, por ventura, ñ possuem chaves de conteúdo interno, pelas quais tds as classes que implementarão (<i>implements</i>) 1 ou mais interfaces, terão de carregar(<i>@override</i>) todos os métodos abstratos informados(<i>implements</i>). Não precisa colocar <i>abstract</i> nos métodos na Interface, porque já entende-se que os mesmos nela são abstratos por padrão. Os métodos abstratos pdm ter valor de retorno e parâmetros. Os atributos na interface devem ser <i>static</i> e <i>final</i>.</p>
+        <p id="textoPost">Lista de serviços fornecidos por um componente ou classe. É o contato com o mundo exterior, que define o que pode ser feito com um objeto dessa classe. Possui, em sua composição, somente métodos <i>public abstratos</i> que, por ventura, não possuem chaves de conteúdo interno, pelas quais todas as classes que implementarão (<i>implements</i>) 1 ou mais interfaces, terão de carregar(<i>@override</i>) todos os métodos abstratos informados(<i>implements</i>). Não precisa colocar <i>abstract</i> nos métodos na Interface, porque já entende-se que os mesmos nela são abstratos por padrão. Os métodos abstratos podem ter valor de retorno e parâmetros. Os atributos na interface devem ser <i>static</i> e <i>final</i>.</p>
         </div>
     </div>
 
