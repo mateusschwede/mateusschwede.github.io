@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -34,37 +34,37 @@
     <div class="row">
         <div class="col-sm-12" id="titulo1">
             <small class="text-muted"><span class="badge badge-secondary">Sistema</span><br>(09.06.2020) Mateus Schwede</small>
-            <h1>EChamado: Gestor de suporte técnico</h1>
+            <h1>EChamado</h1>
             <h6><strong>Software gestor de chamados para suporte técnico</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Pré-requisitos</h4>
+            <h4 id="iconRed">Pré-requisitos</h4>
             <p id="textoPost">Necessário ter o Xampp executando. 1º execute o <b>banco.sql</b> no <i>Phpmyadmin</i>, para então abrir o projeto no <i>localhost</i>. Entre com o login Admin(nome:admin senha:111) para realizar as demais operações. Para mais detalhes, acesse o <i>Readme.md</i> no Github.</p>
             <a class="btn btn-secondary" href="https://github.com/mateusschwede/echamado" target="_blank">Acesse no Github</a>
             <hr>
             <br>
-            <h4>Como funciona</h4>
+            <h4 id="iconRed">Como funciona</h4>
             <p id="textoPost">O sistema inicia com um admin, que possui como funções gerenciar o cadastro de técnicos, máquinas e clientes. Isso, além da visualização de relatórios de chamados por data, máquina, cliente ou técnico. Também há o técnico, com a função de receber os chamados, analisá-los e finalizá-los, além de conferir seu próprio histórico de chamados finalizados por data. Por fim, tem-se o cliente, com função de adicionar novos chamados, além de cancelá-los, acompanhá-los, por meio de mensagens no sistema, o andamento detalhado de seu chamado e finalização. Isso, além de seu próprio histórico de chamados por data.</p>
             <img src="../anexos/sistema1/echamado.png" class="img-fluid">
             <br><br>
-            <h4>Tecnologias</h4>
+            <h4 id="iconRed">Tecnologias</h4>
             <ul>
                 <li>Php7.4 (Pdo)</li>
                 <li>MySQL (MariaDB10)</li>
                 <li>Bootstrap4.5</li>
             </ul>
             <br>
-            <h4>Licença</h4>
+            <h4 id="iconRed">Licença</h4>
             <p id="textoPost">Licença MIT: Livre para qualquer uso, sujeito à responsabilidades.</p>
             <br>
-            <h4>Algun erro?</h4>
+            <h4 id="iconRed">Algun erro?</h4>
             <small><u>OBS:</u> Remova o underline do <i>&_times</i> para o código funcionar</small>
             <p id="textoPost">Caso tenha encontrado algum erro bobo, como falta de tag ou algo assim, saiba que ao realizar esse post tive que trocar a abertura de tag por <b>&_lt(sem o underline)</b>, e o fechamento de tag por <b>&_gt(sem o underline)</b>. Certifique-se de 1º executar o .sql, para então acessar o sistema. Verifique se todos os nomes encontram-se <b>idênticos</b> aos informados, e que todos encontram-se dentro da <b>mesma pasta</b>. Saiba que a versão do Php deve ser acima da <b>7</b>, assim como a do Bootstrap deve ser <b>4.5</b>, e o MySQL também atualizado. Se o erro persistir, envie-me um email, mateus1908.schwede@gmail.com, informando a mensagem do erro e a situação em que o mesmo se encontra, será uma honra concertá-lo!</p>
             <hr>
             <br>
-            <h4>addChamado.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">addChamado.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -133,8 +133,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>addCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">addCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -225,8 +225,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>addMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">addMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -297,8 +297,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>addTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">addTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -373,8 +373,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -465,8 +465,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -549,8 +549,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admRelCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admRelCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -689,8 +689,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admRelData.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admRelData.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -820,8 +820,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admRelMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admRelMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -961,8 +961,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admRelTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admRelTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1101,8 +1101,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>admTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">admTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1191,8 +1191,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>analisarChamado.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">analisarChamado.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1212,8 +1212,8 @@
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>ativarCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">ativarCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1228,8 +1228,8 @@
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>ativarMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">ativarMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1244,8 +1244,8 @@
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>ativarTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">ativarTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1260,8 +1260,8 @@
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>atrClienteMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">atrClienteMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1341,8 +1341,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>atrMaquinaCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">atrMaquinaCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1420,8 +1420,8 @@
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>banco.sql</h4>
-<small><pre><code>
+            <h4 id="iconRed">banco.sql</h4>
+<small><pre id="codigo"><code>
 CREATE DATABASE echamado CHARSET=utf8;
 USE echamado;
 
@@ -1472,8 +1472,8 @@ INSERT INTO tecnico(nome,senha,ativo) VALUES ("siclano","11",1),("siclanoInativo
 INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carregador estragou, será necessária a troca por um novo carregador, juntamente com o cabo","moderado","232-333-456",1,1),("carregador trocar","leve","232-333-456",1,1);
 </code></pre></small><br>
             <br>
-            <h4>cliRelFinalizados.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">cliRelFinalizados.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1578,8 +1578,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>conect.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">conect.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     try {
         $db = new PDO('mysql:host=localhost;dbname=echamado;charset=utf8','root','');
@@ -1602,8 +1602,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/head&gt
 </code></pre></small><br>
             <br>
-            <h4>edChamado.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">edChamado.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1681,8 +1681,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>edCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">edCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1784,8 +1784,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>edMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">edMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1854,8 +1854,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>edTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">edTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1935,8 +1935,8 @@ INSERT INTO chamado(descricao,tipo,ipMaquina,idCliente,idTecnico) VALUES ("carre
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>estilo.css</h4>
-<small><pre><code>
+            <h4 id="iconRed">estilo.css</h4>
+<small><pre id="codigo"><code>
 /*
 ÍCONE: &ltimg src="https://img.icons8.com/color/48/000000/technical-support.png"&gt
 
@@ -1961,8 +1961,8 @@ CORES:
 #item3 {color: #343A40; border-left: solid 7px #FFC107;}
 </code></pre></small><br>
             <br>
-            <h4>finalizarChamado.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">finalizarChamado.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -1982,8 +1982,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>inativarCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">inativarCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2002,8 +2002,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>inativarMaquina.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">inativarMaquina.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2024,8 +2024,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>inativarTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">inativarTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2044,8 +2044,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>index.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">index.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     $msg = null;
@@ -2109,8 +2109,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>logout.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">logout.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     session_start();
     unset($_SESSION['nome']);
@@ -2121,8 +2121,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>mensagem.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">mensagem.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2206,8 +2206,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>offline.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">offline.php</h4>
+<small><pre id="codigo"><code>
 &lt!doctype html&gt
 &lthtml lang="pt-br"&gt
 &lthead&gt
@@ -2240,8 +2240,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>pAdmin.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">pAdmin.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2360,8 +2360,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>pCliente.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">pCliente.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2528,8 +2528,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>pTecnico.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">pTecnico.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2669,8 +2669,8 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <br>
-            <h4>remChamado.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">remChamado.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2685,8 +2685,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>remMensagem.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">remMensagem.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2700,8 +2700,8 @@ CORES:
 ?&gt
 </code></pre></small><br>
             <br>
-            <h4>tecRelFinalizados.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">tecRelFinalizados.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     require_once 'conect.php';
     session_start();
@@ -2814,7 +2814,7 @@ CORES:
 &lt/html&gt
 </code></pre></small><br>
             <hr>
-            <h5><b>Author:</b> Mateus Schwede, 2020.</h5>
+            <h5 id="iconRed"><b>Author:</b> Mateus Schwede, 2020.</h5>
         </div>
     </div>
 
