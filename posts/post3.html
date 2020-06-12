@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -33,112 +33,112 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(18.05.2020) Mateus Schwede</small>
-            <h1>Sass: Css com superpoderes</h1>
-            <h6><strong>Conhecendo o Sass e sua sintaxe</strong></h6>
+            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(11.05.2020) Mateus Schwede</small>
+            <h1>Sass base</h1>
+            <h6><strong>Conceitos e sintaxe da linguagem Sass: Css com superpoderes</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>O que é Sass?</h4>
+            <h4 id="iconRed">O que é Sass?</h4>
             <p id="textoPost">Sass<small>(Syntactically Awesome Style Sheets)</small> é uma sintaxe extendida e convertida para Css, nos quais estão presentes a adição de algumas funções bem interessantes às folhas de estilo, deixando-as mais logicamente dinâmicas: Como o próprio site oficial diz "Css com superpoderes". O Sass possui 2 sintaxes, sendo a '<strong>.sass</strong>', na qual estão <i>ausentes</i> o uso de chaves e ponto-e-vírgula, sendo os blocos descritos somente por identação. Há também a sintaxe aderida como oficial, a '<strong>.scss</strong>'(usaremos aqui), na qual estão <i>presentes</i> as chaves e ponto-e-vírgula nos blocos, como em um Css comum. Os arquivos sass possuem extensão '<i>.scss</i>', independente de seu tipo de sintaxe. O site oficial do Sass encontra-se nesse link: '<a href="https://sass-lang.com" target="_blank">https://sass-lang.com</a>', com exemplos, passos para instalação e documentação da linguagem.</p>
             <hr>
-            <h4>Variáveis</h4>
-<small><pre><code>
+            <h4 id="iconRed">Variáveis</h4>
+<small><pre id="codigo"><code>
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+    font: 100% $font-stack;
+    color: $primary-color;
 }
 </code></pre></small><br>
-            <h4>Nesting <small>(Elementos aninhados)</small></h4>
-<small><pre><code>
+            <h4 id="iconRed">Nesting <small>(Elementos aninhados)</small></h4>
+<small><pre id="codigo"><code>
 nav {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
 </code></pre></small><br>
-            <h4>Módulos <small>(Importar arquivos externos)</small></h4>
+            <h4 id="iconRed">Módulos <small>(Importar arquivos externos)</small></h4>
             <p id="textoPost">Arquivos Sass parciais que contêm pequenos trechos de Css podem ser incluídos em outros arquivos Sass. O nome do arquivo deve ser <strong>_nomearquivo.scss</strong>. O underline informa ao Sass que o arquivo é parcial e que não deve ser gerado em um arquivo Css. Partes Sass são usados ​​com <i>@use</i>.</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 // _base.scss
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+    font: 100% $font-stack;
+    color: $primary-color;
 }
 
 // styles.scss
 @use 'base';
 .inverse {
-  background-color: base.$primary-color;
-  color: white;
+    background-color: base.$primary-color;
+    color: white;
 }
 </code></pre></small><br>
-            <h4>Mixin <small>(Grupos de declaração/função)</small></h4>
-<small><pre><code>
+            <h4 id="iconRed">Mixin <small>(Grupos de declaração/função)</small></h4>
+<small><pre id="codigo"><code>
 @mixin transform($property) {
-  -webkit-transform: $property;
-  -ms-transform: $property;
-  transform: $property;
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
 }
 .box { @include transform(rotate(30deg)); }
 </code></pre></small><br>
-            <h4>Extend/Inheritance <small>(Herança)</small></h4>
+            <h4 id="iconRed">Extend/Inheritance <small>(Herança)</small></h4>
             <p id="textoPost">Importar grupos de códigos usando o <strong>@extend</strong>.</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 /* This CSS will print because %message-shared is extended. */
 %message-shared {
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
 }
 
 // This CSS won't print because %equal-heights is never extended.
 %equal-heights {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 .message {
-  @extend %message-shared;
+    @extend %message-shared;
 }
 .success {
-  @extend %message-shared;
-  border-color: green;
+    @extend %message-shared;
+    border-color: green;
 }
 </code></pre></small><br>
-            <h4>Operadores</h4>
+            <h4 id="iconRed">Operadores</h4>
             <ul>
                 <li><strong>Comparação:</strong> <b>==</b>, <b>!=</b>, <b><</b>, <b>></b>, <b><=</b>, <b>=></b></li>
                 <li><strong>Matemáticos:</strong> <b>+</b>, <b>-</b>, <b>*</b>, <b>/</b>, <b>%</b></li>
                 <li><strong>Lógicos:</strong> <b>and</b>, <b>or</b>, <b>not</b></li>
                 <li><strong>Concatenação:</strong> <b>+</b>, <b>-</b>, <b>/</b></li>
             </ul>
-<small><pre><code>
+<small><pre id="codigo"><code>
 .container {
-  width: 100%;
+    width: 100%;
 }
 article[role="main"] {
-  float: left;
-  width: 600px / 960px * 100%;
+    float: left;
+    width: 600px / 960px * 100%;
 }
 aside[role="complementary"] {
-  float: right;
-  width: 300px / 960px * 100%;
+    float: right;
+    width: 300px / 960px * 100%;
 }
 </code></pre></small><br>
-            <h4>Funções Especiais</h4>
+            <h4 id="iconRed">Funções Especiais</h4>
             <p id="textoPost">Uso de funções especiais, como '<i>url( )</i>', '<i>calc( )</i>', '<i>min( )</i>', '<i>max( )</i>', '<i>expression( )</i>', entre outras. Recomendo ver documentação especial, no link '<a href="https://sass-lang.com/documentation/syntax/special-functions" target="_blank">https://sass-lang.com/documentation/syntax/special-functions</a>'.</p>
             <br>
-            <h4>Controle de Escopo</h4>
+            <h4 id="iconRed">Controle de Escopo</h4>
             <p id="textoPost">Utilização fluxos de controle (<b>@if</b>, <b>@else</b> e <b>@elseif</b> / <b>@each</b> / <b>@for</b> / <b>@while</b>). Recomendo ver documentação especial, no link '<a href="https://sass-lang.com/documentation/at-rules/control/if" target="_blank">https://sass-lang.com/documentation/at-rules/control/if</a>'.</p>
             <br>
-            <h4>Outras funções avançadas</h4>
+            <h4 id="iconRed">Outras funções avançadas</h4>
             <p id="textoPost">Existem outros tipos de estruturas avançadas, como definição de valores, Interpolation, At-Rules, das quais serão interessantes somente para utilização extremamente avançada do sass. Tais recursos estão disponíveis no site oficial, no link '<a href="https://sass-lang.com/documentation" target="_blank">https://sass-lang.com/documentation</a>'.</p>
         </div>
     </div>
