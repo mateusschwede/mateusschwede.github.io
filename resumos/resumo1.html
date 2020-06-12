@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -33,16 +33,16 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Resumos</span><br>(07.06.2020) Mateus Schwede</small>
+            <small class="text-muted"><span class="badge badge-secondary">Resumo</span><br>(07.06.2020) Mateus Schwede</small>
             <h1>Programação OOP</h1>
             <h6><strong>Todos os conceitos da Programação Orientada à Objetos</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Conceitos Iniciais</h4>
+            <h4 id="iconRed">Conceitos Iniciais</h4>
             <p id="textoPost"><b>Objetivo OOP:</b> Aproximar o mundo digital com o real.<br><b>Criador:</b> Matemático e biólogo Alan Kay.</p>
             <br>
-            <h4>Vantagens</h4>
+            <h4 id="iconRed">Vantagens</h4>
             <i>comern_ada</i>
             <ol>
                 <li><b>Confiável:</b> O isolamento entre as partes gera software seguro. Ao alterar uma parte, nenhuma outra é afetada;</li>
@@ -53,20 +53,20 @@
                 <li><b>Natural:</b> Mais fácil de entender. Você se preocupa mais na funcionalidade do que nos detalhes de implementação.</li>
             </ol>
             <br>
-            <h4>Objeto</h4>
+            <h4 id="iconRed">Objeto</h4>
             <p id="textoPost">Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características(estado atual). Possui identidade única.</p>
             <br>
-            <h4>Classe</h4>
+            <h4 id="iconRed">Classe</h4>
             <p id="textoPost">Define os atributos e métodos comuns que serão compartilhados por um conjunto de objetos.</p>
             <br>
-            <h4>Instância</h4>
+            <h4 id="iconRed">Instância</h4>
             <p id="textoPost">O mesmo que o termo 'criação'. Uma classe instancia(cria) objetos, um objeto é uma instância(criação) de uma classe.</p>
             <br>
-            <h4>Abstração</h4>
+            <h4 id="iconRed">Abstração</h4>
             <i>Classificar -> Abstrair -> Instanciar</i>
             <p id="textoPost">Diferente de métodos/classes abstratas, significa “enxugar” um conteúdo, tirando do mesmo só o essencial. Observar elemento(s), avaliando características e propriedades à parte.</p>
             <br>
-            <h4>Encapsulamento</h4>
+            <h4 id="iconRed">Encapsulamento</h4>
             <p id="textoPost">Técnica pra proteger código. Criação de get e set pra proteger atributos privates. Ocultar partes independentes da implementação, permitindo construir partes invisíveis ao mundo exterior.</p>
             Vantagens:
             <ol>
@@ -75,19 +75,19 @@
                 <li>Reduzir efeitos colaterais.</li>
             </ol>
             <br>
-            <h4>Construtor <small>(Construct)</small></h4>
+            <h4 id="iconRed">Construtor <small>(Construct)</small></h4>
             <p id="textoPost">Método, com mesmo nome da classe, com a função criar instâncias de classe.</p>
             <br>
-            <h4>Polimorfismo</h4>
+            <h4 id="iconRed">Polimorfismo</h4>
             <p id="textoPost">Técnica usada para criar métodos iguais, porém com outra forma de execução. Permite que um mesmo nome representa vários comportamentos diferentes. Só há polimorfismo quando há generalização entre classes.</p>
             Tipos:
             <ul>
                 <li><b>Sobrecarga:</b> Métodos com mesmo nome, lista de parâmetros diferentes (geralmente na mesma classe);</li>
                 <li><b>Sobrescrita:</b> Métodos com mesmo nome e lista de parâmetros, conteúdo interno diferente na subclasse.</li>
             </ul>
-            <h4>Como o polimorfismo “acontece”</h4>
+            <h5 id="iconRed">Como o polimorfismo “acontece”</h5>
                 <p id="textoPost">O mecanismo de ligação tardia entende que p1 é instância(criação) de Brasileiro, mesmo sendo “armazenado” dentro de Pessoa.</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 public class Main {
     public static void main (String[] args) {
         Pessoa p = new Pessoa("Ana");
@@ -120,10 +120,10 @@ p1.comer(0.5); //resultado BOLA
 b.comer(); //resultado TRIÂNGULO
 </code></pre></small>
             <br>
-            <h4>Sobreposição</h4>
+            <h4 id="iconRed">Sobreposição</h4>
             <p id="textoPost">Conceito geral, significa pegar algo de mesmo valor e atribuir incremento a ele.</p>
             <br>
-            <h4>Herança <small>(É um tipo de)</small></h4>
+            <h4 id="iconRed">Herança <small>(É um tipo de)</small></h4>
             <p id="textoPost">Permite basear uma nova classe na definição de uma outra classe previamente existente. Quando uma classe herda os mesmos atributos e métodos de outra. Necessário incorporar todo o conteúdo na classe filha. Quando há herança para atribuir os valores aos atributos herdados, utilizar através do Construtor o super(atributos).</p>
             <ul>
                 <li><b>Generalização:</b> Árvore acima, de filha pra mãe;</li>
@@ -139,46 +139,46 @@ b.comer(); //resultado TRIÂNGULO
                 <li><b>Herança Múltipla:</b> Conceito OO, não encontrado em linguagens, que caracteriza a herança de atributos e métodos, como acréscimo, de 2 ou mais classes mães. Nela não há divisão de atributos, e sim acréscimo.</li>
             </ul>
             <br>
-            <h4>Atributo de Objeto</h4>
+            <h4 id="iconRed">Atributo de Objeto</h4>
             <p id="textoPost">É aquele no qual cada objeto encapsula o valor do atributo (quando um atributo é do tipo de outra classe que criamos).<br><b>Tipo Objeto:</b> Quando um atributo é do tipo de outra classe criada.</p>
-            <small><pre><code><b>Ex:</b> private Cachorro[] listac; public void addCachorro(){}</code></pre></small>
+            <small><pre id="codigo"><code><b>Ex:</b> private Cachorro[] listac; public void addCachorro(){}</code></pre></small>
             <br>
-            <h4>Assinatura do método</h4>
+            <h4 id="iconRed">Assinatura do método</h4>
             <p id="textoPost">Constitui o nome e tipo do método. Isso, além do tipo, quantidade e ordem dos parâmetros do mesmo (O nome dos parâmetros não faz parte da assinatura, nem o tipo do retorno do método).</p>
             <br>
-            <h4>Método com valor de retorno</h4>
+            <h4 id="iconRed">Método com valor de retorno</h4>
             <p id="textoPost">Precisa de return, devendo ser do mesmo tipo que o valor de retorno do método.</p>
-            <small><pre><code><b>Ex:</b> public int fazerAniver (...) {return ... -> int}</code></pre></small>
+            <small><pre id="codigo"><code><b>Ex:</b> public int fazerAniver (...) {return ... -> int}</code></pre></small>
             <br>
-            <h4>Método Void <small>(Sem valor de retorno)</small></h4>
+            <h4 id="iconRed">Método Void <small>(Sem valor de retorno)</small></h4>
             <p id="textoPost">Não possui return, mas pode ter parâmetros também.</p>
-            <small><pre><code><b>Ex:</b> setNome()</code></pre></small>
+            <small><pre id="codigo"><code><b>Ex:</b> setNome()</code></pre></small>
             <br>
-            <h4>Métodos Especiais</h4>
+            <h4 id="iconRed">Métodos Especiais</h4>
             <p id="textoPost">Métodos com operações individuais, diferentes dos demais(comuns). São eles: <i>Get</i>(acessor), <i>Set</i>(modificador), <i>Construct</i>(criador).</p>
             <br>
-            <h4>Método Final</h4>
+            <h4 id="iconRed">Método Final</h4>
             <p id="textoPost">Deve ser herdado, mas pode não ser sobrescrito(modificado).</p>
             <br>
-            <h4>Classe Final</h4>
+            <h4 id="iconRed">Classe Final</h4>
             <p id="textoPost">Não pode ser herdada por outra classe. Obrigatoriamente folha.</p>
             <br>
-            <h4>Método Abstrato <small>(Abstract)</small></h4>
+            <h4 id="iconRed">Método Abstrato <small>(Abstract)</small></h4>
             <p id="textoPost">Possui, na classe mãe, só a assinatura. Nas filhas(<i>@override</i>) será informado seu conteúdo interno.</p>
             <br>
-            <h4>Classe Abstrata</h4>
+            <h4 id="iconRed">Classe Abstrata</h4>
             <p id="textoPost">Pode ou não ter métodos abstratos, se tiver ela obrigatoriamente terá de ser abstrata(não instancia objetos, só nas filhas).</p>
             <br>
-            <h4>Static</h4>
+            <h4 id="iconRed">Static</h4>
             <p id="textoPost">Pode ser modificado, mas será o valor padrão para todos os objetos de que o possuírem(gravação única na memória). Não possui dependência de terceiros. Se utilizado em atributos, o atributo vira “atributo de classe”.</p>
             <br>
-            <h4>Atributo Derivado</h4>
+            <h4 id="iconRed">Atributo Derivado</h4>
             <p id="textoPost">Pode ser calculado através de outros atributos de classe. É implícito na classe (ele não é definido explicitamente), mas há métodos de acessá-lo.</p>
             <br>
-            <h4>Estado do Objeto</h4>
+            <h4 id="iconRed">Estado do Objeto</h4>
             <p id="textoPost">Conjunto de valores dos atributos que o objeto possui. <u>Ex:</u> estado atual de Evento = cancelado.</p>
             <br>
-            <h4>Visibilidade</h4>
+            <h4 id="iconRed">Visibilidade</h4>
             <p id="textoPost">Indicam o nível de acesso aos componentes internos de uma classe e/ou dela mesma.</p>
             <ul>
                 <li><b>- private -></b> visível somente na classe;</li>
@@ -187,12 +187,12 @@ b.comer(); //resultado TRIÂNGULO
                 <li><b>+ public -></b> visível em todo o projeto.</li>
             </ul>
             <br>
-            <h4>Agregação <small>(Tem um)</small></h4>
+            <h4 id="iconRed">Agregação <small>(Tem um)</small></h4>
             <p id="textoPost">Relação de classes, gera código diferenciado (definição do atributo). Um Canil é um agregado de Cachorro(0..*). "a classe B tem um atributo da classe A".<br><u>Ex:</u> Classe Mercado addProduto(p1); //p1, instancia da classe Produto, foi criado na classe produto e só adicionado, sendo pronto, na classe Mercado.<br><u>Ex:</u> Lutador * - disputa&gt -&lt&gt 0..* Luta.</p>
             <br>
-            <h4>Associação</h4>
+            <h4 id="iconRed">Associação</h4>
             <p id="textoPost">Um Canil tem um ou mais Cachorros(1..*), não muda código.</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 public class Canil {
     private Cachorro[];
     ArrayList&ltCachorro&gt listac;
@@ -208,19 +208,19 @@ public class Canil {
 }
 </code></pre></small>
             <br>
-            <h4>Composição</h4>
+            <h4 id="iconRed">Composição</h4>
             <p id="textoPost">"Relaciona-se exclusivamente".<br>Um Canil é composto por 0..* Cachorros, então se não existir Canil, também não existirão Cachorros.<br><u>Ex:</u> Classe Mercado mercado tem addProduto("vassoura",25.9); //objeto Produto não é criado na classe Produto, sendo dependente de sua criação na classe Mercado.<br><u>Ex:</u> Na Agregação/Associação, os objetos que são adicionados na classe Canil, podem ter sido criados em outra classe. Na Composição, um Canil cria Cachorro.</p>
             <br>
-            <h4>Relacionamentos Fracos</h4>
+            <h4 id="iconRed">Relacionamentos Fracos</h4>
             <p id="textoPost">Relacionamentos fracos, Realização e Dependência, não são armazenados em banco de dados.</p>
             <br>
-            <h4>Dependência</h4>
+            <h4 id="iconRed">Dependência</h4>
             <p id="textoPost">Relacionamento fraco entre classes, quando um objeto manipula objetos de outra classe em seus métodos, mas não tem qualquer outro relacionamento com a classe dos objetos que manipula.<br><u>Ex:</u> <i>AddNf( )</i> Só posso criar Nf na classe Canil, pq a Canil depende do Nf para instanciar as mesmas, mas não há qualquer outro relacionamento entre a classe Nf e Canil.</p>
             <br>
-            <h4>Realização</h4>
+            <h4 id="iconRed">Realização</h4>
             <p id="textoPost">Relacionamento entre Interface e Classe. Classe realiza o comportamento de uma Interface quando ocorre a implementação da mesma na primeira, permitindo assim o relacionamento "é um tipo de".</p>
             <br>
-            <h4>Interface</h4>
+            <h4 id="iconRed">Interface</h4>
             <p id="textoPost">Lista de serviços fornecidos por um componente ou classe. É o contato com o mundo exterior, que define o que pode ser feito com um objeto dessa classe. Possui, em sua composição, somente métodos <i>public abstratos</i> que, por ventura, não possuem chaves de conteúdo interno, pelas quais todas as classes que implementarão (<i>implements</i>) 1 ou mais interfaces, terão de carregar(<i>@override</i>) todos os métodos abstratos informados(<i>implements</i>). Não precisa colocar <i>abstract</i> nos métodos na Interface, porque já entende-se que os mesmos nela são abstratos por padrão. Os métodos abstratos podem ter valor de retorno e parâmetros. Os atributos na interface devem ser <i>static</i> e <i>final</i>.</p>
         </div>
     </div>
