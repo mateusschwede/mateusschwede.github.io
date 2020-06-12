@@ -17,8 +17,8 @@
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -33,25 +33,24 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(09.05.2020) Mateus Schwede</small>
             <h1>Crud Php MySQL</h1>
             <h6><strong>Crud simples com Php Pdo e MySQL</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4 id="iconRed">Pré-requisitos</h4>
+            <h4>Pré-requisitos</h4>
             <p id="textoPost">Xampp instalado e executando, criar um diretório no <i>htdocs</i> para inserir os arquivos abaixo. 1º executar o arquivo .sql no <i>Phpmyadmin</i>.</p>
             <hr>
-            <h4 id="iconRed">banco.sql</h4>
-<small><pre id="codigo"><code>
+            <h4>banco.sql</h4>
+<small><pre><code>
 CREATE DATABASE agenda;
 CREATE TABLE pessoa (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL
 );
 </code></pre></small><br>
-            <h4 id="iconRed">add.php</h4>
-<small><pre id="codigo"><code>
+            <h4>add.php</h4>
+<small><pre><code>
 &lt?php
 $db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -62,8 +61,8 @@ if(!empty($_POST['nome'])) {
 }
 header("location: index.php");
 </code></pre></small><br>
-            <h4 id="iconRed">ed.php</h4>
-<small><pre id="codigo"><code>
+            <h4>ed.php</h4>
+<small><pre><code>
 &lt?php
 $db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -86,8 +85,8 @@ if ((!empty($_GET['idVelho'])) and (!empty($_POST['nome']))) {
     &ltinput type="submit" value="Atualizar"&gt
 &lt/form&gt
 </code></pre></small><br>
-            <h4 id="iconRed">rem.php</h4>
-<small><pre id="codigo"><code>
+            <h4>rem.php</h4>
+<small><pre><code>
 &lt?php
 $db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -96,8 +95,8 @@ $r = $db->prepare("DELETE FROM pessoa WHERE id=?");
 $r->execute(array($_GET['id']));
 header("location: index.php");
 </code></pre></small><br>
-            <h4 id="iconRed">index.php</h4>
-<small><pre id="codigo"><code>
+            <h4>index.php</h4>
+<small><pre><code>
 &lt?php
 $db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
