@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -32,31 +32,87 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-12" id="msgm">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>#FiqueEmCasa</strong><br>Aproveite o melhor do momento para acompanhar o conteúdo divulgado aqui
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-        </div>
         <div class="col-sm-12" id="titulo1">
             <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(09.05.2020) Mateus Schwede</small>
-            <h1>Crud php mysql</h1>
-            <h6><strong>CRUD simples em Php utilizando Mysql e Pdo</strong></h6>
+            <h1>Crud Php MySQL</h1>
+            <h6><strong>Crud simples com Php Pdo e MySQL</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <p id="textoPost">Pra criar um crud php, você precisará ter o xampp instalado e executando. Os passos para a execução são os seguintes:</p>
-            <ol>
-                <li>Baixar e executar o xampp</li>
-                <li>No <i>htdocs</i>, criar uma pasta para inserir os arquivos</li>
-                <li>Dentro, criar o arquivo mysql <i>banco.sql</i> (execute esse script no phpmyadmin antes dos demais códigos) <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalbancosql">banco.sql</button></li>
-                <li>Criar o <i>add.php</i> <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modaladd">add.php</button></li>
-                <li>Criar o <i>ed.php</i> <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modaled">ed.php</button></li>
-                <li>Criar o <i>rem.php</i> <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalrem">rem.php</button></li>
-                <li>Criar o arquivo principal <i>index.php</i> <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalindex">index.php</button></li>
-            </ol>
-            <p>Ou se preferir, baixe a pasta e descompacte-a no <i>htdocs</i></p>
-            <a href="https://mega.nz/folder/uQxnFI7D#b5fUVPqTJcuWk_4FAUPuoQ" target="_blank" class="btn btn-secondary">Baixar</a>
+            <h4 id="iconRed">Pré-requisitos</h4>
+            <p id="textoPost">Xampp instalado e executando, criar um diretório no <i>htdocs</i> para inserir os arquivos abaixo. 1º executar o arquivo .sql no <i>Phpmyadmin</i>.</p>
+            <hr>
+            <h4 id="iconRed">banco.sql</h4>
+<small><pre id="codigo"><code>
+CREATE DATABASE agenda;
+CREATE TABLE pessoa (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL
+);
+</code></pre></small><br>
+            <h4 id="iconRed">add.php</h4>
+<small><pre id="codigo"><code>
+&lt?php
+$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(!empty($_POST['nome'])) {
+    $r = $db->prepare("INSERT INTO pessoa(nome) VALUES (?)");
+    $r->execute(array($_POST['nome']));
+}
+header("location: index.php");
+</code></pre></small><br>
+            <h4 id="iconRed">ed.php</h4>
+<small><pre id="codigo"><code>
+&lt?php
+$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(!empty($_GET['id'])) {
+    $r = $db->prepare("SELECT * FROM pessoa WHERE id=?");
+    $r->execute(array($_GET['id']));
+    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhas as $l) {$nome = $l['nome'];}
+}
+
+if ((!empty($_GET['idVelho'])) and (!empty($_POST['nome']))) {
+    $r = $db->prepare("UPDATE pessoa SET nome=? WHERE id=?");
+    $r->execute(array($_POST['nome'],$_GET['idVelho']));
+    header("location: index.php");
+}
+?&gt
+&ltform action="ed.php?idVelho=&lt?=$_GET['id']?&gt" method="post"&gt
+    &ltinput type="text" name="nome" value="&lt?=$nome?&gt"&gt
+    &ltinput type="submit" value="Atualizar"&gt
+&lt/form&gt
+</code></pre></small><br>
+            <h4 id="iconRed">rem.php</h4>
+<small><pre id="codigo"><code>
+&lt?php
+$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$r = $db->prepare("DELETE FROM pessoa WHERE id=?");
+$r->execute(array($_GET['id']));
+header("location: index.php");
+</code></pre></small><br>
+            <h4 id="iconRed">index.php</h4>
+<small><pre id="codigo"><code>
+&lt?php
+$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$r = $db->query("SELECT * FROM pessoa");
+$linhas = $r->fetchAll(PDO::FETCH_ASSOC);
+foreach($linhas as $l) {
+    echo "&lta href='ed.php?id=".$l['id']."'&gt".$l['nome']."&lt/a&gt - &lta href='rem.php?id=".$l['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
+}
+?&gt
+&ltform action="add.php" method="pos//Listagem com link pra edição e exclusãot"&gt
+    &ltinput type="text" name="nome" placeholder="Nome"&gt
+    &ltinput type="submit" value="Adicionar"&gt
+&lt/form&gt
+</code></pre></small><br>
         </div>
     </div>
 
@@ -64,165 +120,3 @@
 </div>
 </body>
 </html>
-
-
-
-<!-- modalbancosql -->
-<div class="modal fade" id="modalbancosql" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-white bg-secondary">
-                <h5 class="modal-title" id="exampleModalLabel1"><svg class="bi bi-server" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M13 2c0-1.105-2.239-2-5-2S3 .895 3 2s2.239 2 5 2 5-.895 5-2z"/><path d="M13 3.75c-.322.24-.698.435-1.093.593C10.857 4.763 9.475 5 8 5s-2.857-.237-3.907-.657A4.881 4.881 0 013 3.75V6c0 1.105 2.239 2 5 2s5-.895 5-2V3.75z"/><path d="M13 7.75c-.322.24-.698.435-1.093.593C10.857 8.763 9.475 9 8 9s-2.857-.237-3.907-.657A4.881 4.881 0 013 7.75V10c0 1.105 2.239 2 5 2s5-.895 5-2V7.75z"/><path d="M13 11.75c-.322.24-.698.435-1.093.593-1.05.42-2.432.657-3.907.657s-2.857-.237-3.907-.657A4.883 4.883 0 013 11.75V14c0 1.105 2.239 2 5 2s5-.895 5-2v-2.25z"/></svg> banco.sql</h5>
-            </div>
-            <div class="modal-body">
-<small><pre><code>
-CREATE DATABASE agenda;
-CREATE TABLE pessoa (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(50) NOT NULL
-);
-</code></pre></small>
-            </div>
-            <div class="modal-footer text-white bg-secondary">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- modaladd -->
-<div class="modal fade" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-white bg-secondary">
-                <h5 class="modal-title" id="exampleModalLabel2"><svg class="bi bi-file-earmark-text" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/><path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/><path fill-rule="evenodd" d="M5 11.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/></svg> add.php</h5>
-            </div>
-            <div class="modal-body">
-<small><pre><code>
-&lt?php
-//Conexão
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//Adiciona
-if(!empty($_POST['nome'])) {
-	$r = $db->prepare("INSERT INTO pessoa(nome) VALUES (?)");
-	$r->execute(array($_POST['nome']));
-}
-header("location: index.php");
-</code></pre></small>
-            </div>
-            <div class="modal-footer text-white bg-secondary">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- modaled -->
-<div class="modal fade" id="modaled" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-white bg-secondary">
-                <h5 class="modal-title" id="exampleModalLabel3"><svg class="bi bi-file-earmark-text" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/><path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/><path fill-rule="evenodd" d="M5 11.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/></svg> ed.php</h5>
-            </div>
-            <div class="modal-body">
-<small><pre><code>
-&lt?php
-//Conexão
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//Adquire os valores padrões pra preencher os forms com base no 'id' lançado
-if(!empty($_GET['id'])) {
-	$r = $db->prepare("SELECT * FROM pessoa WHERE id=?");
-	$r->execute(array($_GET['id']));
-	$linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-	foreach ($linhas as $l) {$nome = $l['nome'];}
-}
-
-//Atualiza
-if ((!empty($_GET['idVelho'])) and (!empty($_POST['nome']))) {
-	$r = $db->prepare("UPDATE pessoa SET nome=? WHERE id=?");
-	$r->execute(array($_POST['nome'],$_GET['idVelho']));
-	header("location: index.php");
-}
-?>
-
-&ltform action="ed.php?idVelho=&lt?=$_GET['id']?&gt" method="post"&gt
-&ltinput type="text" name="nome" value="&lt?=$nome?&gt"&gt
-&ltinput type="submit" value="Atualizar"&gt
-&lt/form&gt
-</code></pre></small>
-            </div>
-            <div class="modal-footer text-white bg-secondary">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- modalrem -->
-<div class="modal fade" id="modalrem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-white bg-secondary">
-                <h5 class="modal-title" id="exampleModalLabel4"><svg class="bi bi-file-earmark-text" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/><path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/><path fill-rule="evenodd" d="M5 11.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/></svg> rem.php</h5>
-            </div>
-            <div class="modal-body">
-                <small><pre><code>
-&lt?php
-//Conexão
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//Remove
-$r = $db->prepare("DELETE FROM pessoa WHERE id=?");
-$r->execute(array($_GET['id']));
-header("location: index.php");
-</code></pre></small>
-            </div>
-            <div class="modal-footer text-white bg-secondary">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- modalindex -->
-<div class="modal fade" id="modalindex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-white bg-secondary">
-                <h5 class="modal-title" id="exampleModalLabel5"><svg class="bi bi-file-earmark-text" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/><path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/><path fill-rule="evenodd" d="M5 11.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/></svg> index.php</h5>
-            </div>
-            <div class="modal-body">
-                <small><pre><code>
-&lt?php
-//Conexão
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//Listagem com link pra edição e exclusão
-$r = $db->query("SELECT * FROM pessoa");
-$linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-foreach($linhas as $l) {
-	echo "&lta href='ed.php?id=".$l['id']."'&gt".$l['nome']."&lt/a&gt - &lta href='rem.php?id=".$l['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
-}
-?&gt
-&ltform action="add.php" method="post"&gt
-	&ltinput type="text" name="nome" placeholder="Nome"&gt
-	&ltinput type="submit" value="Adicionar"&gt
-&lt/form&gt
-</code></pre></small>
-            </div>
-            <div class="modal-footer text-white bg-secondary">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
