@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -34,21 +34,21 @@
     <div class="row">
         <div class="col-sm-12" id="titulo1">
             <small class="text-muted"><span class="badge badge-secondary">Resumo</span><br>(10.06.2020) Mateus Schwede</small>
-            <h1>Java8 para maratona URI</h1>
+            <h1>Java8 URI</h1>
             <h6><strong>Funções e dotes Java8 para maratona URI</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Informações</h4>
+            <h4 id="iconRed">Informações</h4>
             <p id="textoPost">Estou compartilhando o resumo de Java8 que uitilizamos para maratona de programação com URI. Para Informações sobre o URI e como funcionam as maratonas de programação, dê uma conferida no resumo que publiquei sobre Python3.</p>
             <a class="btn btn-secondary" href="https://mateusschwede.github.io/resumos/resumo2.html" target="_blank">Python3 para maratona URI</a>
             <br><br>
-            <h4>Software utilizado</h4>
+            <h4 id="iconRed">Software utilizado</h4>
             <p id="textoPost">Acostume-se com o Eclipse Java, é o software utilizado em todas maratonas de programação com JDK8.</p>
             <br>
-            <h4>Dotes Java: Atenção!</h4>
+            <h4 id="iconRed">Dotes Java: Atenção!</h4>
             <p id="textoPost">Diferente do Python3, o Java8 possui importantes particularidades que precisam ser realizadas, caso contrário o URI não validará sua resposta, mesmo com tal sendo logicamente aceita. Veja abaixo o código padrão, no qual você deverá deixar <b>idêntico</b> durante a submissão:</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 // O 'package' deve ser removido e devem ser inseridos os imports abaixo
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,8 +70,8 @@ public class Main { //classe SEMPRE com nome 'Main'
 }
 </code></pre></small><br>
             <hr>
-            <h4>java8Uri.jar</h4>
-<small><pre><code>
+            <h4 id="iconRed">java8Uri.jar</h4>
+<small><pre id="codigo"><code>
 ========== CONVERTER VARIAVEL ==========
 int i = 10;
 double i2 = (double) i;
