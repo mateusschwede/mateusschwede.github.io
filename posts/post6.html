@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -34,16 +34,16 @@
     <div class="row">
         <div class="col-sm-12" id="titulo1">
             <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(21.05.2020) Mateus Schwede</small>
-            <h1>Upload de arquivos com Php e Mysql</h1>
+            <h1>Upload Php e Mysql</h1>
             <h6><strong>Upload com todo tipo de arquivo usando Php e Mysql</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Pré-requisitos</h4>
+            <h4 id="iconRed">Pré-requisitos</h4>
             <p id="textoPost">Necessário ter o Xampp executando, criar diretório no <i>htdocs</i> para armazenar os arquivos de código. Após, crie, neste diretório, uma pasta com nome <b>uploads</b>, que será onde os arquivos de upload ficarão armazenados. Em seguida, execute o arquivo sql no <i>phpmyadmin</i>. Por fim, execute os códigos ilustrados abaixo. Só mantenha a atenção com o tamanho/peso do arquivo em upload, pois, em alguns casos, pode ser necessária uma realocação maior de espaço no seu código de banco de dados.</p>
             <hr>
-            <h4>banco.sql</h4>
-<small><pre><code>
+            <h4 id="iconRed">banco.sql</h4>
+<small><pre id="codigo"><code>
 CREATE DATABASE phpimg;
 CREATE TABLE arquivo (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -51,8 +51,8 @@ CREATE TABLE arquivo (
     dt DATETIME NOT NULL
 );
 </code></pre></small><br>
-            <h4>upload.php</h4>
-<small><pre><code>
+            <h4 id="iconRed">upload.php</h4>
+<small><pre id="codigo"><code>
 &lt?php
     $db = new PDO('mysql:host=localhost;dbname=phpimg;charset=utf8','root','');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -74,9 +74,9 @@ CREATE TABLE arquivo (
 &lt/form&gt
 </code></pre></small><br>
             <hr>
-            <h4>Upload sem conexão com BD</h4>
+            <h4 id="iconRed">Upload sem conexão com BD</h4>
             <p id="textoPost">Caso precise somente realizar upload, sem a necessidade de gravar em base de dados, segue outro exemplo de código, <b>upload.php</b>, envolvendo a mesma arquitetura de diretórios.</p>
-<small><pre><code>
+<small><pre id="codigo"><code>
 &lt?php
     $name = $_FILES['arquivo']['name'];
     $size = $_FILES['arquivo']['size'];
