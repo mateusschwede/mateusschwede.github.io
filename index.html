@@ -7,18 +7,18 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="https://img.icons8.com/pastel-glyph/100/000000/umbrella.png"/>
+    <link rel="shortcut icon" href="anexos/icons/icons8-umbrella-100.png"/>
     <link rel="stylesheet" href="estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="index.html"><img src="anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -35,7 +35,7 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <img src="https://img.icons8.com/pastel-glyph/50/000000/umbrella.png"/>
+            <img src="anexos/icons/icons8-umbrella-50.png"/>
             <h1>MateusNotes</h1>
             <h5 class="text-muted">Desenvolvimento Open de Sistemas</h5>
         </div>
@@ -43,53 +43,200 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo3">
-            <p class="text-center">O MateusNotes é o site pessoal do Mateus Schwede, que tem por objetivos o compartilhamento de conteúdo sobre tecnologia Livre Open Source e Desenvolvimento de Sistemas. A tecnologia, quando acessível, aberta e, com isso, gratuita, é capaz de construir o impossível.</p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Site em manutenção!</strong><br>Estamos promovendo algumas mudanças no visual do site, porém de forma gradativa
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <p class="text-center">O MateusNotes é o site pessoal do Mateus Schwede, que tem por objetivos o compartilhamento de conteúdo sobre tecnologia Livre e Desenvolvimento de Sistemas. A tecnologia, quando acessível, aberta e, com isso, gratuita, é capaz de construir o impossível.</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <h3><svg class="bi bi-book" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 018.5 2.5v11a.5.5 0 01-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 010 13.5v-11a.5.5 0 01.276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 01.22-.103 12.958 12.958 0 012.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 001 2.82z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 007.5 2.5v11a.5.5 0 00.854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0016 13.5v-11a.5.5 0 00-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 00-.799-.34 12.96 12.96 0 00-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0115 2.82z" clip-rule="evenodd"/></svg> Artigos</h3>
+            <h3><svg id="iconRed" class="bi bi-book" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 018.5 2.5v11a.5.5 0 01-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 010 13.5v-11a.5.5 0 01.276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 01.22-.103 12.958 12.958 0 012.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 001 2.82z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 007.5 2.5v11a.5.5 0 00.854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0016 13.5v-11a.5.5 0 00-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 00-.799-.34 12.96 12.96 0 00-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0115 2.82z" clip-rule="evenodd"/></svg> Artigos</h3>
             <div class="list-group">
-                <a href="artigos/artigo1.html" class="list-group-item list-group-item-action">Vamos falar de Linux</a>
+                <a href="artigos/artigo1.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Vamos falar de Linux</b></h4>
+                        <small>11.05.2020</small>
+                    </div>
+                    <p class="mb-1">Quebrando os 'tabus' do Linux</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
             </div>
         </div>
 
         <div class="col-sm-12">
             <br>
-            <h3><svg class="bi bi-display" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/><path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/></svg> Sistemas</h3>
+            <h3><svg id="iconRed" class="bi bi-display" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/><path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/></svg> Sistemas</h3>
             <div class="list-group">
-                <a href="sistemas/sistema1.html" class="list-group-item list-group-item-action">EChamado: Gestor de suporte técnico</a>
+                <a href="sistemas/sistema1.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>EChamado</b></h4>
+                        <small>09.06.2020</small>
+                    </div>
+                    <p class="mb-1">Software gestor de chamados para suporte técnico</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
             </div>
         </div>
 
         <div class="col-sm-12">
             <br>
-            <h3><svg class="bi bi-file-earmark-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z"/><path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/></svg> Resumos</h3>
+            <h3><svg id="iconRed" class="bi bi-file-earmark-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z"/><path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/></svg> Resumos</h3>
             <div class="list-group">
-                <a href="resumos/resumo6.html" class="list-group-item list-group-item-action">Php7 PDO Base</a>
-                <a href="resumos/resumo5.html" class="list-group-item list-group-item-action">Php7 OOP</a>
-                <a href="resumos/resumo4.html" class="list-group-item list-group-item-action">Php7 base</a>
-                <a href="resumos/resumo3.html" class="list-group-item list-group-item-action">Java8 para maratona URI</a>
-                <a href="resumos/resumo2.html" class="list-group-item list-group-item-action">Python3 para maratona URI</a>
-                <a href="resumos/resumo1.html" class="list-group-item list-group-item-action">Programação OOP</a>
+                <a href="resumos/resumo6.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Php7 PDO Base</b></h4>
+                        <small>10.06.2020</small>
+                    </div>
+                    <p class="mb-1">Sintaxe básica Php7 PDO</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="resumos/resumo5.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Php7 OOP</b></h4>
+                        <small>10.06.2020</small>
+                    </div>
+                    <p class="mb-1">Sintaxe Php7 OOP</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="resumos/resumo4.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Php7 base</b></h4>
+                        <small>10.06.2020</small>
+                    </div>
+                    <p class="mb-1">Sintaxe básica Php7</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="resumos/resumo3.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Java8 para maratona URI</b></h4>
+                        <small>10.06.2020</small>
+                    </div>
+                    <p class="mb-1">Funções e dotes Java8 para maratona URI</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="resumos/resumo2.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Python3 para maratona URI</b></h4>
+                        <small>10.06.2020</small>
+                    </div>
+                    <p class="mb-1">Funções e dotes Python3 para maratona URI</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="resumos/resumo1.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Programação OOP</b></h4>
+                        <small>07.06.2020</small>
+                    </div>
+                    <p class="mb-1">Todos os conceitos da Programação Orientada à Objetos</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
             </div>
         </div>
 
         <div class="col-sm-12">
             <br>
-            <h3><svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/></svg> Posts</h3>
+            <h3><svg id="iconRed" class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/></svg> Posts</h3>
             <div class="list-group">
-                <a href="posts/post9.html" class="list-group-item list-group-item-action">Sintaxe MongoDB x MySQL</a>
-                <a href="posts/post8.html" class="list-group-item list-group-item-action">Crud Php com Ajax(jQuery), Bootstrap e MySQL</a>
-                <a href="posts/post7.html" class="list-group-item list-group-item-action">Converter Csv em Json com Php</a>
-                <a href="posts/post6.html" class="list-group-item list-group-item-action">Upload de arquivos com Php e Mysql</a>
-                <a href="posts/post5.html" class="list-group-item list-group-item-action">Carrinho de compras Php Mysql</a>
-                <a href="posts/post4.html" class="list-group-item list-group-item-action">Markdown: Linguagem de documentação web</a>
-                <a href="posts/post3.html" class="list-group-item list-group-item-action">Sass: Css com superpoderes</a>
-                <a href="posts/post2.html" class="list-group-item list-group-item-action">Consumindo Api com Php</a>
-                <a href="posts/post1.html" class="list-group-item list-group-item-action">Crud php mysql</a>
+                <a href="posts/post9.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Sintaxe MongoDB x MySQL</b></h4>
+                        <small>04.06.2020</small>
+                    </div>
+                    <p class="mb-1">Relacionando sintaxe MySQL com MongoDB</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post8.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Crud Php com Ajax, Bootstrap e MySQL</b></h4>
+                        <small>31.05.2020</small>
+                    </div>
+                    <p class="mb-1">Crud Php simples com Ajax(jQuery), Bootstrap e MySQL</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post7.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Converter Csv em Json com Php</b></h4>
+                        <small>26.05.2020</small>
+                    </div>
+                    <p class="mb-1">Código Php de conversão de arquivos Csv em Json</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post6.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Upload com Php e Mysql</b></h4>
+                        <small>21.05.2020</small>
+                    </div>
+                    <p class="mb-1">Upload com todo tipo de arquivo usando Php e Mysql</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post5.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Carrinho de compras Php Mysql</b></h4>
+                        <small>21.05.2020</small>
+                    </div>
+                    <p class="mb-1">Código de carrinho de compras simples Php e Mysql</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post4.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Markdown base</b></h4>
+                        <small>18.05.2020</small>
+                    </div>
+                    <p class="mb-1">Conceitos e sintaxe da linguagem Markdown</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post3.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Sass base</b></h4>
+                        <small>11.05.2020</small>
+                    </div>
+                    <p class="mb-1">Conceitos e sintaxe da linguagem Sass: Css com superpoderes</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post2.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Consumindo Api com Php</b></h4>
+                        <small>10.05.2020</small>
+                    </div>
+                    <p class="mb-1">Realizando a leitura de dados de Api, de forma simples com Php</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
+                <br>
+                <a href="posts/post1.html" class="list-group-item list-group-item-action" id="itemLista">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><b>Crud Php MySQL</b></h4>
+                        <small>09.05.2020</small>
+                    </div>
+                    <p class="mb-1">Crud simples com Php Pdo e MySQL</p>
+                    <small class="text-muted">Mateus Schwede</small>
+                </a>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="menu">
+            <footer>
+                <img src="anexos/icons/icons8-umbrella-20w.png"/> <b>MateusNotes, 2020.</b><br>
+                <p>Developer by Mateus Schwede. Open Source.</p>
+            </footer>
         </div>
     </div>
 
