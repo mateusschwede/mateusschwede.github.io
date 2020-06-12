@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -34,17 +34,17 @@
     <div class="row">
         <div class="col-sm-12" id="titulo1">
             <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(04.06.2020) Mateus Schwede</small>
-            <h1>Sintaxe MongoDB x MySQL</h1>
+            <h1>MongoDB x MySQL</h1>
             <h6><strong>Relacionando sintaxe MySQL com MongoDB</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Estrutura</h4>
+            <h4 id="iconRed">Estrutura</h4>
             <p id="textoPost"><b>MySQL:</b> <small>Database -> Table -> Row -> Column e Value -> Index</small><br><b>MongoDB:</b> <small>Database -> Collection -> Document -> Field e Value -> Index</small></p>
             <p id="textoPost">No MongoDB os dados são do tipo BSON, como um JSON. Todo document possui um field 'id', gerado automaticamente, que serve como uma primary key, para relacionar e identificá-lo. Cada document tem um field com value, possuindo um tipo específico. Recomendo download do MongoDB Community, gratuito, no link https://docs.mongodb.com/manual/administration/install-on-linux. Use o SGBD GUI MongoDB Compass Community, também gratuito, no link https://www.mongodb.com/download-center/compass. Todos os códigos abaixo foram retirados do site oficial MongoDB.</p>
             <hr>
-            <h4>Exemplo de document</h4>
-<small><pre><code>
+            <h4 id="iconRed">Exemplo de document</h4>
+<small><pre id="codigo"><code>
 {
     _id: ObjectId("509a8fb2f3f4948bd2f983a0"),
     nome: "fulano",
@@ -52,16 +52,16 @@
     status: 'A'
 }
 </code></pre></small><br>
-            <h4>Comandos do MongoDB</h4>
-<small><pre><code>
+            <h4 id="iconRed">Comandos do MongoDB</h4>
+<small><pre id="codigo"><code>
 <b>Start:</b> sudo systemctl start mongod
 <b>Status:</b> sudo systemctl status mongod / sudo systemctl enable mongod
 <b>Stop:</b> sudo systemctl stop mongod
 <b>Restart:</b> sudo systemctl restart mongod
 <b>Shell/Status:</b> mongo
 </code></pre></small><br>
-            <h4>Comandos Shell MongoDB</h4>
-<small><pre><code>
+            <h4 id="iconRed">Comandos Shell MongoDB</h4>
+<small><pre id="codigo"><code>
 <b>show dbs:</b> ver dbs existentes
 <b>exit:</b> sai do shell
 <b>db.getUsers():</b> lista usuários do mongo
@@ -70,8 +70,8 @@
 <b>db.auth("nomeUser","senhaUser"):</b> Autentica user(feedback 1 para autenticado / 0 para barrado)
 <b>db.dropUser("nomUser"):</b> Deleta user
 </code></pre></small><br>
-            <h4>Create Table</h4>
-<small><pre><code>
+            <h4 id="iconRed">Create Table</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 CREATE DATABASE teste
 
@@ -93,8 +93,8 @@ db.people.insertOne({
     status: "A"
 })
 </code></pre></small><br>
-            <h4>Alter Table</h4>
-<small><pre><code>
+            <h4 id="iconRed">Alter Table</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 ALTER TABLE people ADD join_date DATETIME
 ALTER TABLE people DROP COLUMN join_date
@@ -107,8 +107,8 @@ db.people.updateMany( { },{$unset:{"join_date":""} })
 db.people.createIndex( {user_id:1} )
 db.people.createIndex( {user_id:1,age:-1} )
 </code></pre></small><br>
-            <h4>Drop Table</h4>
-<small><pre><code>
+            <h4 id="iconRed">Drop Table</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 DROP TABLE people
 DROP DATABASE teste
@@ -117,8 +117,8 @@ DROP DATABASE teste
 db.people.drop()
 use teste; db.dropDatabase()
 </code></pre></small><br>
-            <h4>Insert Into</h4>
-<small><pre><code>
+            <h4 id="iconRed">Insert Into</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 INSERT INTO people(user_id,age,status) VALUES ("bcd001",45,"A")
 INSERT INTO people(user_id,age,status) VALUES ("bcd001",45,"A"),("vvv",30,"B")
@@ -127,8 +127,8 @@ INSERT INTO people(user_id,age,status) VALUES ("bcd001",45,"A"),("vvv",30,"B")
 db.people.insertOne({ user_id:"bcd001", age:45, status:"A" })
 db.people.insertMany( {user_id:"bcd001",age:45,status:"A"},{user_id:"vvv",age:30,status:"B"} )
 </code></pre></small><br>
-            <h4>Select</h4>
-<small><pre><code>
+            <h4 id="iconRed">Select</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 1.SELECT * FROM people
 2.SELECT id,user_id,status FROM people
@@ -177,8 +177,8 @@ db.people.insertMany( {user_id:"bcd001",age:45,status:"A"},{user_id:"vvv",age:30
 21.1.db.people.find().limit(5).skip(10)
 21.2.db.people.find( {status:"A"} ).explain()
 </code></pre></small><br>
-            <h4>Update</h4>
-<small><pre><code>
+            <h4 id="iconRed">Update</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 UPDATE people SET status = "C" WHERE age > 25
 UPDATE people SET age = age + 3 WHERE status = "A"
@@ -189,8 +189,8 @@ db.people.updateMany({ age: {$gt:25} },{ $set: {status:"C"} })
 db.people.updateMany({ status:"A" } ,{ $inc: {age:3} })
 db.tableX.renameCollection("tableY") //renomear collection
 </code></pre></small><br>
-            <h4>Delete</h4>
-<small><pre><code>
+            <h4 id="iconRed">Delete</h4>
+<small><pre id="codigo"><code>
 <b>MySQL</b>
 DELETE FROM people WHERE status = "D"
 DELETE FROM people
@@ -200,8 +200,8 @@ DELETE FROM people
 db.people.deleteMany( {status:"D"} )
 db.people.deleteMany({})
 </code></pre></small><br>
-            <h4>Bulk (Transação)</h4>
-<small><pre><code>
+            <h4 id="iconRed">Bulk (Transação)</h4>
+<small><pre id="codigo"><code>
 <i>Ou faz tudo, ou não faz nada</i>
 try {db.characters.bulkWrite([
     {insertOne: {"document": {"_id":4, "char":"Dithras", "class":"barbarian", "lvl":4}}},
@@ -211,8 +211,8 @@ try {db.characters.bulkWrite([
     {replaceOne: {"filter": {"char":"Meldane"},"replacement": {"char":"Tanys", "class":"oracle", "lvl":4 }}}]);
 }catch(e) {print(e);}
 </code></pre></small><br>
-            <h4>Cursor (Variável)</h4>
-<small><pre><code>
+            <h4 id="iconRed">Cursor (Variável)</h4>
+<small><pre id="codigo"><code>
 var myCursor = db.users.find( {type:2} );
 myCursor
 
@@ -236,14 +236,11 @@ var myCursor = db.inventory.find();
 var myFirstDocument = myCursor.hasNext() ? myCursor.next() : null;
 myCursor.objsLeftInBatch(); //com if's
 </code></pre></small><br>
-            <h4>Import de dados CSV(Excel)</h4>
-<small><pre><code>
+            <h4 id="iconRed">Import de dados CSV(Excel)</h4>
+<small><pre id="codigo"><code>
 <i>Importa arquivo para determinada collection de db. Headerline pega os títulos das colunas e transforma em nome de parâmetros nos documents.<br>'ubs.csv' baixado de http://www.dados.gov.br/dataset/pac_ubs</i>
 mongoimport -d dbNome -c nomeCollection --type csv --file arquivo.csv --headerline
-</code></pre></small><br>
-            <h4>Não encontrou o que precisava?</h4>
-            <p id="textoPost">Tenho, no Github, um resumo com praticamente toda a sintaxe do MongoDB, retirada do próprio site oficial.</p>
-            <a class="btn btn-secondary" href="https://github.com/mateusschwede/resumos/blob/master/mongodb/sintaxemongo.md" target="_blank">Confira aqui</a>
+</code></pre></small>
         </div>
     </div>
 
