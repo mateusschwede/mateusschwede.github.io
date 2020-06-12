@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -33,19 +33,19 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(09.05.2020) Mateus Schwede</small>
-            <h1>Markdown: Linguagem de documentação web</h1>
+            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(18.05.2020) Mateus Schwede</small>
+            <h1>Markdown base</h1>
             <h6><strong>Conceitos e sintaxe da linguagem Markdown</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>O que é?</h4>
+            <h4 id="iconRed">O que é?</h4>
             <p id="textoPost">Markdown é uma linguagem de marcação, convertida pra Html, muito utilizada para escrever documentação web. Devido à sintaxe 'populosa' do Html e sua difícil interpretação quando aplicada à escrita de documentação web, fora necessária a criação de uma linguagem de marcação com sintaxe mais limpa e focada ao texto, dando origem à Markdown. Você encontrará Markdown principalmente nos arquivos '<strong>readme.md</strong>', que são utilizados como um breve manual para determinado software/projeto. Toda a documentação online da Microsoft também é escrita com auxílio da linguagem. Arquivos Markdown possuem extensão '<strong>.md</strong>'. Você pode testar seus códigos no editor online <a href="https://dillinger.io/" target="_blank">Dillinger</a>. Mais informações e documentação, o site oficial da linguagem encontra-se no link '<a href="https://www.markdownguide.org" target="_blank">www.markdownguide.org</a>'. Encontre também um resumão oficial no link '<a href="https://www.markdownguide.org/cheat-sheet" target="_blank">www.markdownguide.org/cheat-sheet</a>'.</p>
             <p id="textoPost">Segue opção de download de uma oficina que ministrei sobre Markdown, através do IFRS Campus Feliz, no projeto de extensão Informática Fácil - Promovendo a Inclusão Digital no Vale do Caí. A oficina é prática, tratando o uso da Markdown na construção de um arquivo 'readme.md', onde, ao mesmo tempo, serão discutidos os conceitos da linguagem e arquivos 'readme.md'.</p>
             <a href="https://mega.nz/folder/PJoX2S5A#jLUfuZYiApl2uojMD_MbfQ" target="_blank" class="btn btn-secondary">Download Oficina Markdown</a>
             <hr>
-            <h4>Títulos</h4>
-<small><pre><code>
+            <h4 id="iconRed">Títulos</h4>
+<small><pre id="codigo"><code>
 # H1
 ## H2
 ### H3
@@ -55,62 +55,62 @@
 quebra de linha(deixa-se 1 linha em branco)
 paragrafo comum
 </code></pre></small><br>
-            <h4>Texto</h4>
-<small><pre><code>
+            <h4 id="iconRed">Texto</h4>
+<small><pre id="codigo"><code>
 **negrito**
 *italico*
 ***negrito e italico***
 ~~taxada(riscada)~~
 :joy: (emoji 'joy')
 </code></pre></small><br>
-            <h4>Bloco de Citação</h4>
-<small><pre><code>
+            <h4 id="iconRed">Bloco de Citação</h4>
+<small><pre id="codigo"><code>
 &gt blockquote(bloco de citação)
 &gt&gt bloco aninhado
 </code></pre></small><br>
-            <h4>Lista Ordenada</h4>
-<small><pre><code>
+            <h4 id="iconRed">Lista Ordenada</h4>
+<small><pre id="codigo"><code>
 1. First item
     1.1 First.first item
 2. Second item
 3. Third item
 </code></pre></small><br>
-            <h4>Lista Não Ordenada</h4>
-<small><pre><code>
+            <h4 id="iconRed">Lista Não Ordenada</h4>
+<small><pre id="codigo"><code>
 - First item
     - First.first item
 - Second item
 - Third item
 </code></pre></small><br>
-            <h4>Código Inline</h4>
-<small><pre><code>
+            <h4 id="iconRed">Código Inline</h4>
+<small><pre id="codigo"><code>
 `code`(entre tags &ltcode&gt)
 ``Use `code` in your Markdown file.``(caso precise usar a pontuação como texto)
 </code></pre></small><br>
-            <h4>Linha Horizontal</h4>
-<small><pre><code>
+            <h4 id="iconRed">Linha Horizontal</h4>
+<small><pre id="codigo"><code>
 ---
 </code></pre></small><br>
-            <h4>Link</h4>
-<small><pre><code>
+            <h4 id="iconRed">Link</h4>
+<small><pre id="codigo"><code>
 [title](https://www.example.com)
 [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy") (link com texto 'alt')
 &ltfake@example.com&gt (link de email)
 http://www.example.com (url comum)
 `http://www.example.com` (url desativada)
 </code></pre></small><br>
-            <h4>Imagem</h4>
-<small><pre><code>
+            <h4 id="iconRed">Imagem</h4>
+<small><pre id="codigo"><code>
 ![alt text](image.jpg)
 ![Philadelphia's Magic Gardens.](/assets/images/philly-magic-gardens.jpg "Philadelphia's Magic Gardens")
 [![Pedra no deserto](/assets/images/shiprock.jpg "Shiprock, New Mexico")](https://google.com) (img com link)
 </code></pre></small><br>
-            <h4>Mostrar caracter de função como texto</h4>
-<small><pre><code>
+            <h4 id="iconRed">Mostrar caracter de função como texto</h4>
+<small><pre id="codigo"><code>
 \* Mostra o asterisco, sem a barra representaria itálico
 </code></pre></small><br>
-            <h4>Tabela</h4>
-<small><pre><code>
+            <h4 id="iconRed">Tabela</h4>
+<small><pre id="codigo"><code>
 | Syntax | Description |
 | ----------- | ----------- |
 | Header | Title |
@@ -122,8 +122,8 @@ http://www.example.com (url comum)
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 </code></pre></small><br>
-            <h4>Bloco de Código</h4>
-<small><pre><code>
+            <h4 id="iconRed">Bloco de Código</h4>
+<small><pre id="codigo"><code>
 (informe a linguagem pra colorir conforme)
 ```json
 {
@@ -133,23 +133,23 @@ http://www.example.com (url comum)
 }
 ```
 </code></pre></small><br>
-            <h4>Footnote <small>(Nota de rodapé)</small></h4>
-<small><pre><code>
+            <h4 id="iconRed">Footnote <small>(Nota de rodapé)</small></h4>
+<small><pre id="codigo"><code>
 Here's a sentence with a footnote. [^1]
 
 [^1]: This is the footnote.
 </code></pre></small><br>
-            <h4>Heading ID <small>(Id de cabeçalho)</small></h4>
-<small><pre><code>
+            <h4 id="iconRed">Heading ID <small>(Id de cabeçalho)</small></h4>
+<small><pre id="codigo"><code>
 ### My Great Heading {#custom-id}
 </code></pre></small><br>
-            <h4>Definição de Termo</h4>
-<small><pre><code>
+            <h4 id="iconRed">Definição de Termo</h4>
+<small><pre id="codigo"><code>
 term
 : definition
 </code></pre></small><br>
-            <h4>Lista de Tarefas</h4>
-<small><pre><code>
+            <h4 id="iconRed">Lista de Tarefas</h4>
+<small><pre id="codigo"><code>
 - [x] Item pré-selecionado
 - [ ] Item
 - [ ] Item2
