@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body id="fundo">
+<body>
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../doar.html" style="color: rgb(57, 173, 57);">Doar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../doar.html" id="doar">Doar</a></li>
                     </ul>
                 </div>
             </nav>
@@ -33,14 +33,13 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Resumo</span><br>(10.06.2020) Mateus Schwede</small>
             <h1>Php7 PDO Base</h1>
             <h6><strong>Sintaxe básica Php7 PDO</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4 id="iconRed">php7Pdo.php</h4>
-<small><pre id="codigo"><code>
+            <h4>php7Pdo.php</h4>
+<small><pre><code>
 O que é:
 PDO (PHP Data Objects) é uma interface da linguagem PHP para acessar banco de dados.
 Vantagens:
@@ -50,13 +49,11 @@ Vantagens:
 
 -- BANCO DE DADOS (Mysql) --
 CREATE DATABASE aula;
-
 CREATE TABLE Pessoa (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(20) NOT NULL,
     sobrenome VARCHAR(20) NOT NULL
 );
-
 INSERT INTO Pessoa (nome,sobrenome) VALUES ('Carlos','Garcia'), ('Maria','Antunes'), ('Cassio','Silva');
 
 
@@ -65,6 +62,7 @@ CONEXÃO PHP COM MYSQL:
     $db = new PDO('mysql:host=localhost;dbname=aula;charset=utf8','root','');
     $db-&gtsetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?&gt
+
 
 SELECT MODO 1: pouco usado, requer o dobro de memória
 &lt?php
@@ -219,6 +217,7 @@ Ex:
     $linhas = $r-&gtfetchAll(PDO::FETCH_ASSOC);
 ?&gt
 
+
 INSERT COM VARIÁVEIS:
 &lt?php
     //código conexão com bd
@@ -231,6 +230,7 @@ INSERT COM VARIÁVEIS:
     }
 ?&gt
 
+
 UPDATE COM VARIÁVEIS:
 &lt?php
     //código conexão com bd
@@ -242,6 +242,7 @@ UPDATE COM VARIÁVEIS:
     echo $numeroLinhas.' linhas atualizadas!';
 ?&gt
 
+
 DELETE COM VARIÁVEIS:
 &lt?php
     //código conexão com bd
@@ -251,7 +252,7 @@ DELETE COM VARIÁVEIS:
     $numeroLinhas = $r-&gtrowCount();
     echo $numeroLinhas.' linhas removidas!';
 ?&gt
-</code></pre></small><br>
+</code></pre></small>
         </div>
     </div>
 
