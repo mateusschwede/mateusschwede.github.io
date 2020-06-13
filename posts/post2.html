@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body id="fundo">
+<body>
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../doar.html" style="color: rgb(57, 173, 57);">Doar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../doar.html" id="doar">Doar</a></li>
                     </ul>
                 </div>
             </nav>
@@ -33,21 +33,20 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(10.05.2020) Mateus Schwede</small>
             <h1>Consumindo Api com Php</h1>
             <h6><strong>Realizando a leitura de dados de Api, de forma simples com Php</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4 id="iconRed">O que é Api?</h4>
+            <h4>O que é Api?</h4>
             <p id="textoPost">Application Programming Interface é uma forma de comunicação(troca de dados) entre sistemas paralelos, realizada através de um meio de comunicação(Json,Http(Url),Xml...) na qual ambos sistemas conseguem interpretar os dados em questão(um sistema emite o código, o outro recebe e o interpreta). Já imaginou seu sistema se comunicar, de forma perfeita, com um sistema, tecnicamente totalmente diferente do seu, hospedado do outro lado do mundo? Esse processo, na prática, é o consumo de Api, na qual um sistema X envia um conjunto de dados em códigos para um sistema Y, onde ambos conseguem se comunicar 100%.</p>
             <br>
-            <h4 id="iconRed">Consumindo Api na prática</h4>
+            <h4>Consumindo Api na prática</h4>
             <p id="textoPost">Agora, faremos a comunicação e consumo, em Php, com um sistema de Api que envia dados em código Json sobre a previsão do tempo. Além disso, o próprio sistema pega a geolocalização via IP da máquina receptora, na própria url. Basta inserir o código do arquivo abaixo no <i>htdocs</i> do seu Xampp executando, ou no diretório do seu usuário para Php 'raíz' executando, em localhost. Esse pequeno trecho de código faz toda a mágica acontecer, sempre de forma atualizada. Este é o link da Api, que possui também dados financeiros(moeda) e de geolocalização(leia a documentação[bem simples e rápida] para maiores instruções quanto à url compartilhada pela api):</p>
-            <a href="https://hgbrasil.com/status/weather" target="_blank">hgbrasil.com/status/weather</a>
-            <hr>
-            <h4 id="iconRed">api.php</h4>
-<small><pre id="codigo"><code>
+            <a href="https://hgbrasil.com/status/weather" target="_blank" class="btn btn-link">Api HG Brasil ></a>
+            <br><br>
+            <h4>api.php</h4>
+<small><pre><code>
 &lt?php
 $url = "https://api.hgbrasil.com/weather?key=651bb186&user_ip=remote";
 $weather = json_decode(file_get_contents($url));
