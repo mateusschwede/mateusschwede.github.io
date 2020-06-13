@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>Mateus Notes</title>
 </head>
-<body id="fundo">
+<body>
 <div class="container-fluid">
 
 
     <div class="row">
         <div class="col-sm-12" id="menu">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/icons8-umbrella-20.png"/> MateusNotes</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.html"><img src="https://img.icons8.com/pastel-glyph/20/000000/umbrella.png"/> MateusNotes</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../doar.html" style="color: rgb(57, 173, 57);">Doar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../doar.html" id="doar">Doar</a></li>
                     </ul>
                 </div>
             </nav>
@@ -33,17 +33,17 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <small class="text-muted"><span class="badge badge-secondary">Desenvolvimento</span><br>(26.05.2020) Mateus Schwede</small>
             <h1>Converter Csv em Json com Php</h1>
             <h6><strong>Código Php de conversão de arquivos Csv em Json</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4 id="iconRed">Pré-requisitos</h4>
-            <p id="textoPost">Necessário ter o Xampp executando, criar diretório no <i>htdocs</i> para armazenar os arquivos de código e csv. Após, baixe o arquivo <i>.csv</i>, nomeando-o <b>planilha.csv</b> no mesmo diretório do <i>.php</i>. Caso pretendes modificar o nome do .csv, atualize-o também no .php! Precisa de inspiração pra baixar arquivos .csv? O governo federal dispõe dados públicos, nesse formato, neste <a href="http://www.dados.gov.br/dataset" target="_blank">link</a>.</p>
-            <hr>
-            <h4 id="iconRed">codigo.php</h4>
-<small><pre id="codigo"><code>
+            <h4>Pré-requisitos</h4>
+            <p id="textoPost">Necessário ter o Xampp executando, criar diretório no <i>htdocs</i> para armazenar os arquivos de código e csv. Após, baixe o arquivo <i>.csv</i>, nomeando-o <b>planilha.csv</b> no mesmo diretório do <i>.php</i>. Caso pretendes modificar o nome do .csv, atualize-o também no .php! Precisa de inspiração pra baixar arquivos .csv? O governo federal dispõe dados públicos, nesse formato. Acesse abaixo.</p>
+            <a href="http://www.dados.gov.br/dataset" target="_blank" class="btn btn-link">Dados públicos ></a>
+            <br><br>
+            <h4>codigo.php</h4>
+<small><pre><code>
 &lt?php
 function csvToJson($file) {
     if (!($fp = fopen($file,'r'))) {die("Não abriu");}
