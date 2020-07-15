@@ -295,6 +295,51 @@ for linha in arquivo: #print 1 linha por vez
     print(linha)
 
 arquivo.close() #fechar arquivo
+
+========== REQUISIÇÕES WEB ==========
+'''
+PIP: Gerenciador de bibliotecas externas nativo Python. pip3 pra Python3
+Instalar pip3 linux: sudo apt install python3-pip
+urllib: Biblioteca padrão pra requisições web python (mais baixo nível)
+requests: urllib em alto nível (necessário instalar: pip3 install requests)
+Verificar se requests já instalado: python3 -m pip install requests
+
+Muitas aplicações necessitam de bibliotecas externas, que são instaladas, no Python, com o PIP.
+Requisição web é entrar no site, solicitar algo ao servidor, via url.
+
+Métodos das requisições:
+- GET: Requisitar informações
+- POST: Enviar informações
+Dentro das requisições existem os headers(cabeçalhos). No browser, F12 na parte Network para verificá-los. Existem 2 tipos de Headers, cada um com seus parâmetros e valores:
+- Response Header: Cabeçalho de resposta
+- Request Header: Cabeçalho de requisição
+Status das requisições:
+200: Bem sucedida
+403: Permissão negada
+404: Página não encontrada
+500: Erro interno no servidor
+
+Site para fazer testes: putsreq.com (mostra detalhes de requisições). Após requisitar com a chave, no site consegue-se ver detalhes do log de requisições
+Para requisições mais avançadas, recomenda-se a biblioteca Beautiful Soup 4 / BS4 (pip3 install bs4)
+'''
+
+import requests
+requisicao = requests.get('https://google.com')
+#requisicao = requests.delete('https://google.com')
+#requisicao = requests.patch('https://google.com')
+#requisicao = requests.put('https://google.com')
+#requisicao = requests.head('https://google.com')
+#requisicao = requests.options('https://google.com')
+#requisicao = requests.post('https://google.com')
+#print(requisicao) #status da requisição
+#print(requisicao.status_code) #status da requisição(similar)
+print(requisicao.text) #codigo fonte
+conteudo = requisicao.text
+
+cabecalho = {'User-agent':'Windows 12','Referer':'https://Microsoft.com'}
+meusCookies = {'Visita':'10-10-2020'}
+dados = {'user':'mateus','senha':'abc'}
+requisicao = requests.post('https://google.com',headers=cabecalho,cookies=meusCookies,data=dados)
 </code></pre></small>
         </div>
     </div>
