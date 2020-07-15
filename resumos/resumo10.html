@@ -276,6 +276,25 @@ else:
 finally:
     deu certo, mas com erro, acima de tudo
 #o finally ocorre com ou sem erro
+
+========== MANIPULANDO ARQUIVOS ==========
+# open('pasta/arquivo.txt','w')
+# Modo 'r' é o padrão, de leitura
+# Modo 'w' é o de escrita(cria ou sobrescreve o arquivo)
+# 'r+' é leitura e escrita, não sobrescreve (ideal)
+# 'a' cria o arquivo no modo escrita append (vai inserindo dentro, no final do arquivo)
+# 'b' e 'rb' para abrir arquivos binários, como imagens, .exe...
+
+arquivo = open('arquivo.txt','r')
+arquivo.write("Conteúdo no arquivo") #ocorre somente no modo escrita
+print(arquivo.read()) #para ler troca-se o 'w' por 'r' no open()
+print(arquivo.readlines()) #similar ao acima
+print(arquivo.readline(3)) #ler 3 caracteres somente
+
+for linha in arquivo: #print 1 linha por vez
+    print(linha)
+
+arquivo.close() #fechar arquivo
 </code></pre></small>
         </div>
     </div>
