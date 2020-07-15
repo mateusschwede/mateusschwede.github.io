@@ -352,6 +352,44 @@ print(req.text)
 dic = json.loads(req.text) #converte em dicionário
 print(dic)
 print(dic['Title'])
+
+========== EXPRESSÕES REGULARES ==========
+'''
+(Regular Expressions / regex)
+Permitem encontrar padrões em textos. Há expressões regulares pra emails,telefones...
+Site pra montar expressões regulares e testar: regex101.com
+'''
+import re
+frase = 'O gato é bonito'
+padrao = re.search(r'ga.',frase)
+#'r' transforma em RAW String(torna caracteres especiais em String)
+#'.' qualquer coisa depois, inclusive espaços. Pode colocar '..' (2 quaisquer caracteres seguidos)
+#'\w' caractere unicode(a-z,A-Z,_). 'ga\w\w' terminaria com 2 quaisquer letras
+#'\w+' todos caracteres restantes unicode
+#'\w*' caractere opcional
+#'\d' caracteres numéricos(0-9).
+#'\D' caracteres não numéricos.
+#'\A' início de String
+#'\' tora caracteres especiais em String (r'ga\.' termina com um ponto)
+if padrao:
+    print(padrao.group()) #print texto com padrão informado
+else:
+    print('Padrão ñ encontrado')
+
+frase2 = 'O gato, a gata, os gatinhos, os gatoes'
+padrao2 = re.findall(r'gat\w+',frase2) #procura vários resultados
+print(padrao2)
+print(padrao2[1])
+
+padrao3 = re.findall(r'[gat]+',frase2) #procura letras separadas. O '+', opcional, insere tbm grupos 'gat'
+print(padrao3)
+
+padrao4 = re.findall(r'[gat]+\w+',frase2) #grupo de letras com mais um caractere unicode
+print(padrao4)
+
+email = 'mateus.sch@gmail.com'
+padraoEmail = re.findall(r'[\w\.-]+@[\w-]+\.[\w\.-]+',email) #procura emails
+print(padraoEmail)
 </code></pre></small>
         </div>
     </div>
