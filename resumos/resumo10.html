@@ -340,6 +340,18 @@ cabecalho = {'User-agent':'Windows 12','Referer':'https://Microsoft.com'}
 meusCookies = {'Visita':'10-10-2020'}
 dados = {'user':'mateus','senha':'abc'}
 requisicao = requests.post('https://google.com',headers=cabecalho,cookies=meusCookies,data=dados)
+
+========== API JSON ==========
+'''
+Api usada: OMDb API(www.omdbapi.com)
+Ver detalhes do filme pelo nome. 1º gerar uma APIKey para o funcionamento, no próprio site
+'''
+import requests,json #biblioteca json transforma arquivos json em dicionários
+req = requests.get('http://www.omdbapi.com/?t=interstellar&apikey=31f06394')
+print(req.text)
+dic = json.loads(req.text) #converte em dicionário
+print(dic)
+print(dic['Title'])
 </code></pre></small>
         </div>
     </div>
