@@ -46,6 +46,10 @@ nome = "mateus"
 peso = 75.8
 print(nome, peso)
 print("Exibir nome %s" % (nome))
+frase = ‘ola, tudo bem’
+print(frase[0]) #print 1º caractere
+print(frase[0:8:2]) #print caracteres do 0 ao 8, pulando a cada 2
+print(frase[::-1]) #de trás pra frente, invertido
 
 ========== ENTRADA DE DADOS ==========
 nome = input("Informe o nome: ")
@@ -125,6 +129,7 @@ print(len(lanche)) #2
 coisas = ("Max",39,25.5)
 #só atribuo valores à tupla na sua criação
 #não há como deletar somente item x da tupla
+#tupla é imutável
 
 Percorrer tupla:
 for comida in lanche:
@@ -134,6 +139,7 @@ Deletar tupla:
 del(lanche)
 
 ========== LISTAS ==========
+#lista é mutável
 animais = ["leão","gato","zebra"]
 animais[0] #leão
 animais[2] #zebra
@@ -205,6 +211,8 @@ Limpar Lista:
 pessoas.clear()
 
 ========== DICIONÁRIOS ==========
+#possui chave e valor
+#pode-se inserir dicionários dentro de listas
 pessoa = {
     "nome": "joão",
     "idade": 60,
@@ -232,7 +240,6 @@ for i in dic:
 
 for i,j in dic:
     print(f'O {i} é {j}') #o 'a' é 'apple'
-#pode-se inserir dicionários dentro de listas
 print(lista[0]['filme']) #dict filmes em 'lista'
 
 Ver itens:
@@ -244,6 +251,11 @@ dic.keys() #(['a','b','c'])
 
 Ver valores(values):
 dic.values() #(['apple','berry','cherry'])
+
+========== CONJUNTOS ==========
+#lista misturada com dicionário. Conjunto ñ tem itens repetidos, ñ tem indíces(ñ é ordenado). Mais ágil para percorrer, pesquisas...
+conjunto = {‘Gui’,’João’}
+conjunto.remove(‘João’)
 
 ========== LAMBDAS ==========
 g = lambda x: x * 2
@@ -259,6 +271,8 @@ Pasta com módulos
 ex: pacote 'uteis' tem arquivo 'numeros.py','cores.py'
 import uteis
 from uteis import cores #pra módulo específico
+from arquivo2 import * #pra import tudo
+defDoArquivo2() //função no arquivo 2 que printa ‘ola’
 
 Pacote dentro de pacote:
 fazer, dentro de cada pacote um módulo '___init___.py' colocamos o código python desejado e importamos no código principal
