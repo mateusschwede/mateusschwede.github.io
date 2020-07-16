@@ -353,6 +353,8 @@ print(req.text)
 dic = json.loads(req.text) #converte em dicionário
 print(dic)
 print(dic['Title'])
+print(dic['valor']['subvalor']['terceiroValor']) #dicionário dentro de dicionário
+print(dic['valor'][0]['subvalor']) #lista dentro de dicionário
 
 ========== EXPRESSÕES REGULARES ==========
 '''
@@ -391,6 +393,19 @@ print(padrao4)
 email = 'mateus.sch@gmail.com'
 padraoEmail = re.findall(r'[\w\.-]+@[\w-]+\.[\w\.-]+',email) #procura emails
 print(padraoEmail)
+
+========== ARGUMENTOS E LINHA DE COMANDO ==========
+'''
+Ao executar esse arquivo.py no terminal, serão executados/solicitados os argumentos.
+Argumento 0: Caminho até o arquivo atual
+'''
+import sys
+argumentos = sys.argv
+print(argumentos[0])
+print(argumentos)
+if argumentos:
+    print(argumentos[1]+argumentos[2])
+#informe no terminal(linux): 'python arquivo.py sexta feira'(concatenará 'sexta' com 'feira')
 </code></pre></small>
         </div>
     </div>
