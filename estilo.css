@@ -18,3 +18,9 @@ ERRO/EXCEPTION: <svg class="bi bi-outlet" width="1em" height="1em" viewBox="0 0 
 #msgm {padding: 3% 3% 0% 3%;}
 #covid {text-align: center; color: white; background-color: #517ef8; padding: 0.8%;}
 #doar {color: rgb(111, 219, 111);}
+
+#cardDestaquePhp {text-align: center; margin: 9px; border-bottom: rgb(151, 151, 240) 5px solid;}
+#cardDestaqueJava {text-align: center; margin: 9px; border-bottom: rgb(248, 93, 93) 5px solid;}
+#cardDestaqueSql {text-align: center; margin: 9px; border-bottom: rgb(79, 156, 72) 5px solid;}
+#cardDestaquePython {text-align: center; margin: 9px; border-bottom: rgb(68, 90, 196) 5px solid;}
+#cardDestaqueLinux {text-align: center; margin: 9px; border-bottom: rgb(238, 174, 78) 5px solid;}
