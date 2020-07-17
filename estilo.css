@@ -10,13 +10,14 @@ POST: <svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 
 CONTATO: <svg class="bi bi-briefcase-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M0 12.5A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5V6.85L8.129 8.947a.5.5 0 01-.258 0L0 6.85v5.65z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M0 4.5A1.5 1.5 0 011.5 3h13A1.5 1.5 0 0116 4.5v1.384l-7.614 2.03a1.5 1.5 0 01-.772 0L0 5.884V4.5zm5-2A1.5 1.5 0 016.5 1h3A1.5 1.5 0 0111 2.5V3h-1v-.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5V3H5v-.5z" clip-rule="evenodd"/></svg>
 ERRO/EXCEPTION: <svg class="bi bi-outlet" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.34 2.994c.275-.338.68-.494 1.074-.494h7.172c.393 0 .798.156 1.074.494.578.708 1.84 2.534 1.84 5.006 0 2.472-1.262 4.297-1.84 5.006-.276.338-.68.494-1.074.494H4.414c-.394 0-.799-.156-1.074-.494C2.762 12.297 1.5 10.472 1.5 8c0-2.472 1.262-4.297 1.84-5.006zm1.074.506a.376.376 0 00-.299.126C3.599 4.259 2.5 5.863 2.5 8c0 2.137 1.099 3.74 1.615 4.374.06.073.163.126.3.126h7.17c.137 0 .24-.053.3-.126.516-.633 1.615-2.237 1.615-4.374 0-2.137-1.099-3.74-1.615-4.374a.376.376 0 00-.3-.126h-7.17z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6 5.5a.5.5 0 01.5.5v1.5a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm4 0a.5.5 0 01.5.5v1.5a.5.5 0 01-1 0V6a.5.5 0 01.5-.5z" clip-rule="evenodd"/><path d="M7 10v1h2v-1a1 1 0 00-2 0z"/></svg>
 */
+#navMenu {border-radius: 0px 0px 23px 23px;}
 #menu {padding: 0%;}
 #titulo1 {padding: 4% 0% 3% 0%; text-align: center;}
 #titulo2 {padding: 3% 0% 3% 0%;}
 #titulo3 {padding-bottom: 3%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
-#covid {text-align: center; color: white; background-color: #517ef8; padding: 0.8%; border-radius: 0px 0px 20px 20px;}
+#covid {text-align: center; color: white; background-color: #d83535; padding: 0.8%; margin: 0% 0% 4% 0%;}
 #doar {color: rgb(111, 219, 111);}
 #titLista {text-align: center;}
 
