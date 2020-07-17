@@ -16,8 +16,9 @@ ERRO/EXCEPTION: <svg class="bi bi-outlet" width="1em" height="1em" viewBox="0 0 
 #titulo3 {padding-bottom: 3%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
-#covid {text-align: center; color: white; background-color: #517ef8; padding: 0.8%;}
+#covid {text-align: center; color: white; background-color: #517ef8; padding: 0.8%; border-radius: 0px 0px 20px 20px;}
 #doar {color: rgb(111, 219, 111);}
+#titLista {text-align: center;}
 
 #cardDestaquePhp {text-align: center; margin: 9px; border-bottom: rgb(151, 151, 240) 5px solid;}
 #cardDestaqueJava {text-align: center; margin: 9px; border-bottom: rgb(248, 93, 93) 5px solid;}
