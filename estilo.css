@@ -44,6 +44,7 @@ Laranja: #ff9800
 FONTES:
 TÍTULO: font-family: 'Bebas Neue', cursive;
 */
+#destaqueLinux {background-color: #222222; color: white;}
 #titLinux {color: #ffeb3c; font-family: 'Bebas Neue', cursive;}
 #fundoLinux {background-color: #222222; color: white;}
 #licao {background-color: #ffeb3c; color: #222222; border-radius: 0px 18px 18px 0px; margin: 0px 10px 0px 0px;}
