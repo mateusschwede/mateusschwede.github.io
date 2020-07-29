@@ -31,3 +31,20 @@ LOGO REDONDO: <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64"
 #modPythonBorda {border-bottom: 5px solid rgb(68, 90, 196);}
 #modLinux {background-color: rgb(238, 174, 78); color: white;}
 #modLinuxBorda {border-bottom: 5px solid rgb(238, 174, 78);}
+
+
+/* CURSO LINUX */
+/*
+CORES:
+Cinza Fundo: #222222
+Amarelo: #ffeb3c
+Roxo: #651fff
+Laranja: #ff9800
+
+FONTES:
+TÍTULO: font-family: 'Bebas Neue', cursive;
+*/
+#titLinux {color: #ffeb3c; font-family: 'Bebas Neue', cursive;}
+#fundoLinux {background-color: #222222; color: white;}
+#licao {background-color: #ffeb3c; color: #222222; border-radius: 0px 18px 18px 0px; margin: 0px 10px 0px 0px;}
+#capitulo {background-color: #222222; color: #ffff33; padding: 5px;}
