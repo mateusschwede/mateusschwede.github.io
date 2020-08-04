@@ -10,31 +10,9 @@ LOGO REDONDO: <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64"
 #titulo3 {padding-bottom: 3%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
-#covid {text-align: center; color: white; background-color: #d83535; padding: 0.8%; margin: 0% 0% 3% 0%; border-radius: 15px;}
-#doar {color: rgb(111, 219, 111);}
-#titLista {text-align: center;}
-#optContato {text-decoration: none;}
-
-#cardDestaqueWeb {text-align: center; margin: 9px; border-bottom: rgb(151, 151, 240) 5px solid;}
-#cardDestaqueJava {text-align: center; margin: 9px; border-bottom: rgb(248, 93, 93) 5px solid;}
-#cardDestaqueSql {text-align: center; margin: 9px; border-bottom: rgb(79, 156, 72) 5px solid;}
-#cardDestaquePython {text-align: center; margin: 9px; border-bottom: rgb(68, 90, 196) 5px solid;}
-#cardDestaqueLinux {text-align: center; margin: 9px; border-bottom: rgb(238, 174, 78) 5px solid;}
-
-#modWeb {background-color: rgb(151, 151, 240); color: white;}
-#modWebBorda {border-bottom: 5px solid rgb(151, 151, 240);}
-#modJava {background-color: rgb(248, 93, 93); color: white;}
-#modJavaBorda {border-bottom: 5px solid rgb(248, 93, 93);}
-#modSql {background-color: rgb(79, 156, 72); color: white;}
-#modSqlBorda {border-bottom: 5px solid rgb(79, 156, 72);}
-#modPython {background-color: rgb(68, 90, 196); color: white;}
-#modPythonBorda {border-bottom: 5px solid rgb(68, 90, 196);}
-#modLinux {background-color: rgb(238, 174, 78); color: white;}
-#modLinuxBorda {border-bottom: 5px solid rgb(238, 174, 78);}
 
 
-/* CURSO LINUX */
-/*
+/* CURSO LINUX
 CORES:
 Cinza Fundo: #222222
 Amarelo: #ffeb3c
