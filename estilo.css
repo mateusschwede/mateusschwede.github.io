@@ -7,10 +7,8 @@ LOGO REDONDO: <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64"
 #menu {padding: 0%;}
 #titulo1 {padding: 80px 0% 3% 0%; text-align: center;}
 #titulo2 {padding: 3% 0% 3% 0%;}
-#titulo3 {padding-bottom: 3%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
-
 
 /* CURSO LINUX
 CORES:
@@ -20,8 +18,7 @@ Roxo: #651fff
 Laranja: #ff9800
 
 FONTES:
-TÍTULO: font-family: 'Bebas Neue', cursive;
-*/
+TÍTULO: font-family: 'Bebas Neue', cursive; */
 #destaqueLinux {background-color: #222222; color: white;}
 #titLinux {color: #ffeb3c; font-family: 'Bebas Neue', cursive;}
 #fundoLinux {background-color: #222222; color: white;}
