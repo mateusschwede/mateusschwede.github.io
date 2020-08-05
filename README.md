@@ -11,8 +11,7 @@ Seja bem-vindo(a) ao site pessoal do Mateus!
 Acessibilitar o aprendizado rápido, simples e direto, além de completo, com tecnologia livre e aberta.
 
 ## Inspiração
-![London](anexos/doar/rain.jpg)
-Assim como nos cafes e ruas de Londres, em uma noite chuvosa, o site serviu-me de inspiração para trazer-lhe história e cultura, expandir seus horizontes de opinião. Isso, utilizando recursos avançados, totalmente Free e Open Source, da forma mais simples, rápida e direta possível. Quero ensinar-lhe todos os detalhes da forma mais rápida possível e, ao mesmo tempo, provar-lhe todas as maravilhas que a tecnologia livre pode proporsionar-lhe!
+Assim como nos cafes e ruas de Londres, em uma noite chuvosa, o site serviu-me de inspiração para trazer-lhe história e cultura sobre software livre, expandir seus horizontes de opinião. Isso, utilizando recursos avançados, totalmente Free e Open Source, da forma mais simples, rápida e direta possível. Quero ensinar-lhe todos os detalhes da forma mais rápida possível e, ao mesmo tempo, provar-lhe todas as maravilhas que a tecnologia livre pode lhe proporsionar!
 
 ## Direitos
 O site é livre para te inspirar a criar algo ainda melhor!
