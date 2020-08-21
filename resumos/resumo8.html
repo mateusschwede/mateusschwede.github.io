@@ -38,7 +38,7 @@
 
         <div class="col-sm-12">
             <h4>Bash</h4>
-            <p id="textoPost">O Bash é um dos interpretadores de comandos Linux <small>(bash --version)</small>. O interpretador de comandos tem função de interpretar comandos, juntamente com seus argumentos/parâmetros, executáveis localizados na pasta <i>bin</i>. Diferente do prompt do Windows, no Linux os comandos são externos, nos quais o interpretador tem a função de somente interpretá-los e executá-los. Todo comando é minúsculo (exceção de nome de arquivos e pastas). Todo comandos possui parâmetros ou argumentos, dos quais modificam a saída do comando, parâmetros são seguidos de 1 traço e letra ou 2 traços e palavra. Argumento não possui traços. <small>(Ex: cd .. (cd comando, .. argumento))</small>.</p>
+            <p id="textoPost">O Bash é um dos interpretadores de comandos Linux <small>(bash --version)</small>. O interpretador de comandos tem função de interpretar comandos, juntamente com seus argumentos/parâmetros, executáveis localizados na pasta <i>bin</i>. Diferente do prompt do Windows, no Linux os comandos são externos, nos quais o interpretador tem a função de somente interpretá-los e executá-los. Todo comando é minúsculo (exceção de nome de arquivos e pastas). Todo comandos possui parâmetros ou argumentos, dos quais modificam a saída do comando, parâmetros são seguidos de 1 traço e letra ou 2 traços e palavra. Argumento não possui traços. <small>(Ex: cd .. (cd comando, .. argumento))</small>. Vale lembrar que esse conteúdo é baseado em distros <b>debian</b>!</p>
             <p><b>Sintaxe:</b> comando -parametro argumento</p>
             <img src="../anexos/resumo8/bash.png" class="img-fluid">
             <br><br>
@@ -166,7 +166,7 @@ Copiar e colar tudo com final ‘.conf’ para dentro de uma pasta: cp /etc/*.co
 Procurar pacotes apt para instalação: sudo apt search
 Pacote com apt: sudo apt install nomearquivo
 Pacote .deb: sudo dpkg -i nomearquivo.deb
-Pacote .run: sudo chmod +x nomearquivo.run && sudo ./nomearquivo.run
+Pacote .run / .bin: sudo chmod +x nomearquivo.run && sudo ./nomearquivo.run / nomearquivo.bin
 Pacote .tar: sudo tar -xvf nomearquivo.tar
 Pacote .tar.gz: sudo tar -zxvf nomearquivo.tar.gz
 Pacote .tar.bz2/.xz: sudo tar -jxvf nomearquivo.tar.bz2
@@ -177,6 +177,7 @@ Pacote .tar.bz2/.xz: sudo tar -jxvf nomearquivo.tar.bz2
 Remover ‘lixo’: sudo apt autoremove (bibliotecas) //ou apt clean (cache)
 Reconstruir dependências faltando/corrompidas: sudo apt --fix-broken install
 Desinstalar somente software: sudo apt remove nomesoftware
+Desinstalar .deb: sudo dpkg --remove nomesoftware
 Desinstalar software e bibliotecas (cuidado!): sudo apt-get purge nomesoftware //ou sudo apt-get purge --auto-remove nomesoftware
 </code></pre></small><br>
             <h4>Atualizações</h4>
@@ -184,7 +185,7 @@ Desinstalar software e bibliotecas (cuidado!): sudo apt-get purge nomesoftware /
 Atualizar bibliotecas: sudo apt update
 Atualizar programas: sudo apt upgrade
 Atualizar bibliotecas e programas(comando único): sudo apt update && sudo apt upgrade
-Atualizar distro e programas: sudo apt dist-upgrade
+Atualizar distro e programas: sudo apt dist-upgrade / sudo apt full-upgrade
 </code></pre></small><br>
             <h4>Permissões de acesso</h4>
 <small><pre><code>
@@ -205,6 +206,43 @@ x - exec(execução)
 Ex1: sudo chmod 764 teste (Da direita pra esquerda, permissão à outros usuários(4) com somente leitura, grupo(6) com leitura e gravação e dono(7) com leitura, gravação e execução)
 Ex2: sudo chmod 40 teste (Da direita pra esquerda, permissão à outros usuários(0) nenhuma, grupo(4) somente leitura e dono não foi modificada)
 </code></pre></small><br>
+            <h4>Criar lançador(atalho)</h4>
+<small><pre><code>
+-- Conteúdo do arquivo do lançador (nomedoprograma.desktop) --
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Nome do aplicativo
+Comment=Uma breve descrição do aplicativo
+Icon=/endereço/do/ícone/icon.png do aplicativo
+Exec=/endereço/do/aplicativo/executável do aplicativo
+Terminal=false
+StartupNotify=false
+Categories=Network;
+
+CRIANDO LANÇADOR:
+Crie o diretório dos lançadores: mkdir ~/.local/share/applications/
+Altere nomedoprograma para o nome do seu aplicativo: nano ~/.local/share/applications/nomedoprograma.desktop
+
+- Cole as informações do lançador no editor
+Com o lançador pronto, salve teclando Ctrl + x tecle 's'ou'y' e tecle 'Enter' para fechar.
+
+ACESSAR PASTA DE LANÇADORES: nautilus /usr/share/applications
+Acessar Pasta de meus Lançadores: nautilus ~/.local/share/applications
+
+-- Categorias Lançadores:
+Configurações: Categories=Settings;
+Desenvolvimento: Categories=Development;Documentation;
+Educação: Categories=Education;
+Ciências: Categories=Science;
+Escritório: Categories=Office;
+Gráficos: Categories=Graphics;
+Internet: Categories=Network;
+Jogos: Categories=Game;
+Multimídia: Categories=AudioVideo;Audio;Video;AudioVideoEditing;
+Sistema: Categories=System;
+Utilitários: Categories=Utility;    
+</code></pre></small>
         </div>
     </div>
 
