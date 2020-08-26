@@ -57,6 +57,7 @@
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
             <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">3</span> Distros Linux</h3>
+            <img src="anexos/linux/distros.jpg" width="250px" height="auto">
             <p>Uma distribuição Linux (distro) é um SO completo criado a partir do Kernel Linux. Há cerca de 600 distros atualmente, sendo a Debian a 'mãe' da maioria. Nem todas são totalmente gratuitas, como o Red Hat Enterprise Linux. Distros como Mint, Ubuntu e Kde são baseadas (criadas) a partir da Debian. A versão não modificada do Kernel Linux é chamada de 'Vanilla'. A 1ª distro foi a Yggdrasil Linux/GNU/X. A distro comunitária mais antiga é a Slackware, ainda ativa. Cada distro possui nomenclatura baseada em alguma referência cômica ou algo do tipo, como a Mint, que suas versões estáveis possuem nome feminino, e as instáveis, masculino (Por que supõe-se que, nas decisões da vida, as mulheres são mais estáveis do que os homens). A distro Debian possui nome como referência à esposa do criador, 'Debie', onde cada versão possui como nomenclatura um personagem do filme 'Toy Story'. Há uma teoria de que o logo da Debian, o redemoinho Magic Smoke, foi criado porque o personagem 'Buzz Lightyear' possui um redemoinho similar no queixo. As principais distros Linux são Mint, Ubuntu (mais usada), Fedora (Red Hat), openSuSE, CentOS, Zorin OS, Kde, Kali, Manjaro, Elementary OS, Raspbian, Arch, entre outras.</p>
         </div>
     </div>
@@ -178,6 +179,37 @@
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
             <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">16</span> Pendrives e HDs no Linux</h3>
             <p>O Linux tem suporte a vários sistemas de arquivos, inclusive os que o Windows suporta, como FAT32, exFAT, NTFS e EXT4. SOs como MacOS não suportam gravação NTFS, suportando apenas leitura. Linux era similar no passado, atualmente consegue. O FAT32 não possibilita manipular arquivos com mais de 4GB. exFAT é compatível com arquivos maiores que 4GB, mas não tão compatível quanto FAT32. NTFS é compatível com Windows, apesar de problemas ocasionais com Linux serem ainda frequentes, pois a compatibilidade com o Linux está sendo feita por meio de Engenharia Reversa, sendo ainda não compatível com MacOS e maioria dos dispositivos de hardware. EXT4 é moderno, estável, rápido e jornalizado(cria um jornal, algo como pastas temporárias para gravações e recuperações), suportando permissões de arquivos no Linux. Não é compatível com MacOS, Windows e maioria dos dispositivos de hardware. A melhor opção, para arquivos pequenos, é o FAT32. O EXT4 é mais rápido, mas não recomendado para pendrives. O NTFS precisa-se verificar segurança, por razão de vírus Windows via pendrive. SEMPRE ative o ejetar pendrive antes de, de fato, ejetá-lo. O dispositivo USB é Serial, com transmissão assíncrona, que se remover o pendrive sem ativar a ejeção, o processo será interrompido, correndo o risco de corromper algo. Outro ponto é o de que um dos pinos do pendrive passa corrente elétrica, e se removido antes da finalização do processo, correrá o risco de queimá-lo. Quando remove-se algo do pendrive, seus arquivos vão para a pasta da lixeira, .trash, que na verdade é linkada dentro do pendrive, guardando informações da lixeira sobre a localização do arquivo em pasta oculta, dentro do pendrive, o que pode ocupar mais espaço ao invés de diminuir. Para solucionar tal problema, precisa-se apagar o arquivo e limpar a lixeira, que removerá os arquivos da lixeira do pendrive também, ou removê-lo permanentemente com o uso conjunto do botão ‘shift’. Isso serve para todos os dispositivos HDs plugados no Linux. Isso serve para qualquer SO.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">17</span> Bash 1</h3>
+            <img src="anexos/resumo8/bash.png" width="250px" height="auto">
+            <p>O Bash é um dos interpretadores de comandos Linux <small>(bash --version)</small>. O interpretador de comandos tem função de interpretar comandos, juntamente com seus argumentos/parâmetros, executáveis localizados na pasta <i>bin</i>. Diferente do prompt do Windows, no Linux os comandos são externos, nos quais o interpretador tem a função de somente interpretá-los e executá-los. Todo comando é minúsculo (exceção de nome de arquivos e pastas). Todo comandos possui parâmetros ou argumentos, dos quais modificam a saída do comando, parâmetros são seguidos de 1 traço e letra ou 2 traços e palavra. Argumento não possui traços. <small>(Ex: cd .. (cd comando, .. argumento))</small>. Todo SO possui uma entrada padrão(teclado) e saída padrão(tela e saída de erro). Essa, por sua vez, pode ser modificada, como a saída para criação de um arquivo ou algo do tipo. No Linux tudo é arquivo, inclusive os diretórios(pastas). Um pendrive, quando plugado, torna-se um arquivo, salvo na pasta ‘device’, assim como o teclado. Vale lembrar que esse conteúdo é baseado em distros <b>debian</b>!</p>
+            <p><b>Sintaxe:</b> comando -parametro argumento</p>
+            <p>No caso, o parâmetro modificará a saída do comando para determinado argumento.</p>
+            <h4>Atalhos úteis</h4>
+            <ul>
+                <li><b>Tab</b> autocompleta o comando</li>
+                <li><b>Seta up</b> comando anterior</li>
+                <li><b>Seta down</b> mostra o comando sucessor ao anterior</li>
+                <li><b>^C</b> quer dizer <i>cntrl+c</i></li>
+            </ul>
+            <h4>Comandos gerais</h4>
+<small><pre><code>
+<b>Filme Star Wars modo Terminal:</b> telnet towel.blinkenlights.nl
+<b>Fechar o bash:</b> exit
+<b>Limpar bash:</b> clear (cntrl+l)
+<b>Ajuda no bash:</b> help
+<b>Ajuda com determinado comando:</b> comando --help
+<b>Manual sobre determinado comando:</b> man comando
+<b>Modo administrador:</b> sudo + outros comandos
+<b>Modo root(Super admin(cuidado!)):</b> sudo su
+<b>Mostrar caminho de pastas à partir da raíz(absoluto):</b> pwd
+<b>Caminho relativo:</b> ./pasta/pasta/arquivo.tipo
+<b>Historico dos comandos executados:</b> history
+<b>Repetir comando x do history:</b> !34 (executará o comando 34 do history)    
+</code></pre></small>
         </div>
     </div>
 
