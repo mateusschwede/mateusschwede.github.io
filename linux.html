@@ -257,6 +257,50 @@
 </code></pre></small>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">19</span> Bash 3</h3>
+            <h4>Movimentar-se nas pastas</h4>
+<small><pre><code>
+cd (change directory)
+<b>Entrar em pasta na pasta atual:</b> cd nomepasta/
+<b>Entrar em arquivo na pasta atual:</b> cd arquivo.tipo
+<b>Entrar na pasta x:</b> cd ~/pastax/
+<b>Voltar 1 pasta da pasta atual(diretório pai):</b> cd ..
+<b>Voltar 2 pastas da pasta atual:</b> cd ../../ (e assim por diante)
+<b>Voltar à pasta de seu usuário(~):</b> cd ou cd ~
+<b>Volta à pasta raíz:</b> cd / (Na pasta raíz tem-se o acesso de todo o sistema)
+</code></pre></small>
+            <h4>Caracteres globais(Globbing)</h4>
+<small><pre><code>
+<b>*</b> Referência a conjunto de caracteres (presente no prompt do Windows)
+<b>?</b> Referência a apenas 1 caractere (presente no prompt do Windows)
+<b>[ ]</b> Referência de faixa de caracteres (busca faixas de caracteres, como a até m, u até l)
+<b>{ }</b> Referência a padrões de caracteres
+<u>Obs</u>: Há diferença entre maiúsculas e minúsculas
+
+<b>Listar tudo que começa com 'x':</b> ls /etc/x*
+<b>Listar tudo que tem 'x' no meio:</b> ls /etc/*x*
+<b>Listar tudo que termina com '.conf':</b> ls /etc/*.conf
+<b>Listar tudo que tem 2º caractere 'a', 3º 's', e depois qualquer coisa:</b> ls /etc/?as*
+<b>Listar tudo que tem 'a' na 4ª posição e depois qualquer coisa:</b> ls /etc/???a*
+<b>Listar tudo que começa com 'f', seguido de caractere na faixa entre 'a' e 'i', e depois qualquer coisa:</b> ls /etc/f[a-i]*
+<b>Listar tudo que começa com 'f', seguido de caractere 'a' ou 'c', depois qualquer coisa:</b> ls /etc/f[a,c]*
+<b>Listar tudo que começa com 'f', seguido de caractere entre 'a' até c, ou 'e', depois qualquer coisa:</b> ls /etc/f[a-c,e]*
+<b>Listar tudo que tenha no meio caracteres de 'a' até 'c', depois qualquer coisa:</b> ls /etc/*[a-c]*
+<b>Listar tudo que, por 2º, liste ou 'am' ou(OR) 'ul', depois qualquer coisa:</b> ls /etc/?{am,ul}*
+<b>Lista tudo que, por 2º, liste sequência do 'a' até 'm' ou do 'u' até 'l' (não é necessário o traço '-'), depois qualquer coisa:</b> ls /etc/?[am,ul]*
+<b>Listar tudo que termina com ou 'tab' ou 'swd':</b> ls /etc/*{tab,swd}
+</code></pre></small>
+            <h4>Manipulação de arquivos</h4>
+<small><pre><code>
+<b>Copiar e colar arquivo:</b> cp nomearquivo.tipo Pastadestino/ (no modo gráfico basta segurar o cntrl e mover o arquivo para o destino)
+<b>Mover arquivo:</b> mv nomearquivo.tipo Pastadestino/
+<b>Renomear arquivo:</b> mv pastaantiga/ Pastanova/
+<b>Copiar e colar tudo com final '.conf' para dentro de uma pasta:</b> cp /etc/*.conf Pastadestino/
+</code></pre></small>
+        </div>
+    </div>
 
 
 </div>
