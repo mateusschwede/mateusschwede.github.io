@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="../anexos/icons/logoCircle64.png"/>
+    <link rel="stylesheet" href="../estilo.css">
+    <title>Mateus Notes</title>
+</head>
+<body>
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-sm-12" id="menu">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logoCircle64.png" width="30px" height="auto"/> MateusNotes</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="titulo1">
+            <h1>Big Data Fundamentos</h1>
+            <h6><strong>Conceitos teóricos sobre Big Data e Hadoop</strong></h6>
+        </div>
+
+        <div class="col-sm-12">
+            <h4>O que é Big Data</h4>
+            <p id="textoPost">Quantidade e variedade de dados. 80% dos dados são não-estruturados(dados não padrões), ou estão em diferentes formatos. Dificuldade de coleta e tratamento de dados. Modelos atuais de BD visam armazenamento estruturado(padrão). Logs de servidores não são utilizados como deveriam, pois poderiam prever um futuro através da análise, contornando problemas e otimizando soluções. Logs de servidores são exemplos de Big Data. Custo alto em manter dados não-estruturados. Os dados de hoje são o novo petróleo como matéria-prima para os negócios, ainda mais com o crescimento em IOT. Big Data é conjunto de dados, grande, complexo e valioso, que não podem ser processados por BD ou aplicações tradicionais. Esses valores, em pequenas quantidades, não alcançariam resultados concretos. Os dados podem ser estruturados, não-estruturados ou streaming(fluxo constante de dados). O Big Data tornou-se importante pela existência de ferramentas que fazem esta análise com baixo custo. Machine Learning e IA são dependentes de Big Data.Nele, os dados precisam ser confiáveis!</p>
+            <br>
+            <h4>Tamanho do Big Data</h4>
+            <p id="textoPost">Yottabyte -> x1024 -> Zettabyte -> x1024 -> Exabyte -> x1024 -> Petabyte -> 1024 -> Terabyte -> x1024 -> Gigabyte.<br>A ideia é que, com o tempo, o nº de armazenamento cresça de forma gradual.</p>
+            <br>
+            <h4>Exemplo atual</h4>
+            <p id="textoPost">A Netflix analisa seus dados de filmes/séries assistidas, favoritos, para então recomendar conteúdo similar ao seu e outros perfis similares. A coleta de dados, transformação em informação, recomendações e análise preditiva são pontos levados em consideração nesse caso.</p>
+            <br>
+            <h4>Tecnologias atuais</h4>
+            <ul>
+                <li>Linguagens de programação como R, Python</li>
+                <li>Frameworks como Hadoop, Spark, Azure Machine Learning</li>
+            </ul>
+            <br>
+            <h4>Os 4 V's do Big Data</h4>
+            <ol>
+                <li><b>Volume(25%):</b> Tamanho dos dados;</li>
+                <li><b>Variedade(69%):</b> Formato dos dados;</li>
+                <li><b>Velocidade(6%):</b> Geração dos dados;</li>
+                <li><b>Veracidade:</b> Confiabilidade dos dados.</li>
+            </ol>
+            <p id="textoPost">À quem insira o 5º V, de ‘valor’, mas que não fora contabilizado aqui, pois conclui-se que o valor é o resultado da análise de Big Data, não de suas características.</p>
+            <br>
+            <h4>Aplicações práticas</h4>
+            <ul>
+                <li>Transformar TB de Tweets gerados cada dia em produtos de análise de sentimento;</li>
+                <li>Investigar milhões de eventos de trade nas bolsas de valores a fim de identificar fraudes;</li>
+                <li>Monitorar milhares de vídeos de segurança a fim de identificar pontos perigosos em uma cidade.</li>
+            </ul>
+            <br>
+            <h4>Uso do Big Data</h4>
+            <p id="textoPost">Sistema de recomendações, análises em tempo real, construir um modelo de série de análises temporais, prever o preço de um produto de sua empresa daqui a um mês/ano, prever o resultado de uma campanha de marketing, prever o turnover(se o funcionário vai sair ou não da empresa).</p>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
