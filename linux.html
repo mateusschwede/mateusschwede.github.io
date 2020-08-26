@@ -339,6 +339,67 @@ to-tgz -> Converte arquivo para .tgz
 </code></pre></small>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">21</span> Bash 5: Permissões</h3>
+            <h4>Permissões de acesso</h4>
+<small><pre><code>
+<b>r</b> - read(leitura)
+<b>w</b> - write(gravação)
+<b>x</b> - exec(execução)
+
+<b>0</b> Corresponde ao <b>"-rwx"</b> Nenhuma permissão
+<b>1</b> Corresponde ao <b>"x"</b> Execução
+<b>2</b> Corresponde ao <b>"w"</b> Escrita
+<b>3</b> Corresponde ao <b>"wx"</b> Escrita e execução
+<b>4</b> Corresponde ao <b>"r"</b> Leitura
+<b>5</b> Corresponde ao <b>"rx"</b> Leitura e execução
+<b>6</b> Corresponde ao <b>"rw"</b>  Leitura e escrita
+<b>7</b> Corresponde ao <b>"rwx"</b> Leitura, escrita e execução (Cuidado!)
+<b>-R</b> Permissão recursiva (afeta todos arquivo e subpastas) à listada. (Ex: sudo chmod -R 777 arquivo)
+
+<u>Ex1</u>: sudo chmod 764 teste (Da direita pra esquerda, permissão à <b>outros usuários(4)</b> com somente leitura, <b>grupo(6)</b> com leitura e gravação, e <b>dono(7)</b> com leitura, gravação e execução)
+<u>Ex2</u>: sudo chmod 40 teste (Da direita pra esquerda, permissão à outros usuários(0) nenhuma, grupo(4) somente leitura e dono não foi modificada)
+</code></pre></small>
+            <h4>Criar lançador<small>(atalho)</small></h4>
+<small><pre><code>
+<b>Conteúdo do arquivo do lançador (nomedoprograma.desktop)</b>
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Nome do aplicativo
+Comment=Uma breve descrição do aplicativo
+Icon=/endereço/do/ícone/icon.png do aplicativo
+Exec=/endereço/do/aplicativo/executável do aplicativo
+Terminal=false
+StartupNotify=false
+Categories=Network;
+
+<b>Criar Lançador</b>
+Crie o diretório dos lançadores: mkdir ~/.local/share/applications/
+Altere nomedoprograma para o nome do seu aplicativo: nano ~/.local/share/applications/nomedoprograma.desktop
+Cole as informações do lançador, similares à acima, no editor
+Com o lançador pronto, salve teclando Ctrl + x tecle 's'ou'y' e tecle 'Enter' para fechar.
+
+<b>Acessar Lançadores</b>
+Acessar pasta de lançadores: nautilus /usr/share/applications
+Acessar pasta de meus lançadores: nautilus ~/.local/share/applications
+
+<b>Categorias de Lançadores</b>
+<b>Configurações:</b> Categories=Settings;
+<b>Desenvolvimento:</b> Categories=Development;Documentation;
+<b>Educação:</b> Categories=Education;
+<b>Ciências:</b> Categories=Science;
+<b>Escritório:</b> Categories=Office;
+<b>Gráficos:</b> Categories=Graphics;
+<b>Internet:</b> Categories=Network;
+<b>Jogos:</b> Categories=Game;
+<b>Multimídia:</b> Categories=AudioVideo;Audio;Video;AudioVideoEditing;
+<b>Sistema:</b> Categories=System;
+<b>Utilitários:</b> Categories=Utility;
+</code></pre></small>
+        </div>
+    </div>
 
 
 </div>
