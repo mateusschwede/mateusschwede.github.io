@@ -42,13 +42,13 @@
             <p><b>Sintaxe:</b> comando -parametro argumento</p>
             <img src="../anexos/resumo8/bash.png" class="img-fluid">
             <br><br>
-            <p id="textoPost">No Linux tudo é arquivo, inclusive os diretórios(pastas). Um pendrive, quando plugado, torna-se um arquivo, salvo na pasta ‘device’, assim como o teclado.<br><small><u>Ex:</u> ~/Downloads/Linux/linux.iso (o til representa a pasta de seu usuário)</small></p>
+            <p id="textoPost">No Linux tudo é arquivo, inclusive os diretórios(pastas). Um pendrive, quando plugado, torna-se um arquivo, salvo na pasta 'device', assim como o teclado.<br><small><u>Ex:</u> ~/Downloads/Linux/linux.iso (o til representa a pasta de seu usuário)</small></p>
             <br>
             <h4>Diretório Raíz</h4>
             <ul>
                 <li><b>bin:</b> Onde estão os comandos do bash</li>
                 <li><b>boot:</b> Onde está o kernel</li>
-                <li><b>dev:</b> Onde estão os dispositivos da máquina <small>(<u>Ex:</u> hd é o ‘sda’, usb onde ficam os usb’s plugados(dispositivo usb geralmente tem nome sdb,sdb1...))</small></li>
+                <li><b>dev:</b> Onde estão os dispositivos da máquina <small>(<u>Ex:</u> hd é o 'sda', usb onde ficam os usb's plugados(dispositivo usb geralmente tem nome sdb,sdb1...))</small></li>
                 <li><b>home:</b> Onde estão nossos arquivos</li>
                 <li><b>lib e lib64:</b> Onde estão as bibliotecas dos sistema</li>
                 <li><b>proc:</b> Sistema de arquivos, dos quais trazem informações sobre o SO <small>(<u>Ex:</u> cat /proc/cpuinfo mostra informações sobre a cpu, também pode ser substituído pelo comando lscpu)</small></li>
@@ -85,18 +85,18 @@ Repetir comando x do history: !34 (executará o comando 34 do history)
             <h4>Criar</h4>
 <small><pre><code>
 Criar pasta: mkdir nomepasta1 nomepasta2 nomepasta3
-Criar pasta com subpasta: mkdir -p pasta1/pasta2/pasta\ 3/ (o ‘\ ’ representa não interpretar o próximo espaço em branco como um comando, pode-se trocar o nome do arquivo com espaços por seu nome por extenso entre aspas duplas)
+Criar pasta com subpasta: mkdir -p pasta1/pasta2/pasta\ 3/ (o '\ ' representa não interpretar o próximo espaço em branco como um comando, pode-se trocar o nome do arquivo com espaços por seu nome por extenso entre aspas duplas)
 Criar arquivo: touch nomearquivo.tipo
 Comando mais direto: touch Documents/Cursos/Linux/Modulo\ 1/aula1.txt
 </code></pre></small><br>
             <h4>Editar</h4>
 <small><pre><code>
-Editar arquivo com o editor bash ‘nano’: nano nomearquivo.tipo
-(Comandos nano: ‘cntrl+o(salvar)’, ‘cntrl+x(sair)‘, o 'M' representa o 'alt')
+Editar arquivo com o editor bash 'nano': nano nomearquivo.tipo
+(Comandos nano: 'cntrl+o(salvar)', 'cntrl+x(sair)', o 'M' representa o 'alt')
 </code></pre></small><br>
             <h4>Remover</h4>
 <small><pre><code>
-Remover pasta/arquivo(cuidado): rm nomepasta/ (‘rm’ remove definitivamente, não move à lixeira)
+Remover pasta/arquivo(cuidado): rm nomepasta/ ('rm' remove definitivamente, não move à lixeira)
 Remover arquivox na pasta Documents: rm Documents/arquivox
 Remover pasta: rmdir nomepasta/
 Remover pasta com conteúdo dentro: rm -rf nomepasta
@@ -107,7 +107,7 @@ Remover sob confirmação com mais de 4 arquivos: rm -I (i maiúsculo)(-r apaga 
 <small><pre><code>
 // Durabilidade somente enquanto o terminal estiver aberto
 Mostrar todos os apelidos: alias
-Criar apelido: alias rm=”rm -I” (agora todo o comando ‘rm’ será, na verdade, ‘rm -I’)
+Criar apelido: alias rm="rm -I" (agora todo o comando 'rm' será, na verdade, 'rm -I')
 </code></pre></small><br>
             <h4>Listar <small>(Dentro da pasta atual)</small></h4>
 <small><pre><code>
@@ -119,7 +119,7 @@ Listar com arquivos ocultos: ls -a
 Listar com informações incluindo armazenamento e arquivos ocultos e subpastas: ls -Rlah (tipo do arquivo: d(diretório), arquivo comum(-), dispositivo de bloco(b), de caracteres(c), link(l))
 Listar conteúdo de arquivo: cat nomearquivo.tipo
 Listar conteúdo de arquivo de trás pra frente: tac nomearquivo.tipo
-Listar conteúdo de arquivo com paginação: less /etc/services (Less: ‘n’ pula pra próxima página, ‘/palavra’ procura palavra)
+Listar conteúdo de arquivo com paginação: less /etc/services (Less: 'n' pula pra próxima página, '/palavra' procura palavra)
 Listar conteúdo de pasta: ls nomepasta/
 </code></pre></small><br>
             <h4>Movimentar-se nas pastas</h4>
@@ -141,27 +141,27 @@ Volta à pasta raíz: cd / (Na pasta raíz tem-se o acesso de todo o sistema)
 { } Referência a padrões de caracteres
 Obs: Há diferença entre maiúsculas e minúsculas
 
-Listar tudo que começa com ‘x’: ls /etc/x*
-Listar tudo que tem ‘x’ no meio: ls /etc/*x*
-Listar tudo que termina com ‘.conf’: ls /etc/*.conf
-Listar tudo que tem 2º caractere ‘a’, 3º ‘s’, e depois qualquer coisa: ls /etc/?as*
-Listar tudo que tem ‘a’ na 4ª posição e depois qualquer coisa: ls /etc/???a*
-Listar tudo que começa com ‘f’, seguido de caractere na faixa entre ‘a’ e ‘i’, e depois qualquer coisa: ls /etc/f[a-i]*
-Listar tudo que começa com ‘f’, seguido de caractere ‘a’ ou ‘c’, depois qualquer coisa: ls /etc/f[a,c]*
-Listar tudo que começa com ‘f’, seguido de caractere entre ‘a’ até c, ou ‘e’, depois qualquer coisa: ls /etc/f[a-c,e]*
-Listar tudo que tenha no meio caracteres de ‘a’ até ‘c’, depois qualquer coisa: ls /etc/*[a-c]*
-Listar tudo que, por 2º, liste ou ‘am’ ou(OR) ‘ul’, depois qualquer coisa: ls /etc/?{am,ul}*
-Lista tudo que, por 2º, liste sequência do ‘a’ até ‘m’ ou do ‘u’ até ‘l’ (não é necessário o traço ‘-’), depois qualquer coisa: ls /etc/?[am,ul]*
-Listar tudo que termina com ou ‘tab’ ou ‘swd’: ls /etc/*{tab,swd}
+Listar tudo que começa com 'x': ls /etc/x*
+Listar tudo que tem 'x' no meio: ls /etc/*x*
+Listar tudo que termina com '.conf': ls /etc/*.conf
+Listar tudo que tem 2º caractere 'a', 3º 's', e depois qualquer coisa: ls /etc/?as*
+Listar tudo que tem 'a' na 4ª posição e depois qualquer coisa: ls /etc/???a*
+Listar tudo que começa com 'f', seguido de caractere na faixa entre 'a' e 'i', e depois qualquer coisa: ls /etc/f[a-i]*
+Listar tudo que começa com 'f', seguido de caractere 'a' ou 'c', depois qualquer coisa: ls /etc/f[a,c]*
+Listar tudo que começa com 'f', seguido de caractere entre 'a' até c, ou 'e', depois qualquer coisa: ls /etc/f[a-c,e]*
+Listar tudo que tenha no meio caracteres de 'a' até 'c', depois qualquer coisa: ls /etc/*[a-c]*
+Listar tudo que, por 2º, liste ou 'am' ou(OR) 'ul', depois qualquer coisa: ls /etc/?{am,ul}*
+Lista tudo que, por 2º, liste sequência do 'a' até 'm' ou do 'u' até 'l' (não é necessário o traço '-'), depois qualquer coisa: ls /etc/?[am,ul]*
+Listar tudo que termina com ou 'tab' ou 'swd': ls /etc/*{tab,swd}
 </code></pre></small><br>
             <h4>Manipulação de arquivos</h4>
 <small><pre><code>
 Copiar e colar arquivo: cp nomearquivo.tipo Pastadestino/ (no modo gráfico basta segurar o cntrl e mover o arquivo para o destino)
 Mover arquivo: mv nomearquivo.tipo Pastadestino/
 Renomear arquivo: mv pastaantiga/ Pastanova/
-Copiar e colar tudo com final ‘.conf’ para dentro de uma pasta: cp /etc/*.conf Pastadestino/
+Copiar e colar tudo com final '.conf' para dentro de uma pasta: cp /etc/*.conf Pastadestino/
 </code></pre></small><br>
-            <h4>Instalações <small>(Distros baseadas Debian)</small></h4>
+            <h4>Instalar</h4>
 <small><pre><code>
 Procurar pacotes apt para instalação: sudo apt search
 Pacote com apt: sudo apt install nomearquivo
@@ -170,17 +170,24 @@ Pacote .run / .bin: sudo chmod +x nomearquivo.run && sudo ./nomearquivo.run / no
 Pacote .tar: sudo tar -xvf nomearquivo.tar
 Pacote .tar.gz: sudo tar -zxvf nomearquivo.tar.gz
 Pacote .tar.bz2/.xz: sudo tar -jxvf nomearquivo.tar.bz2
-(Softwares compactados geralmente possuem um arquivo de instruções de instalação, juntamente com um arquivo ‘.configure’, do qual terá de ser executado(./configure), após realizar o ‘make’ do software, ‘make clean’ e, após isso, montar o programa ‘make install’ usando ‘sudo’)
+(Softwares compactados geralmente possuem um arquivo de instruções de instalação, juntamente com um arquivo '.configure', do qual terá de ser executado(./configure), após realizar o 'make' do software, 'make clean' e, após isso, montar o programa 'make install' usando 'sudo')
+<b>Converter .rpm para .deb (Alien):</b>
+1- Instale Alien: sudo apt install alien
+2- Converta: sudo alien &ltopcao&gt arquivo.rpm
+Opções (opcionais):
+to-deb -> Converter arquivo para .deb
+to-rpm -> Converter arquivo para .rpm
+to-tgz -> Converter arquivo para .tgz 
 </code></pre></small><br>
             <h4>Desinstalar / Limpar</h4>
 <small><pre><code>
-Remover ‘lixo’: sudo apt autoremove (bibliotecas) //ou apt clean (cache)
+Remover 'lixo': sudo apt autoremove (bibliotecas) //ou apt clean (cache)
 Reconstruir dependências faltando/corrompidas: sudo apt --fix-broken install
 Desinstalar somente software: sudo apt remove nomesoftware
 Desinstalar .deb: sudo dpkg --remove nomesoftware
-Desinstalar software e bibliotecas (cuidado!): sudo apt-get purge nomesoftware //ou sudo apt-get purge --auto-remove nomesoftware
+Desinstalar software e bibliotecas (cuidado!): sudo apt purge nomesoftware //ou sudo apt purge --auto-remove nomesoftware
 </code></pre></small><br>
-            <h4>Atualizações</h4>
+            <h4>Atualizar</h4>
 <small><pre><code>
 Atualizar bibliotecas: sudo apt update
 Atualizar programas: sudo apt upgrade
@@ -193,13 +200,13 @@ r - read(leitura)
 w - write(gravação)
 x - exec(execução)
 
-0 Corresponde ao “-rwx” Nenhuma permissão
+0 Corresponde ao "-rwx" Nenhuma permissão
 1 Corresponde ao "x" Execução
 2 Corresponde ao "w" Escrita
 3 Corresponde ao "wx" Escrita e execução
 4 Corresponde ao "r" Leitura
 5 Corresponde ao "rx" Leitura e execução
-6 Corresponde ao "rw”  Leitura e escrita
+6 Corresponde ao "rw"  Leitura e escrita
 7 Corresponde ao "rwx" Leitura, escrita e execução (Cuidado!)
 -R Permissão recursiva (afeta todos arquivo e subpastas) à listada. (Ex: sudo chmod -R 777 arquivo)
 

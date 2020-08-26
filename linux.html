@@ -183,7 +183,7 @@
     </div>
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
-            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">17</span> Bash 1</h3>
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">17</span> Bash 1: Conceitos base</h3>
             <img src="anexos/resumo8/bash.png" width="250px" height="auto">
             <p>O Bash é um dos interpretadores de comandos Linux <small>(bash --version)</small>. O interpretador de comandos tem função de interpretar comandos, juntamente com seus argumentos/parâmetros, executáveis localizados na pasta <i>bin</i>. Diferente do prompt do Windows, no Linux os comandos são externos, nos quais o interpretador tem a função de somente interpretá-los e executá-los. Todo comando é minúsculo (exceção de nome de arquivos e pastas). Todo comandos possui parâmetros ou argumentos, dos quais modificam a saída do comando, parâmetros são seguidos de 1 traço e letra ou 2 traços e palavra. Argumento não possui traços. <small>(Ex: cd .. (cd comando, .. argumento))</small>. Todo SO possui uma entrada padrão(teclado) e saída padrão(tela e saída de erro). Essa, por sua vez, pode ser modificada, como a saída para criação de um arquivo ou algo do tipo. No Linux tudo é arquivo, inclusive os diretórios(pastas). Um pendrive, quando plugado, torna-se um arquivo, salvo na pasta 'device', assim como o teclado. Vale lembrar que esse conteúdo é baseado em distros <b>debian</b>!</p>
             <p><b>Sintaxe:</b> comando -parametro argumento</p>
@@ -214,7 +214,7 @@
     </div>
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
-            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">18</span> Bash 2</h3>
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">18</span> Bash 2: CRUD arquivo</h3>
             <h4>Criar</h4>
 <small><pre><code>
 <b>Criar pasta:</b> mkdir nomepasta1 nomepasta2 nomepasta3
@@ -259,7 +259,7 @@
     </div>
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
-            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">19</span> Bash 3</h3>
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">19</span> Bash 3: Globbing e manipulação</h3>
             <h4>Movimentar-se nas pastas</h4>
 <small><pre><code>
 cd (change directory)
@@ -298,6 +298,44 @@ cd (change directory)
 <b>Mover arquivo:</b> mv nomearquivo.tipo Pastadestino/
 <b>Renomear arquivo:</b> mv pastaantiga/ Pastanova/
 <b>Copiar e colar tudo com final '.conf' para dentro de uma pasta:</b> cp /etc/*.conf Pastadestino/
+</code></pre></small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">20</span> Bash 4: Gestão</h3>
+            <h4>Instalar</h4>
+<small><pre><code>
+<b>Procurar pacotes apt para instalação:</b> sudo apt search
+<b>Pacote com apt:</b> sudo apt install nomearquivo
+<b>Pacote .deb:</b> sudo dpkg -i nomearquivo.deb
+<b>Pacote .run / .bin:</b> sudo chmod +x nomearquivo.run && sudo ./nomearquivo.run / nomearquivo.bin
+<b>Pacote .tar:</b> sudo tar -xvf nomearquivo.tar
+<b>Pacote .tar.gz:</b> sudo tar -zxvf nomearquivo.tar.gz
+<b>Pacote .tar.bz2/.xz:</b> sudo tar -jxvf nomearquivo.tar.bz2
+(Softwares compactados geralmente possuem um arquivo de instruções de instalação, juntamente com um arquivo '.configure', do qual terá de ser executado(./configure), após realizar o 'make' do software, 'make clean' e, após isso, montar o programa 'make install' usando 'sudo')
+<b>Converter .rpm para .deb (Alien):</b>
+1- Instale Alien: sudo apt install alien
+2- Converta: sudo alien &ltopcao&gt arquivo.rpm
+Opções (opcionais):
+to-deb -> Converte arquivo para .deb
+to-rpm -> Converte arquivo para .rpm
+to-tgz -> Converte arquivo para .tgz 
+</code></pre></small>
+            <h4>Desinstalar / Limpar</h4>
+<small><pre><code>
+<b>Remover 'lixo':</b> sudo apt autoremove (bibliotecas) //ou apt clean (cache)
+<b>Reconstruir dependências faltando/corrompidas:</b> sudo apt --fix-broken install
+<b>Desinstalar somente software:</b> sudo apt remove nomesoftware
+<b>Desinstalar .deb:</b> sudo dpkg --remove nomesoftware
+<b>Desinstalar software e bibliotecas (cuidado!):</b> sudo apt purge nomesoftware //ou sudo apt purge --auto-remove nomesoftware
+</code></pre></small>
+            <h4>Atualizar</h4>
+<small><pre><code>
+<b>Atualizar bibliotecas:</b> sudo apt update
+<b>Atualizar programas:</b> sudo apt upgrade
+<b>Atualizar bibliotecas e programas(comando único):</b> sudo apt update && sudo apt upgrade
+<b>Atualizar distro e programas:</b> sudo apt dist-upgrade / sudo apt full-upgrade
 </code></pre></small>
         </div>
     </div>
