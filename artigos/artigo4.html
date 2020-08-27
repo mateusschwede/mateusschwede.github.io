@@ -70,6 +70,137 @@
             <br>
             <h4>Uso do Big Data</h4>
             <p id="textoPost">Sistema de recomendações, análises em tempo real, construir um modelo de série de análises temporais, prever o preço de um produto de sua empresa daqui a um mês/ano, prever o resultado de uma campanha de marketing, prever o turnover(se o funcionário vai sair ou não da empresa).</p>
+            <br>
+            <h4>Apache Hadoop</h4>
+            <img src="../anexos/artigo4/hadoop.png" width="250px" height="auto">
+            <p id="textoPost">Framework livre, com função de armazenamento e processamento compartilhado e distribuído em larga escala de conjunto de dados, com foco em criação de clusters de baixo custo. Em síntese, é um conjunto de softwares que gerencia um cluster(várias máquinas atuando na mesma função) para leitura e escrita de grande conjunto de dados, com baixo custo. O Hadoop permite que os computadores(nodes) executam aplicações em sistemas distribuídos envolvendo Petabytes de dados. Logo Hadoop surgiu por razão do nome do elefante de pelúcia da filha de um dos desenvolvedores. Hadoop não é um BD. Seu objetivo é gerenciar dados e armazená-los em forma de arquivo, através do HDFS. O Hadoop compõe-se de 3 módulos:</p>
+            <ol>
+                <li><b>Hadoop Distributed File System(HDFS):</b> Gerenciamento de arquivos(armazenamento) de várias máquinas como um individual, como um grande HD;</li>
+                <li><b>Hadoop Yarn:</b> Gestor dos processos de leitura e escrita no HDFS;</li>
+                <li><b>Hadoop MapReduce:</b> Processar dados em ambiente distribuído. O HDFS gerencia o armazenamento e o MapReduce o processamento. O Apache Spark surgiu com a tentativa de substituir o MapReduce, rodando sob o HDFS, sendo mais eficiente que o MapReduce.</li>
+            </ol>
+            <h5>Características:</h5>
+            <ul>
+                <li>Baixo custo, sendo gratuito e livre;</li>
+                <li>Escalável, permitindo aumentar a infraestrutura;</li>
+                <li>Tolerante a falhas, com correção de problemas automaticamente e recuperação de falhas rápida;</li>
+                <li>Flexível, para montar arquiteturas de acordo com a necessidade.</li>
+            </ul>
+            <p><b>HDFS</b></p>
+            <ul>
+                <li>Tolerante a falhas e recuperação automática (falha 1 máquina do cluster, as outras continuam normalmente);</li>
+                <li>Portabilidade entre hardware e SOs heterogêneos;</li>
+                <li>Escalabilidade para armazenamento e processamento de grandes conjuntos de dados;</li>
+                <li>Confiabilidade, através da manutenção de várias cópias de dados.</li>
+            </ul>
+            <p><b>MapReduce</b></p>
+            <ul>
+                <li>Flexibilidade, processando todos os dados de forma independente do tipo e formato(estruturado ou não-estruturado);</li>
+                <li>Confiabilidade, permitindo que os jobs(pacote de execução para o cluster Hadoop) sejam executados em paralelo, em caso na falha de um os outros não serão afetados;</li>
+                <li>Acessibilidade, suportando várias linguagens de programação, como Python, Java, C++, etc.</li>
+            </ul>
+            <br>
+            <h4>Apache HDFS</h4>
+            <p id="textoPost">Foi desenvolvido de forma WORM(Write Once, Read Many Times). O cluster possui 2 tipos de nodes:</p>
+            <ol>
+                <li>Namenode(Master, gestora do cluster)
+                    <ul>
+                        <li>Gerencia a estrutura do filesystem;</li>
+                        <li>Gerencia os metadados de todos os arquivos e diretórios de toda a estrutura;</li>
+                    </ul>
+                </li>
+                <li>Datanode(Worker)
+                    <ul>
+                        <li>Armazena e busca bloco de dados solicitados pelo Namenode ou cliente;</li>
+                        <li>Reporta periodicamente para o Namenode com a lista de blocos que foram armazenados.</li>
+                    </ul>
+                </li>
+            </ol>
+            <br>
+            <h4>Apache MapReduce</h4>
+            <p id="textoPost">Modelo de programação para processamento e geração de grandes conjuntos de dados. Transforma o problema de análise em um processo computacional, com conjunto de chaves e valores. Foi desenvolvido para tarefas que consomem tempo em computadores conectados em rede, de alta velocidade, gerenciados por um único master. O MapReduce usa um tipo de análise de dados por força bruta, onde todo conjunto de dados é processado em cada query. Usa modelo de processamento em batch.</p>
+            <p><b>Funcionamento:</b></p>
+            <p id="textoPost">A função de mapeamento converte os valores em pares de chaves(K)/valor(V). A regra de mapeamento é definida pelo cientista de dados, que resultará em grupos contendo Chaves e Valores.</p>
+            <p id="textoPost">Dados -> Mapeamento -> K1:V, K2:V, K3:V, K4:V</p>
+            <p id="textoPost"><u>Ex</u>: Sistema de recomendação de filmes. Os dados foram coletados, cria-se a regra de mapeamento, onde o ID do usuário que avaliou(K) com sua respectiva nota(V).</p>
+            <p id="textoPost">Big Data -> Mapeamento -> Redução(ões) -> Resultado</p>
+            <p id="textoPost">MapReduce permite a execução de queries ad-hoc(executada direto no cluster, via terminal) em todo conjunto de dados em tempo escalável. MapReduce combina dados de múltiplas fontes de forma efetiva. O segredo está no balanceamento entre seeking e transfer: reduzir operações de seeking, e usar de forma efetiva as operações de transfer. MapReduce é bom para atualizar uma grande parte do conjunto de dados, ao contrário dos BDs Relacionais, que são melhores para atualizar algo específico. Os BDs Relacionais usam o B-Tree, dependente de operações de seek. O MapReduce usa operações de SORT e Merge, para recriar o BD, sendo mais eficiente. O MapReduce foca no Transfer, enquanto os BDs Relacionais usam Seeking. Dessa forma, é muito efetivo no processamento de dados semi ou não estruturados, pois interpreta dados durante sessões de processamento de dados. Ele não utiliza propriedades intrínsecas. Os parâmetros usados para selecionar os dados são definidos pelo profissional. Primeiro armazena, depois interpreta. Nos BDs geralmente primeiro cria-se o planejamento, depois o armazenamento.</p>
+            <ul>
+                <li><b>Seek Time:</b> Delay para encontrar um arquivo;</li>
+                <li><b>Transfer Rate:</b> Velocidade para encontrar um arquivo (melhor que seek time).</li>
+            </ul>
+            <br>
+            <h4>Tipos de dados</h4>
+            <ul>
+                <li><b>Dados Estruturados:</b> Dados representados de forma tabular (MySQL);</li>
+                <li><b>Dados Semi Estruturados:</b> Dados que não possuem um modelo de forma de organização (XML);</li>
+                <li><b>Dados Não Estruturados:</b> Dados sem estrutura pré-definida (Big Data, ex: Comentários do Youtube com logs de um servidor, como colocar isso dentro de um BD Relacional? não funcionará).</li>
+            </ul>
+            <br>
+            <h4>Arquitetura Hadoop</h4>
+            <p><b>Hadoop</b></p>
+            <ul>
+                <li>Conceito de job;</li>
+                <li>Cada job é uma unidade de trabalho;</li>
+                <li>Não há controle de concorrência;</li>
+                <li>Qualquer tipo de dado pode ser usado;</li>
+                <li>Dados em qualquer formato;</li>
+                <li>Modelo apenas de leitura;</li>
+                <li>Máquinas de custo baixo podem ser usadas;</li>
+                <li>Simples, mas eficiente mecanismo de tolerância a falha.</li>
+            </ul>
+            <p><b>BD Relacional(RDBMS)</b></p>
+            <ul>
+                <li>Conceito de transações;</li>
+                <li>Uma transação é uma unidade de trabalho;</li>
+                <li>Controle de concorrência;</li>
+                <li>Dados estruturados com controle de esquema;</li>
+                <li>Modelo de leitura/escrita;</li>
+                <li>Servidores de maior custo são necessários;</li>
+                <li>Falhas são raras de ocorrer;</li>
+                <li>Mecanismos de recuperação.</li>
+            </ul>
+            <br>
+            <h4>Cluster</h4>
+            <p id="textoPost">Várias máquinas comportando-se como apenas uma. Um Rack(estrutura) possui vários nodes(máquinas) plugadas na rede, com um software para gerenciá-las como apenas uma(Apache Hadoop), a fim de processamento(MapReduce ou Apache Spark) e armazenamento(HDFS).</p>
+            <br>
+            <h4>Arquitetura Cluster Hadoop</h4>
+            <p id="textoPost">Possui 2 tipos de nodes: Master(Namenode, gestor) e Slaves(Worker).</p>
+            <p><b>MasterNode</b></p>
+            <ul>
+                <li>Storage (HDFS, Namenode);</li>
+                <li>Processamento (MapReduce, JobTracker).</li>
+            </ul>
+            <p><b>SlaveNode</b></p>
+            <ul>
+                <li>Storage (HDFS, DataNode)</li>
+                <li>Processamento (MapReduce, TaskTracker).</li>
+            </ul>
+            <h5>Serviços</h5>
+            <p><b>MapReduce:</b> JobTracker³(Master) -> TaskTracker⁴(Slaves)</p>
+            <p><b>HDFS:</b> NameNode¹ -> DataNode²(Slaves)</p>
+            <ol>
+                <li>Gerenciar o armazenamento distribuído. Secondary NameNode: Trabalha em conjunto com o NameNode;</li>
+                <li>Armazenam os dados, de forma distribuída, em forma de blocos. Gera-se um bloco réplica, em outro DataNode, para o caso de falha;</li>
+                <li>Gestor responsável por disparar o job de processamento MapReduce, que serão executados sob os dados armazenados no HDFS;</li>
+                <li>Executa as tarefas(jobs), no Slave, disparadas pelo Master.</li>
+            </ol>
+            <h5>Máquinas e funções</h5>
+            <ul>
+                <li><b>MasterNode:</b> JobTracker(Processamento com MapReduce) e NameNode(Armazenamento com HDFS) com Secondary NameNode;</li>
+                <li><b>SlaveNodes:</b> DataNode e TaskTracker(Armazenamento e processamento).</li>
+            </ul>
+            <h5>Funcionamento(Hadoop e Spark)</h5>
+            <p><b>Passo 1</b></p>
+            <p id="textoPost">Pc cliente -> Dados -> MasterNode(Storage com HDFS e NameNode / Armazenamento com MapReduce e JobTracker) -> SlaveNodes(Storage com HDFS e DataNode / Processamento com MapReduce e TaskTracker)
+            <small id="textoPost">* Pc do cliente envia os dados/arquivos/etc ao Master através de uma carga ETL com o software Scope, advindos de um BD ou qualquer outro meio.</small></p>
+            <p><b>Passo 2</b></p>
+            <p id="textoPost">Enviar algoritmo de mapeamento e redução (Python, R, Scala...), que será interpretado pelo MapReduce. Pc cientista -> Algoritmo -> Armazenará o job no MasterNode(Storage com HDFS e NameNode / Processamento com MapReduce e JobTracker) -> SlaveNode(Armazenamento dos blocos de dados com HDFS e DataNode / Processamento com MapReduce e TaskTracker)
+            <small id="textoPost">* O processo será o acionamento do NameNode através do JobTracker(consulta) e TaskTracker, executa o processamento e retorna os dados para o cliente/aplicação.</small></p>
+            <h5>Configuração Hadoop</h5>
+            <ul>
+                <li></li>
+            </ul>
         </div>
     </div>
 
