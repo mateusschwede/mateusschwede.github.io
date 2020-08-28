@@ -7,6 +7,9 @@
 #titulo2 {padding: 3% 0% 3% 0%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
+#cardLinux {background-color: #222222; color: #ffeb3c}
+
+#cardCursos {background-color: #222222; color: #3c97ff}
 
 /* CURSO LINUX
 Cinza Fundo: #222222
@@ -19,3 +22,7 @@ TÍTULO: font-family: 'Bebas Neue', cursive; */
 #fundoLinux {background-color: #222222; color: white;}
 #licao {background-color: #ffeb3c; color: #222222; border-radius: 0px 18px 18px 0px; margin: 0px 10px 0px 0px;}
 #capitulo {background-color: #222222; color: #ffff33; padding: 5px;}
+
+/* PG CURSOS */
+#titCursos {color: #3c97ff; font-family: 'Bebas Neue', cursive;}
+#cardCurso {margin-bottom: 20px;}
