@@ -7,9 +7,8 @@
 #titulo2 {padding: 3% 0% 3% 0%;}
 #textoPost {text-align: justify;}
 #msgm {padding: 3% 3% 0% 3%;}
-#cardLinux {background-color: #222222; color: #ffeb3c}
-
-#cardCursos {background-color: #222222; color: #3c97ff}
+#cardLinux {background-color: #222222; color: #ffeb3c; margin-bottom: 20px;}
+#cardCursos {background-color: #222222; color: #3c97ff; margin-bottom: 20px;}
 
 /* CURSO LINUX
 Cinza Fundo: #222222
