@@ -438,6 +438,25 @@ Acessar pasta de meus lançadores: nautilus ~/.local/share/applications
             <p>O <b>administrador</b> possui permissão total de utilização do sistema, como gerenciar arquivos e diretórios, além de executar aplicações, instalá-las e removê-las. Também pode executar qualquer comando do terminal. O <b>usuário comum</b> é aquele padrão no Linux, para seu uso, possuindo algumas restrições em terminal e sistema. Entretanto, o usuário comum que instalou o Linux tem permissão para executar comandos/programas no modo administrador, utilizando o comando "sudo". O <b>usuário de sistema</b> é um usuário fictício criado durante a instalação de algum programa, a fim de executar tarefas específicas do mesmo. Não possui capacidade de login no sistema. Por fim, tem-se o <b>root</b>(sudo su), como sendo um "super-usuário", capaz de fazer absolutamente TUDO no Linux. O que difere o root de outros usuários é o fato dele ser o único capaz de gerenciar coisas fora de seu diretório pessoal.<br>"<i>Acima de Deus somente root</i>".</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">27</span> Terminais</h3>
+            <ul>
+                <li><b>Terminal(TTY):</b> Era um hardware(teletype ou terminal de vídeo) que os usuários utilizavam para se conectar ao mainframe;</li>
+                <li><b>Emulador de Terminal:</b> Programa que consegue emular um terminal para que o usuário possa trabalhar, usando o próprio vídeo e teclado do computador. Pode ser o próprio Kernel ou algum outro emulador de terminai(xterm, Konsole, etc.);</li>
+                <li><b>Console:</b> Era um hardware que os usuários conectavam no computador para administrá-lo;</li>
+                <li><b>Console Virtual</b> Interface de administração do Linux, que transformou o antigo console em vários consoles virtuais, separados logicamente, mas acessados pelo mesmo par teclado/vídeo. Utiliza o emulador de terminal do Kernel;</li>
+                <li><b>Pseudo-Terminal(PTS):</b> Par de terminais master/slave que o Kernel utiliza para se comunicar com um emulador de terminais que roda no espaço do usuário, em alguma interface gráfica, e não no próprio Kernel;</li>
+                <li><b>Janela de Termial:</b> Apresentação na interface gráfica do emulador de terminal(Konsole, Gnome Terminal, xterm, etc.);</li>
+                <li><b>Linha de Comando(CLI):</b> Interface que recebe comandos inputs, retornando em outputs via texto.</li>
+            </ul>
+            <p><b>Funcionamento</b></p>
+            <ol>
+                <li>Um console virtual é uma interface de administração acessada pelo par vídeo/teclado do computador, que apresenta uma linha de comando para o usuário, utilizando um emulador de terminal próprio do Kernel e drivers TTY para interagir com os processos do usuário.</li>
+                <li>Uma janela de terminal é uma janela gráfica acessada pelo vídeo/teclado do computador, que apresenta uma linha de comando para o usuário, utilizando um emulador de terminal externo ao Kernel, e pseudo-terminais master/slave para interagir com os processos do usuário.</li>
+            </ol>
+        </div>
+    </div>
 
 
 </div>
