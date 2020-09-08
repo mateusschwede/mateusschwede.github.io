@@ -26,3 +26,7 @@ TÍTULO: font-family: 'Bebas Neue', cursive; */
 /* PG CURSOS */
 #titCursos {color: #3c97ff; font-family: 'Bebas Neue', cursive;}
 #cardCurso {margin-bottom: 20px;}
+
+
+/* SEGURANÇA */
+#ulHack {text-align: center;}
