@@ -3,9 +3,9 @@
 Seja bem-vindo(a) ao site pessoal do Mateus!
 
 ## O que encontrarei aqui?
-- Posts com dicas e exemplos de softwares;
+- Posts sobre desenvolvimento de sistemas;
 - Resumos de códigos e sintaxes;
-- Artigos sobre o mundo Free Open Source e tecnologia acessível.
+- Artigos sobre o mundo Free Open Source.
 
 ## Objetivo
 Acessibilitar o aprendizado rápido, simples e direto, além de completo, com tecnologia livre e aberta.
