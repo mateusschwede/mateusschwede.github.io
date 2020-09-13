@@ -345,7 +345,7 @@ to-tgz -> Converte arquivo para .tgz
     </div>
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
-            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">21</span> Bash 5: Permissões</h3>
+            <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">21</span> Bash 5: Permissões, Lançadores e Processos</h3>
             <h4>Permissões de acesso</h4>
 <small><pre><code>
 <b>r</b> - read(leitura)
@@ -402,6 +402,19 @@ Acessar pasta de meus lançadores: nautilus ~/.local/share/applications
 <b>Sistema:</b> Categories=System;
 <b>Utilitários:</b> Categories=Utility;
 </code></pre></small>
+            <h4>Processos</h4>
+            <p>Todos processos possuem um PID(Process Identification), com prioridade de execução, que vai do -19 ao 20(mais significativo). Processos criados pelo usuário comum possuem, por padrão, prioridade 0. O root possui poder de alterar a prioridade.</p>
+<small><pre><code>
+<b>Ver discos:</b> df -h / df -i(inodes-buracos de memória no hardware de cada partição, arquivos em branco tbm ocupam)
+<b>Discos e uso:</b> du -sh *(Ver tudo no diretório, do maior pro menor)
+<b>Ver processos:</b> ps -ef / pf -aux
+<b>Ver processos filtro:</b> ps -ef | grep init(Todos processos 'init')
+<b>Processos e detalhes:</b> top(Processos e detalhes da máquina)
+<b>Processos em tree:</b> pstree
+<b>Matar processo(cuidado!):</b> kill -9 PID(Nº processo)
+<b>Matar todos processos de software:</b> killall nomesoftware | pkill nomesoftware(associa palavra-chave informada)
+<b>Alterar prioridade:</b> renice numPrioridade -p PID
+</small></pre></code>
         </div>
     </div>
     <div class="row">
@@ -433,7 +446,7 @@ Acessar pasta de meus lançadores: nautilus ~/.local/share/applications
     <div class="row">
         <div class="col-sm-8 shadow p-3 mb-5 bg-#ff3b3c" id="licao">
             <h3 style="font-family: 'Bebas Neue', cursive;"><span id="capitulo">25</span> Rede no Linux</h3>
-            <p>Muitas distros Linux possuem sincronização automática com contas populares, como documentos do Google Drive e eventos do Hotmail e Facebook. Entre os comandos no terminal para gerenciamento de redes, tem-se o <b>route</b>, usado para visualizar e manipular a tabela de roteamento IP. O comando <b>ifconfig</b> é usado para gestão de informações sobre parâmetros TCP/IP, como endereçamento IP e Mac Address(Geralmente listado como HWaddr, no campo designado eth1 ou wlan0). O comando <b>netstat</b> mostra todas as conexões de entrada e saída de rede, tabelas de roteamento e estatísticas do protocolo de rede. No Mint, se quiser achar o Mac Address, basta digitar o comando <b>inxi -Nn</b>, na opção em que o state é "up", esse é o MacAddress de sua máquina. Outro comando é o <b>ping</b>, que mostra o tempo de envio/recebimento de resposta em rede. Por fim, o comando <b>host -opcao host</b> é um comando com função de localizar informações de rede, como, por exemplo, determinado IPV4(opção -4) ou IPV6(opção -6) de determinado host(localhost por exemplo).</p>
+            <p>Muitas distros Linux possuem sincronização automática com contas populares, como documentos do Google Drive e eventos do Hotmail e Facebook. Entre os comandos no terminal para gerenciamento de redes, tem-se o <b>route</b>, usado para visualizar e manipular a tabela de roteamento IP. O comando <b>ifconfig</b> é usado para gestão de informações sobre parâmetros TCP/IP, como endereçamento IP e Mac Address(Geralmente listado como HWaddr, no campo designado eth1 ou wlan0). O comando <b>netstat</b> mostra todas as conexões de entrada e saída de rede, tabelas de roteamento e estatísticas do protocolo de rede. <b>netstat -atunp</b> mostra com detalhes de PID, TCP e UDP. No Mint, se quiser achar o Mac Address, basta digitar o comando <b>inxi -Nn</b>, na opção em que o state é "up", esse é o MacAddress de sua máquina. Outro comando é o <b>ping</b>, que mostra o tempo de envio/recebimento de resposta em rede. Por fim, o comando <b>host -opcao host</b> é um comando com função de localizar informações de rede, como, por exemplo, determinado IPV4(opção -4) ou IPV6(opção -6) de determinado host(localhost por exemplo).</p>
         </div>
     </div>
     <div class="row">
