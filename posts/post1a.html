@@ -32,83 +32,82 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <h1>Crud Php MySQL PDO</h1>
-            <h6><strong>Crud simples com Php PDO e MySQL</strong></h6>
+            <h1>Crud Php MySQL MYSQLi</h1>
+            <h6><strong>Crud simples com Php MYSQLi e MySQL</strong></h6>
         </div>
 
         <div class="col-sm-12">
             <h4>Pré-requisitos</h4>
-            <p id="textoPost">Xampp instalado e executando, criar um diretório no <i>htdocs</i> para inserir os arquivos abaixo. 1º executar o arquivo .sql no <i>Phpmyadmin</i>.</p>
+            <p id="textoPost">Xampp instalado e executando, criar um diretório no <i>htdocs</i> para inserir os arquivos abaixo. 1º executar o arquivo bd.sql no <i>Phpmyadmin</i>.</p>
             <br>
-            <h4>banco.sql</h4>
+            <h4>bd.sql</h4>
 <small><pre><code>
 CREATE DATABASE agenda;
+USE agenda;
 CREATE TABLE pessoa (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL
 );
+INSERT INTO pessoa(nome) VALUES ("mateus"),("mateusa");
+</code></pre></small><br>
+            <h4>con.php</h4>
+<small><pre><code>
+&lt?
+$c = mysqli_connect("localhost","root","","agenda");
+if(!$c){echo "Erro conexão: ".mysqli_connect_error();}
 </code></pre></small><br>
             <h4>add.php</h4>
 <small><pre><code>
-&lt?php
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-if(!empty($_POST['nome'])) {
-    $r = $db->prepare("INSERT INTO pessoa(nome) VALUES (?)");
-    $r->execute(array($_POST['nome']));
-}
+&lt?
+require 'con.php';
+$nome = $_POST['nome'];
+mysqli_query($c,"INSERT INTO pessoa(nome) VALUES ('$nome')");
 header("location: index.php");
 </code></pre></small><br>
             <h4>ed.php</h4>
 <small><pre><code>
-&lt?php
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-if(!empty($_GET['id'])) {
-    $r = $db->prepare("SELECT * FROM pessoa WHERE id=?");
-    $r->execute(array($_GET['id']));
-    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($linhas as $l) {$nome = $l['nome'];}
+&lt?
+require 'con.php';
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $d = mysqli_query($c,"SELECT * FROM pessoa WHERE id='$id'");
+    $r = mysqli_fetch_assoc($d);
 }
-
-if ((!empty($_GET['idVelho'])) and (!empty($_POST['nome']))) {
-    $r = $db->prepare("UPDATE pessoa SET nome=? WHERE id=?");
-    $r->execute(array($_POST['nome'],$_GET['idVelho']));
+?&gt
+&ltform action="" method="post"&gt
+    &ltinput type="text" name="nome" placeholder="Nome" value="&lt?=$r['nome']?&gt" required&gt
+    &ltinput type="submit" value="Atualizar"&gt
+&lt/form&gt
+&lt?
+if(isset($_POST['nome'])) {
+    $nome = $_POST['nome'];
+    mysqli_query($c,"UPDATE pessoa SET nome='$nome' WHERE id=$id");
     header("location: index.php");
 }
 ?&gt
-&ltform action="ed.php?idVelho=&lt?=$_GET['id']?&gt" method="post"&gt
-    &ltinput type="text" name="nome" value="&lt?=$nome?&gt"&gt
-    &ltinput type="submit" value="Atualizar"&gt
-&lt/form&gt
 </code></pre></small><br>
-            <h4>rem.php</h4>
+            <h4>del.php</h4>
 <small><pre><code>
-&lt?php
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$r = $db->prepare("DELETE FROM pessoa WHERE id=?");
-$r->execute(array($_GET['id']));
+&lt?
+require 'con.php';
+$id = $_GET['id'];
+mysqli_query($c,"DELETE FROM pessoa WHERE id='$id'");
 header("location: index.php");
 </code></pre></small><br>
             <h4>index.php</h4>
 <small><pre><code>
-&lt?php
-$db = new PDO('mysql:host=localhost;dbname=agenda;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$r = $db->query("SELECT * FROM pessoa");
-$linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-foreach($linhas as $l) {
-    echo "&lta href='ed.php?id=".$l['id']."'&gt".$l['nome']."&lt/a&gt - &lta href='rem.php?id=".$l['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
-}
+&lt?
+require 'con.php';
+    $d = mysqli_query($c,"SELECT * FROM pessoa");
+    while($r = mysqli_fetch_assoc($d)){
+        echo $r['id']."- ".$r['nome']."
+        &lta href='ed.php?id=".$r['id']."'&gtEditar&lt/a&gt
+        &lta href='del.php?id=".$r['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
+    }
 ?&gt
-&ltform action="add.php" method="pos//Listagem com link pra edição e exclusãot"&gt
-    &ltinput type="text" name="nome" placeholder="Nome"&gt
-    &ltinput type="submit" value="Adicionar"&gt
+&ltform action="add.php" method="post"&gt
+    &ltinput type="text" name="nome" placeholder="Nome" required&gt
+    &ltinput type="submit" value="Inserir"&gt
 &lt/form&gt
 </code></pre></small>
         </div>
