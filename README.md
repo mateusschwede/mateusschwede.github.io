@@ -1,5 +1,5 @@
-![Logo](anexos/icons/logoCircle64.png)
-# Mateus Notes
+![Logo](anexos/icons/logo.png)
+# UB `Social.ca`
 Seja bem-vindo(a) ao site pessoal do Mateus!
 
 ## O que encontrarei aqui?
