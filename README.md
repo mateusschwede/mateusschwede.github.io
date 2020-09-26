@@ -3,17 +3,15 @@
 Seja bem-vindo(a) ao site pessoal do Mateus!
 
 ## O que encontrarei aqui?
-- Posts sobre desenvolvimento de sistemas;
-- Resumos de códigos e sintaxes;
-- Artigos sobre o mundo Free Open Source.
+Posts e resumos sobre linguagens de programação, Linux e software livre.
 
 ## Objetivo
-Acessibilitar o aprendizado rápido, simples e direto, além de completo, com tecnologia livre e aberta.
+Acessibilitar o aprendizado simples, completo e gratuito, com tecnologia livre e aberta.
 
 ## Direitos
 O site é livre para te inspirar a criar algo ainda melhor!
 
 ## O Mateus
-Quem saiba você acabe gostando de algum projeto que eu tenha em meus repositórios. Caso queira entrar em contato comigo, estarei à disposição. Todos os detalhes encontram-se na página 'contato' do site.
+Para maiores informações sobre mim, encontre-me na página 'contato' do site.
 
 > Criado por Mateus Schwede em 2020.
