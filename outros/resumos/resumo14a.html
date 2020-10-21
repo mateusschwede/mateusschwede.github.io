@@ -1,34 +1,10 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="../anexos/icons/logo.png"/>
-    <link rel="stylesheet" href="../estilo.css">
-    <title>UB Social.ca</title>
-</head>
-<body>
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-sm-12" id="titulo1">
-            <h1>MongoDB base</h1>
-            <h6><strong>Relacionando sintaxe MySQL com MongoDB</strong></h6>
-        </div>
-
-        <div class="col-sm-12">
-            <h4>Estrutura</h4>
-            <p id="textoPost"><b>MySQL:</b> <small>Database -> Table -> Row -> Column e Value -> Index</small><br><b>MongoDB:</b> <small>Database -> Collection -> Document -> Field e Value -> Index</small></p>
-            <p id="textoPost">No MongoDB os dados são do tipo BSON, como um JSON. Todo document possui um field 'id', gerado automaticamente, que serve como uma primary key, para relacionar e identificá-lo. Cada document tem um field com value, possuindo um tipo específico. Recomendo download do MongoDB Community, gratuito, no link abaixo. Use o SGBD GUI MongoDB Compass Community, também gratuito, no link abaixo. Todos os códigos abaixo foram retirados do site oficial MongoDB.</p>
-            <a href="https://docs.mongodb.com/manual/administration/install-on-linux" target="_blank" class="btn btn-link">MongoDB Community ></a>
-            <br>
-            <a href="https://www.mongodb.com/download-center/compass" target="_blank" class="btn btn-link">MongoDB Compass Community ></a>
-            <br><br>
-            <h4>Exemplo de document</h4>
+<h1>MongoDB base</h1>
+<h4>Estrutura</h4>
+<p id="textoPost"><b>MySQL:</b> <small>Database -> Table -> Row -> Column e Value -> Index</small><br><b>MongoDB:</b> <small>Database -> Collection -> Document -> Field e Value -> Index</small></p>
+<p id="textoPost">No MongoDB os dados são do tipo BSON, como um JSON. Todo document possui um field 'id', gerado automaticamente, que serve como uma primary key, para relacionar e identificá-lo. Cada document tem um field com value, possuindo um tipo específico. Recomendo download do MongoDB Community, gratuito, no link abaixo. Use o SGBD GUI MongoDB Compass Community, também gratuito, no link abaixo. Todos os códigos abaixo foram retirados do site oficial MongoDB.</p>
+<a href="https://docs.mongodb.com/manual/administration/install-on-linux" target="_blank" class="btn btn-link">MongoDB Community ></a>
+<a href="https://www.mongodb.com/download-center/compass" target="_blank" class="btn btn-link">MongoDB Compass Community ></a>
+<h4>Exemplo de document</h4>
 <small><pre><code>
 {
     _id: ObjectId("509a8fb2f3f4948bd2f983a0"),
@@ -226,10 +202,3 @@ myCursor.objsLeftInBatch(); //com if's
 <i>Importa arquivo para determinada collection de db. Headerline pega os títulos das colunas e transforma em nome de parâmetros nos documents.<br>'ubs.csv' baixado de http://www.dados.gov.br/dataset/pac_ubs</i>
 mongoimport -d dbNome -c nomeCollection --type csv --file arquivo.csv --headerline
 </code></pre></small>
-        </div>
-    </div>
-
-
-</div>
-</body>
-</html>

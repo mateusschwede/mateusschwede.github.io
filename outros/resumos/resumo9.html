@@ -1,50 +1,29 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="../anexos/icons/logo.png"/>
-    <link rel="stylesheet" href="../estilo.css">
-    <title>UB Social.ca</title>
-</head>
-<body>
-<div class="container-fluid">
+<h1>Php7 MVC básico</h1>
 
-    <div class="row">
-        <div class="col-sm-12" id="titulo1">
-            <h1>Php7 MVC básico</h1>
-            <h6><strong>Sintaxe básica de padrão Php7 MVC</strong></h6>
-        </div>
-
-        <div class="col-sm-12">
-            <h4>Introdução</h4>
-            <p id="textoPost">Padrão de arquitetura de software que divide a aplicação em três camadas: Model, View e Controller.</p>
-            <ul>
-                <li><b>Model:</b> Faz a conexão, leitura, escrita e validação dos dados. Nela são implementadas as regras de negócio: definições de como a empresa faz negócios. É a declaração de como a empresa trabalha, os processos para execução do serviço, ou entrega do produto que a mesma trabalha. Modificações nos dados.</li>
-                <li><b>Controller:</b> Lida com as requisições do usuário. Gerenciando as ações realizadas, identifica qual Model e qual View utilizar para que a ação seja completada. Modificações nas requisições.</li>
-                <li><b>View:</b> Faz a interação com o usuário (front-end). Nela são apresentarão-se os dados ao usuário, que podem ser entregues em vários formatos, como HTML, XML, documentos, vídeos, fotos, músicas etc. Manutenções no layout.</li>
-            </ul>
-            <p id="textoPost">MODEL - CONTROLLER - VIEW - (usuário)</p>
-            <h5>Vantagens</h5>
-            <ul>
-                <li>Reusabilidade de códigos</li>
-                <li>Desenvolvimento Rápido</li>
-                <li>Fácil manutenção</li>
-            </ul>
-            <h5>Exemplo de funcionamento básico:</h5>
-            <ol>
-                <li><b>View:</b> Usuário acessa tela com formulário de login, apresentada pela View, que encaminha os dados informados ao controller.</li>
-                <li><b>Controller:</b> Recebe dados e encaminha para a Model correta validar.</li>
-                <li><b>Model:</b> Valida dados e retorna a resposta de login.</li>
-                <li><b>Controller:</b> Pega a validação feita pela Model e encaminha à view correta, para que eles sejam exibidos ao usuário.</li>
-                <li><b>View:</b> Exibe tela resultado ao usuário <small>(logou ou não logou)</small>.</li>
-            </ol>
-            <br>
-            <h4>index.php</h4>
+<h4>Introdução</h4>
+<p id="textoPost">Padrão de arquitetura de software que divide a aplicação em três camadas: Model, View e Controller.</p>
+<ul>
+<li><b>Model:</b> Faz a conexão, leitura, escrita e validação dos dados. Nela são implementadas as regras de negócio: definições de como a empresa faz negócios. É a declaração de como a empresa trabalha, os processos para execução do serviço, ou entrega do produto que a mesma trabalha. Modificações nos dados.</li>
+<li><b>Controller:</b> Lida com as requisições do usuário. Gerenciando as ações realizadas, identifica qual Model e qual View utilizar para que a ação seja completada. Modificações nas requisições.</li>
+<li><b>View:</b> Faz a interação com o usuário (front-end). Nela são apresentarão-se os dados ao usuário, que podem ser entregues em vários formatos, como HTML, XML, documentos, vídeos, fotos, músicas etc. Manutenções no layout.</li>
+</ul>
+<p id="textoPost">MODEL - CONTROLLER - VIEW - (usuário)</p>
+<h5>Vantagens</h5>
+<ul>
+<li>Reusabilidade de códigos</li>
+<li>Desenvolvimento Rápido</li>
+<li>Fácil manutenção</li>
+</ul>
+<h5>Exemplo de funcionamento básico:</h5>
+<ol>
+<li><b>View:</b> Usuário acessa tela com formulário de login, apresentada pela View, que encaminha os dados informados ao controller.</li>
+<li><b>Controller:</b> Recebe dados e encaminha para a Model correta validar.</li>
+<li><b>Model:</b> Valida dados e retorna a resposta de login.</li>
+<li><b>Controller:</b> Pega a validação feita pela Model e encaminha à view correta, para que eles sejam exibidos ao usuário.</li>
+<li><b>View:</b> Exibe tela resultado ao usuário <small>(logou ou não logou)</small>.</li>
+</ol>
+<br>
+<h4>index.php</h4>
 <small><pre><code>
 &lt?php
     include '/mvcexemplo/Controller/Controller.php';
@@ -108,10 +87,3 @@
     }
 ?&gt
 </code></pre></small><br>
-        </div>
-    </div>
-
-
-</div>
-</body>
-</html>
