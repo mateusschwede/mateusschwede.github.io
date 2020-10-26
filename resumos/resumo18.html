@@ -45,10 +45,57 @@
 
     <div class="row">
         <div class="col-sm-12">
+            <h4>Instalação</h4>
+            <ol>
+                <li>Instalar e executar Xampp</li>
+                <li>Instalar Composer: Baixe o arquivo em composer.org, e enviá-lo para pasta de var referência global(no Windows somente executar)</li>
+                <li>Testar Composer: No terminal, execute o comando <i>'composer'</i> para ver informações do mesmo</li>
+                <li>Instalar Laravel8: Via composer Create-Project: No diretório dos projetos, executar o comando: <i>composer create-project --prefer-dist laravel/laravel nomeProjeto</i></li>
+                <li>Criar BD 'laravel' padrão, com comando, no diretório do projeto <i>php artisan migrate</i> (1º criar BD no Phpmyadmin, depois o comando gerará as tables)</li>
+            </ol>
+        </div>
+
+        <div class="col-sm-12">
+            <h4>Funcionamento</h4>
+            <img src="../anexos/resumo18/laravelMvc.png" width="50%" height="auto">
+            <ol>
+                <li>User dispara ação no Browser para determinada url</li>
+                <li>Ação será capturada pelo routes 'web.php', no diretório Routes, que será roteado a um controller</li>
+                <li>Controller conversa com Model, que conversa com BD(PDO)</li>
+                <li>Feeback do BD(falha/sucesso) volta ao Model, esse repassa ao Controller</li>
+                <li>Controller chama View dinâmica(Blade), que enviará o resultado via Browser(Html) para User</li>
+            </ol>
+            <p>NA PRÁTICA<br><small>(Atente-se com os 'use' e 'namespace', para checar se os mesmos encontram-se e correspondem à árvore de diretórios)</small></p>
+            <ol>
+                <li>Criar route no 'web.php', comentá-la para criar o Controller</li>
+                <li>Criar controller, com artisan, e criar metodo que será lido na route</li>
+                <li>Testar, informando uri, se o método do controller e route funcionam(sem erros)</li>
+                <li>Criar view com Html</li>
+                <li>No controller, criar o metodo de return view, com parâmetros var visão e var controller</li>
+                <li>Na view, informar as vars dinâmicas {{$user->name}} do informadas como parâmetros do método no controller</li>
+            </ol>
+        </div>
+
+        <div class="col-sm-12">
+            <h4>Diretórios</h4>
+            <ul>
+                <li><b>Index:</b> Pasta <i>public</i> estão arquivos visualizáveis aos usuários (que serão vinculados à url)</li>
+                <li><b>Models:</b> Pasta <i>app/models</i> encontram-se as models(user.php model padrão de usuários)</li>
+                <li><b>Controllers:</b> Pasta <i>app/http/controllers</i></li>
+                <li><b>Views:</b> Pasta <i>resources/views</i> (ex welcome.blade.php view padrão index Laravel)</li>
+                <li><b>Routes:</b> Pasta <i>routes</i> (web.php possui as rotas do Browser, api.php de APIs...)</li>
+                <li><b>.env:</b> Arquivo de configurações do Laravel (DBs, Drivers...)</li>
+                <li><b>Vendor:</b> Pasta <i>vendor</i> possui dependências do Laravel (não mexer)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
             <h4>Projetos</h4>
             <ol>
-                <li><b>Projeto1:</b> Conceitos base de Laravel, routes e conexão com BD</li>
-                <li><b>Projeto2:</b> CRUD Laravel com verbalização rest e injeção de dependências</li>
+                <li><b>Projeto1:</b> Conceitos base de Laravel, routes e conexão com BD<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto1" target="_blank">Ver Github</a></li>
+                <li><b>Projeto2:</b> CRUD Laravel com verbalização rest e injeção de dependências<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto2" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
