@@ -50,14 +50,15 @@
                 <li>Instalar e executar Xampp</li>
                 <li>Instalar Composer: Baixe o arquivo em composer.org, e enviá-lo para pasta de var referência global(no Windows somente executar)</li>
                 <li>Testar Composer: No terminal, execute o comando <i>'composer'</i> para ver informações do mesmo</li>
-                <li>Instalar Laravel8: Via composer Create-Project: No diretório dos projetos, executar o comando: <i>composer create-project --prefer-dist laravel/laravel nomeProjeto</i></li>
+                <li>Instalar Laravel8: Via composer Create-Project: No diretório dos projetos, executar o comando(criar projeto): <i>composer create-project --prefer-dist laravel/laravel nomeProjeto</i></li>
                 <li>Criar BD 'laravel' padrão, com comando, no diretório do projeto <i>php artisan migrate</i> (1º criar BD no Phpmyadmin, depois o comando gerará as tables)</li>
             </ol>
+            <p>NOVO PROJETO LARAVEL(passo4):<br>No diretório desejado, executar o comando: <i>composer create-project --prefer-dist laravel/laravel nomeProjeto</i></p>
         </div>
 
         <div class="col-sm-12">
             <h4>Funcionamento</h4>
-            <img src="../anexos/resumo18/laravelMvc.png" width="50%" height="auto">
+            <img src="../anexos/resumo18/laravelMvc.png" width="70%" height="auto">
             <ol>
                 <li>User dispara ação no Browser para determinada url</li>
                 <li>Ação será capturada pelo routes 'web.php', no diretório Routes, que será roteado a um controller</li>
@@ -86,6 +87,7 @@
                 <li><b>Routes:</b> Pasta <i>routes</i> (web.php possui as rotas do Browser, api.php de APIs...)</li>
                 <li><b>.env:</b> Arquivo de configurações do Laravel (DBs, Drivers...)</li>
                 <li><b>Vendor:</b> Pasta <i>vendor</i> possui dependências do Laravel (não mexer)</li>
+                <li><b>Migrations:</b> Pasta <i>database/migrations</i> possui migrations(códigos php gestores BD)</li>
             </ul>
         </div>
     </div>
@@ -97,6 +99,7 @@
                 <li><b>Projeto1:</b> Conceitos base de Laravel, routes e conexão com BD<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto1" target="_blank">Ver Github</a></li>
                 <li><b>Projeto2:</b> CRUD Laravel com verbalização rest e injeção de dependências<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto2" target="_blank">Ver Github</a></li>
                 <li><b>Projeto3:</b> Automatização com artisan e resource, baseado no projeto2<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto3" target="_blank">Ver Github</a></li>
+                <li><b>Projeto4:</b> Versionando BD com Migrations, gestão de BD automatizada com php<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto4" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
