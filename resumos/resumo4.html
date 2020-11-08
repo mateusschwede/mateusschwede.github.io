@@ -33,11 +33,11 @@
     <div class="row">
         <div class="col-sm-12" id="titulo1">
             <h1>Php</h1>
-            <h6><strong>Sintaxe básica Php</strong></h6>
+            <h6><strong>Sintaxe Php7</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>php7Base.php</h4>
+            <h4>Base</h4>
 <small><pre><code>
 VARIÁVEIS:
 As variáveis em PHP começam com $
@@ -843,6 +843,769 @@ if(!isset($_SESSION['contador'])) {
 } else {
     $_SESSION['contador']++;
 }
+?&gt
+</code></pre></small><br>
+            <h4>OOP</h4>
+<small><pre><code>
+CLASSE BASE EM PHP:
+
+-- CLASSE PRODUTO.CLASS.PHP --
+&lt?php
+    class Produto {
+        //atributos
+        private $codigo;
+        private $descricao;
+        //Construtor
+        function Produto($c,$d) {
+            $this-&gtcodigo = $c;
+            $this-&gtdescricao = $d;
+        }
+        //Construtor 2
+        function __construct() {
+            $this-&gtsetCodigo(0);
+            $this-&gtsetDescricao("Bola");
+        }
+        //Get
+        function getCodigo() {return $this-&gtcodigo;}
+        //Set
+        function setCodigo($c) {$this-&gtcodigo = $c;
+        }
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Produto.class.php';
+    $p1 = new Produto(33,"Vassoura");
+    $p1-&gtsetCodigo(03);
+    $p1-&gtcodigo = 4; //se visibilidade for public
+    $p1-&gtgetCodigo();
+    print_r($p1);
+    echo "O produto {$p1-&gtgetCodigo()} é um {$p1-&gtgetDescricao()}!";
+?&gt
+
+Obs1: O que vier após o return(nos métodos), nunca será executado!
+Obs2: Caso não seja definido um Construtor na classe, todas as propriedades da mesma serão inicializadas com null!
+Obs3: Crie uma pasta, para armazenar as classes com a extensão .class.php
+ex: require_once 'classes/Produto.class.php';
+
+
+COMPARAÇÃO DE OBJETOS:
+
+-- Objetos iguais:
+(mesmos atributos e valores, e instâncias da mesma classe)
+&lt?php
+    $prod1 = new Produto();
+    $prod2 = new Produto();
+    $prod1-&gtsetCodigo(200);
+    $prod2-&gtsetCodigo(200);
+    if($prod1 == $prod2) {echo "Iguais"}
+    else {echo "Diferentes"};
+?&gt
+
+-- Objetos idênticos:
+(variáveis idênticas e se referirem ao mesmo objeto, da mesma classe)
+&lt?php
+    $prod1 = new Produto();
+    $prod2 = new Produto();
+    $prod1-&gtsetCodigo(200);
+    $prod2-&gtsetCodigo(200);
+    if($prod1 === $prod2) {echo "Identicos"}
+    else {echo "Diferentes"};
+?&gt
+
+
+INDUÇÃO DE TIPOS:
+Para induzir um tipo no método, inserimos o nome da classe na frente da variável
+(para registrar um país no continente, preciso já ter um país criado)
+
+-- Class Continente.class.php
+&lt?php
+    class Continente() {
+        function __construct() {$this-&gtpaises = array();}
+        function registrar(Pais $_pais) {$this-&gtpaises[] = $_pais;}
+        function imprimirPaises() {
+            foreach($this-&gtpaises as $p) {echo $p-&gtnome."&ltbr&gt";}
+        }
+    }
+?&gt
+
+-- Classe Pais.class.php
+&lt?php
+    class Pais() {
+        public $nome;
+        function __construct($n) {$this-&gtnome = $n;}
+    }
+?&gt
+
+-- Index.php
+&lt?php
+    require_once 'Continente.class.php';
+    require_once 'Pais.class.php';
+
+    $c1 = new Continente();
+    $p1 = new Pais("Brasil");
+    $c1-&gtregistrar($p1);
+    $p2 = new Pais("Alemanha");
+    $c1-&gtregistrar($p2);
+    $c1-&gtregistrar("Argentina"); //erro, pois só aceita objetos Pais
+    $c1-&gtimprimirPaises();
+?&gt
+
+
+ENCAPSULAMENTO (Interface):
+
+-- INTERFACE Controlador.class.php --
+&lt?php
+    interface Controlador {
+        abstract function ligar();
+        abstract function desigar();
+    }
+?&gt
+
+-- CLASSE Controle.class.php --
+&lt?php
+    require_once 'Controlador.class.php';
+    class Controle implements Controlador {
+        //atributos
+        private $ligado, $desligado;
+
+        //Construtor
+        function __construct() {
+            $this-&gtligado = false;
+            $this-&gtdesligado = true;
+        }
+
+        //Gets & Sets
+
+        //Métodos Abstratos implementados
+        function ligar() {
+            $this-&gtsetLigado(true);
+        }
+        function desigar() {
+            $this-&gtsetDesligado(true);
+        }
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Controle.class.php';
+    $c = new Controle();
+    $c-&gtligar();
+    $c-&gtgetLigado();
+?&gt
+
+
+AGREGAÇÃO (tem um...) & OBJETOS COMPOSTOS (array):
+
+-- CLASSE Lutador.class.php --
+&lt?php
+    class Lutador {
+        private $nome, $vitorias, $empates, $derrotas;
+
+        function __construct($n,$v,$e,$d) {
+            $this-&gtnome = $n;
+            $this-&gtvitorias = $v;
+            $this-&gtempates = $e;
+            $this-&gtderrotas = $d;
+        }
+
+        //gets e sets
+
+        function ganharLuta() {
+            $this-&gtsetVitorias($this-&gtgetVitorias()++);
+        }
+        function perderLuta() {
+            $this-&gtsetDerrotas($this-&gtgetDerrotas()++);
+        }
+        function empatarLuta() {
+            $this-&gtsetEmpates($this-&gtgetEmpates()++);
+        }
+    }
+?&gt
+
+-- CLASSE Luta.class.php --
+&lt?php
+    require_once 'Lutador.class.php';
+    class Luta {
+        private $desafiado, $desafiante;
+
+        //gets e sets de Lutador
+
+        function lutar($l1,$l2) {
+            $this-&gtdesafiado = $l1;
+            $this-&gtdesafiante = $l2;
+            $vencedor = rand(0,2);
+            switch($vencedor) {
+                case 0:
+                    $this-&gtdesafiado-&gtempatarLuta();
+                    $this-&gtdesafiante-&gtempatarLuta();
+                break;
+                case 1:
+                    $this-&gtdesafiado-&gtganharLuta();
+                    $this-&gtdesafiante-&gtperderLuta();
+                break;
+                case 2:
+                    $this-&gtdesafiado-&gtperderLuta();
+                    $this-&gtdesafiante-&gtganharLuta();
+                break;
+            }
+        }
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Luta.class.php';
+    require_once 'Lutador.class.php';
+
+    // agregação: luta 1 &lt-&gt 2 lutadores
+    $l = array();
+    $l[0] = new Lutador("Max",11,2,1);
+    $l[1] = new Lutador("Marc",8,2,3);
+
+    $ufc01 = new Luta($l[0],$l[1]);
+    $ufc01-&gtlutar();
+?&gt
+
+
+HERANÇA (extends):
+
+-- CLASSE ABSTRATA Pessoa.class.php --
+&lt?php
+    //abstração - classe/métodos abstratos (final)
+    abstract class Pessoa {
+        private $nome;
+        private $idade;
+        final function fazerAniver() {
+            $this-&gtidade++;
+        }
+        //gets e sets de Pessoa
+    }
+?&gt
+
+-- CLASSE FILHA Aluno.class.php --
+&lt?php
+    require_once 'Pessoa.class.php';
+    class Aluno extends Pessoa {
+        private $matricula;
+        private $curso;
+        function pgtoMensal() {
+            echo "pago!";
+        }
+        //gets e sets de Aluno
+    }
+?&gt
+
+-- CLASSE FILHA Bolsista.class.php --
+&lt?php
+    require_once 'Aluno.class.php';
+    class Bolsista extends Aluno { //herança
+        private $bolsa;
+        //sobreposição (polimorfismo)
+        function ptgoMensal() {
+            echo "pago com desconto!";
+        }
+        //gets e sets de Bolsista
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Pessoa.class.php';
+    require_once 'Aluno.class.php';
+    require_once 'Bolsista.class.php';
+
+    $a1 = new Aluno();
+    $a1-&gtsetNome("Pedro");
+    $b1 = new Bolsista();
+    $b1-&gtsetNome("João");
+    $b1-&gtpgtoMensal();
+?&gt
+
+
+POLIMORFISMO1 (Sobreposição-Sobrescrita):
+"Métodos com mesmo nome e lista de parâmetros, conteúdo interno diferente na subclasse"
+
+-- CLASSE ABSTRATA Animal.class.php --
+&lt?php
+    abstract class Animal {
+        protected $peso;
+        protected $idade;
+        protected $membros;
+        //método abstrato:
+        abstract function locomover();
+        //gets e sets de Animal
+    }
+?&gt
+
+-- CLASSE FILHA Mamifero.class.php --
+&lt?php
+    require_once 'Animal.class.php';
+    class Mamifero extends Animal {
+        private $corPele;
+        function locomover() {
+            echo "correndo";
+        }
+        //gets e sets de Mamifero
+    }
+?&gt
+
+-- CLASSE FILHA Peixe.class.php --
+&lt?php
+    require_once 'Animal.class.php';
+    class Peixe extends Animal {
+        private $corEscama;
+        //sobrescrita no método:
+        function locomover() {
+            echo "nadando";
+        }
+        //gets e sets de Peixe
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Mamifero.class.php';
+    require_once 'Peixe.class.php';
+
+    $m1 = new Mamifero();
+    $m1-&gtlocomover();
+    $p1 = new Peixe();
+    p1-&gtlocomover(); //mesmo método, resultado diferente (polimorfismo)!
+?&gt
+
+
+POLIMORFISMO2 (Sobrecarga):
+"Métodos com mesmo nome, lista de parâmetros diferentes (geralmente na mesma classe)"
+O php não tem suporte pra Sobrecarga, mas há soluções alternativas!
+=&gt Solução: métodos similares de conteúdo, com nomes diferentes (emitirSom1(),emitirSom2())
+
+-- CLASSE ABSTRATA Animal.class.php --
+&lt?php
+    abstract class Animal {
+        protected $peso;
+        function emitirSom();
+        //gets e sets de Animal
+    }
+?&gt
+
+-- CLASSE FILHA Mamifero.class.php --
+&lt?php
+    require_once 'Animal.class.php';
+    class Mamifero extends Animal {
+        function emitirSom() {
+            echo "Som de mamífero";
+        }
+    }
+?&gt
+
+-- CLASSE FILHA Lobo.class.php --
+&lt?php
+    require_once 'Mamifero.class.php';
+    class Lobo extends Mamifero {
+        function emitirSom() {
+            echo "Auuu!";
+        }
+    }
+?&gt
+
+-- CLASSE FILHA Cachorro.class.php --
+&lt?php
+    require_once 'Lobo.class.php';
+    class Cachorro extends Lobo {
+        function emitirSom() {
+            echo "Au Au Au!";
+        }
+    }
+?&gt
+
+-- INDEX.PHP --
+&lt?php
+    require_once 'Mamifero.class.php';
+    require_once 'Lobo.class.php';
+    require_once 'Cachorro.class.php';
+
+    $l1 = new Lobo();
+    $l1-&gtemitirSom();
+    $c1 = new Cachorro();
+    $c1-&gtemitirSom();
+?&gt
+</code></pre></small><br>
+            <h4>PDO</h4>
+<small><pre><code>
+-- BANCO DE DADOS (Mysql) --
+CREATE DATABASE aula;
+CREATE TABLE Pessoa (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(20) NOT NULL,
+    sobrenome VARCHAR(20) NOT NULL
+);
+INSERT INTO Pessoa (nome,sobrenome) VALUES ('Carlos','Garcia'), ('Maria','Antunes'), ('Cassio','Silva');
+
+
+CONEXÃO PHP COM MYSQL:
+&lt?php
+    $db = new PDO('mysql:host=localhost;dbname=aula;charset=utf8','root','');
+    $db-&gtsetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?&gt
+
+
+SELECT MODO 1: pouco usado, requer o dobro de memória
+&lt?php
+    //código conexão com bd aqui
+    $resultado = $db-&gtquery('SELECT * FROM Pessoa');
+    foreach($resultado as $linha) {
+        echo $linha['nome'].' '.$linha['sobrenome']."&ltbr&gt";
+    }
+?&gt
+
+SELECT MODO 2: pouco usado, requer o dobro de memória
+&lt?php
+    //código conexão com bd aqui
+    $resultado = $db-&gtquery('SELECT * FROM Pessoa');
+    foreach($resultado as $linha) {
+        echo $linha[0].' '.$linha[1].' '.$linha[2]."&ltbr&gt";
+    }
+?&gt
+
+SELECT MODO 3: Ideal, indexação única de array, não gasta muita memória
+&lt?php
+    //código conexão com bd aqui
+    $resultado = $db-&gtquery('SELECT * FROM Pessoa');
+    // $linhas = $resultado-&gtfetchAll(PDO::FETCH_NUM);
+    // $linhas = $resultado-&gtfetchAll(PDO::FETCH_BOTH);
+    $linhas = $resultado-&gtfetchAll(PDO::FETCH_ASSOC);
+    print_r($linhas);
+?&gt
+
+Indexação de Array no Select:
+(parâmetros do fetchAll)
+● PDO::FETCH_ASSOC: (ideal) Retorna linhas do BD como array associativo indexado com nomes de colunas do BD.
+● PDO::FETCH_NUM: Retorna linhas do BD como array indexado de modo numérico, onde 0 é o índice da primeira coluna, 1 é o índice da segunda coluna, etc...
+● PDO::FETCH_BOTH: Duplica dados, retornando linhas tanto como um array associativo como um array numérico. Ocupa dobro da memória.
+
+
+CONTANDO LINHAS:
+(Usado para retornar se há resultados no Select, linhas &gt 0)
+&lt?php
+    //conexão com bd aqui...
+    $resultado = $db-&gtquery('SELECT * FROM Pessoa');
+    $numeroLinhas = $resultado-&gtrowCount();
+    echo $numeroLinhas.' linhas foram selecionadas!';
+?&gt
+
+
+INSERT DIRETO: (sem variáveis)
+&lt?php
+    //conexão com bd aqui...
+    $numeroLinhasInseridas = $db-&gtexec("INSERT INTO Pessoa (nome,sobrenome) VALUES ('Maria','Silva')");
+    echo $numeroLinhasInseridas." linha foi inserida.";
+?&gt
+
+
+UPDATE DIRETO: (sem variáveis)
+&lt?php
+    //conexão com bd aqui...
+    $numeroLinhasAtualizadas = $db-&gtexec("UPDATE Pessoa SET nome='Mike' WHERE sobrenome='Silva'");
+    echo $numeroLinhasAtualizadas." linhas foram atualizadas.";
+?&gt
+
+
+DELETE DIRETO: (sem variáveis)
+&lt?php
+    //conexão com bd aqui...
+    $numeroLinhasApagadas = $db-&gtexec("DELETE FROM Pessoa WHERE sobrenome='Silva'");
+    echo $numeroLinhasApagadas." linhas foram apagadas.";
+?&gt
+
+
+ERROS EM PDO:
+PDO::ERRMODE_SILENT: Não exibe nenhuma mensagem de erro, você deve chamar o método $db-&gterrorInfo() para obter informações sobre os erros ocorridos.
+PDO::ERRMODE_WARNING: Apenas exibe warnings na tela, mas segue execução.
+PDO::ERRMODE_EXCEPTION: Lança uma PDOException – é o modo que você vai querer usar pois permite que os erros sejam tratados.
+
+&lt?php
+    try {
+        // Código que pode vir a gerar um erro
+    } catch (PDOException $exception) {
+        // Código para tratar erro caso aconteça
+    }
+?&gt
+
+Exemplo:
+&lt?php
+    //conexão com bd aqui...
+    try {
+        $db-&gtquery('THUNDERCAT');
+    } catch (PDOException $exception) {
+        echo "&ltp&gt&ltb&gt Occorreu um erro! &lt/b&gt&lt/p&gt";
+        echo "&ltb&gtMensagem&lt/b&gt: ".$exception-&gtgetMessage();
+    }
+    echo "Programa segue normalmente depois do erro.";
+?&gt
+
+PREPARED STATEMENTS:
+Realizar queries com variáveis de forms
+
+Modelo 1:
+&lt?php
+    //código conexão com bd
+    $r = $db-&gtprepare('SELECT * FROM Pessoa WHERE id=? OR nome=?');
+    $id = 1;
+    $nome = 'Maria';
+    $r-&gtexecute(array($id, $nome));
+    $linhas = $r-&gtfetchAll(PDO::FETCH_ASSOC);
+    foreach($linhas as $linha) {
+        echo $linha['id'].' '.$linha['nome'].' '.$linha['sobrenome']."&ltbr&gt";
+    }
+?&gt
+
+Modelo 2: (mais usado)
+&lt?php
+    //código conexão com bd
+    $r = $db-&gtprepare( 'SELECT * FROM Pessoa WHERE id=:id OR nome=:nome');
+    $id = 2;
+    $nome = 'Marcela';
+    $r-&gtexecute(array(':id' =&gt $id, ':nome' =&gt $nome));
+    $linhas = $r-&gtfetchAll(PDO::FETCH_ASSOC);
+    foreach($linhas as $linha) {
+        echo $linha['nome'].' '.$linha['sobrenome']."&ltbr&gt";
+    }
+?&gt
+
+Além dos arrays, podemos usar o método bindValue para especificar valores a serem inseridos na consulta. Qndo usamos o bindValue, temos que especificar o tipo de dado para o argumento ? ou :arg. Os possíveis tipos de dados são:
+● PDO::PARAM_INT
+● PDO::PARAM_STR
+● PDO::PARAM_BOOL
+Ex:
+&lt?php
+    //código conexão com bd
+    $r = $db-&gtprepare('SELECT * FROM Pessoa WHERE id=? OR nome=?');
+    $id = 1;
+    $nome = 'Maria';
+    $r-&gtbindValue(1, $id, PDO::PARAM_INT);
+    $r-&gtbindValue(2, $nome, PDO::PARAM_STR);
+    $r-&gtexecute();
+    $linhas = $r-&gtfetchAll(PDO::FETCH_ASSOC);
+    foreach($linhas as $linha) {
+        echo $linha['nome'].' '.$linha['sobrenome']."&ltbr&gt";
+    }
+?&gt
+
+&lt?php
+    //código conexão com bd
+    $r = $db-&gtprepare('SELECT * FROM Pessoa WHERE id=:id OR nome=:nome');
+    $id = 2;
+    $nome = 'Marcela';
+    $r-&gtbindValue(':id', $id, PDO::PARAM_INT);
+    $r-&gtbindValue(':nome',$nome, PDO::PARAM_STR);
+    $r-&gtexecute();
+    $linhas = $r-&gtfetchAll(PDO::FETCH_ASSOC);
+?&gt
+
+
+INSERT COM VARIÁVEIS:
+&lt?php
+    //código conexão com bd
+    $nome = 'Jair';
+    $sobrenome = 'Kobe';
+    $r = $db-&gtprepare('INSERT INTO Pessoa(nome,sobrenome) VALUES (:nome,:sobrenome)');
+    $r-&gtexecute(array(':nome'=&gt$nome,':sobrenome'=&gt$sobrenome));
+    if($r-&gtrowCount() &gt 0) {
+        echo 'Linha inserida!';
+    }
+?&gt
+
+
+UPDATE COM VARIÁVEIS:
+&lt?php
+    //código conexão com bd
+    $id = 4;
+    $nome = 'Charlie';
+    $r = $db-&gtprepare('UPDATE Pessoa SET nome=? WHERE id&gt?');
+    $r-&gtexecute(array($nome, $id));
+    $numeroLinhas = $r-&gtrowCount();
+    echo $numeroLinhas.' linhas atualizadas!';
+?&gt
+
+
+DELETE COM VARIÁVEIS:
+&lt?php
+    //código conexão com bd
+    $id = 4;
+    $r = $db-&gtprepare('DELETE FROM Pessoa WHERE id&gt?');
+    $r-&gtexecute(array($id));
+    $numeroLinhas = $r-&gtrowCount();
+    echo $numeroLinhas.' linhas removidas!';
+?&gt
+</code></pre></small><br>
+            <h4>PDO OOP</h4>
+<small><pre><code>
+-- COM 1 CLASSE --
+
+//Banco modelo:
+CREATE DATABASE aula16;
+USE aula16;
+CREATE TABLE Pessoa (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(20) NOT NULL,
+    sobrenome VARCHAR(20) NOT NULL
+);
+INSERT INTO Pessoa (nome,sobrenome) VALUES ('Carlos','Garcia'),('Maria','Antunes'),('Cassio','Silva'),('Marcela','Moraes');
+
+//Classe Pessoa.class.php
+&lt?php
+    class Pessoa {
+        private $id;
+        private $nome;
+        private $sobrenome;
+
+        public function info() {
+            $r = '#'.$this->id;
+            $r .= ':'.$this->nome;
+            $r .= ' '.$this->sobrenome;
+            return $r;
+        }
+    }
+?&gt
+O nome dos atributos da classe deve coincidir com o nome dos campos da tabela!
+
+&lt?php
+    $db = new PDO('mysql:host=localhost;dbname=aula16;charset=utf8','root','');
+    $query = "SELECT id, nome, sobrenome FROM Pessoa";
+    $r = $db->query($query);
+    $r->setFetchMode(PDO::FETCH_CLASS,'Pessoa');
+    while($pessoa = $r->fetch()) {echo $pessoa->info()."&ltbr&gt\n";}
+?&gt
+
+
+-- COM 2 CLASSES --
+
+//Banco modelo:
+create database aula18;
+use aula18;
+create table equipe (
+    id integer not null primary key,
+    nome varchar(30) not null,
+    cidade varchar(30) not null
+);
+create table atleta (
+    id integer not null primary key,
+    nome varchar(30) not null,
+    sobrenome varchar(30) not null,
+    posicao varchar(30) not null,
+    equipe_id integer not null,
+    constraint equipe_fk foreign key (equipe_id) references equipe(id)
+);
+
+//Classe Equipe.class.php
+&lt?php
+    class Equipe {
+        private $id, $nome, $cidade, $atletas;
+        public function getId() {return $this->id;}
+        public function getNome() {return $this->nome;}
+        public function getCidade() {return $this->cidade;}
+        public function getAtletas() {return $this->atletas;}
+        public function addAtleta(Atleta $atleta) {$this->atletas[] = $atleta;}
+    }
+?&gt
+//$atletas: Atributo array para manter com a tabela 'atletas'
+
+//Classe Atleta.class.php
+&lt?php
+    class Atleta {
+        private $id, $nome, $sobrenome, $posicao, $equipe_id;
+        public function getId() {return $this ->id;}
+        public function getNome() {return $this ->nome;}
+        public function getSobrenome() {return $this ->sobrenome;}
+        public function getPosicao() {return $this ->posicao;}
+        public function getEquipeID() {return $this ->equipe_id;}
+    }
+?&gt
+
+//index.php
+&lt?php
+    $equipes = array();
+    $db = new PDO('mysql:host=localhost;dbname=aula18','root','');
+    $select1 = 'SELECT id, nome, cidade FROM Equipe';
+    $r1 = $db->query($select1);
+    $r1->setFetchMode(PDO::FETCH_CLASS,'Equipe');
+    $select2 = 'SELECT id, nome, sobrenome, posicao FROM Atleta WHERE equipe_id = :id';
+    $r2 = $db->prepare($select2);
+    while ($equipe = $r1->fetch()) {
+        $r2->bindValue(':id',$equipe->getId(),PDO::PARAM_INT);
+        $r2->execute();
+        $r2->setFetchMode(PDO::FETCH_CLASS,'Atleta');
+        while ($atleta = $r2->fetch()) {$equipe->addAtleta($atleta);}
+        $equipes[] = $equipe;
+    }
+?&gt
+</code></pre></small><br>
+            <h4>MVC</h4>
+<small><pre><code>
+--- INDEX ---
+&lt?php
+    include '/mvcexemplo/Controller/Controller.php';
+    include '/mvcexemplo/View/View.php';
+    include '/mvcexemplo/Model/Model.php';
+
+    $acao = $_GET['acao'];
+
+    if(isset($acao) && $acao == 'login'){
+        $controller = new Controller();
+        $controller->login();
+    } else {
+        $view = new View();
+        $view->login(); 
+    }
+?&gt
+
+
+--- VIEW ---
+&lt?php
+    class View {
+        public function login($validacao) { 
+            if(!isset($validacao)) {
+                echo ' 
+                    &lth3&gtLogin&lt/h3&gt
+                    &ltform action='index.php' method ='post'&gt
+                        &ltinput type='text' placeholder='Usuário' name='usuario'&gt
+                        &ltinput type='password' placeholder='Senha' name='senha'&gt
+                        &ltinput type='submit' value='Entrar'&gt
+                    &lt/form&gt
+                ';
+            } else {echo '&lth3&gt'.$validacao.'&lt/h3&gt';}
+        }
+    }
+?&gt
+
+
+--- CONTROLLER ---
+&lt?php
+    include '/../Model/Model.php';
+    class Controller {
+        public function login() {
+            $user = $_POST['usuario'];
+            $pass = $_POST['senha'];
+            $model = new Model();
+            $validacao = $model->validaDados($user,$pass);
+            $view = new View();
+            $view-&gtlogin($validacao); 
+        }
+    }
+?&gt
+
+
+--- MODEL ---
+&lt?php
+    class Model {
+        public function validaDados($user,$pass) {
+            if(($user!="admin") and ($pass!="adm")) {return 'Login incorreto'; }
+            else {return 'Logado com sucesso';}
+        }
+    }
 ?&gt
 </code></pre></small>
         </div>
