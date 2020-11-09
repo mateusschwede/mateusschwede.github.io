@@ -128,6 +128,9 @@
                         <li><b>Manter execução de dependências:</b> npm run watch</li>
                         <li><b>Criar objeto(Mail):</b> php artisan make:mail newLaravelTips</li>
                         <li><b>Importar templates markdown(Email):</b> php artisan vendor:publish --tag=laravel-mail</li>
+                        <li><b>Inserir estrutura BD queues:</b> php artisan queue:table</li>
+                        <li><b>Executar jobs queues:</b> php artisan queue:work</li>
+                        <li><b>Criar classes/objetos jobs:</b> php artisan make:job nomeClasse</li>
                     </ul>
                 </li>
             </ul>
@@ -156,6 +159,7 @@
                 <li><b>Projeto11:</b> Uploads automatizados no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto11" target="_blank">Ver Github</a></li>
                 <li><b>Projeto12:</b> Ajax no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto12" target="_blank">Ver Github</a></li>
                 <li><b>Projeto13:</b> Enviando emails no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto13" target="_blank">Ver Github</a></li>
+                <li><b>Projeto14:</b> Fila e Processamento Assíncrono no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto14" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
@@ -776,6 +780,34 @@ Disparar email pronto:
 &gt web.php, comentar return e descomentar Mail send()
 &gt&gt Testar, no Browser, envio do email(http://localhost/projetos/laravel/projeto13/public/envio-email)
 <i>(Verificar na caixa de email/span do email destinatário)</i>
+
+
+<h6><b>--- VER AULA15 ---</b></h6>
+<b>Projeto14: Fila e Processamento Assíncrono no Laravel</b>
+<i>(Replica do projeto13)</i>
+
+Ideia é enviar requisições ao BD, para depois executá-las, ao invés de executar tudo no momento
+
+Parametrizar o projeto para trabalhar com fias:
+&gt web.php, alterar método send() para queue()
+&gt Em .env, alterar QUEUE_CONNECTION para modo 'database'
+
+Parametrizar BD para queue:
+&gt Adicionar table específica no BD: php artisan queue:table (Cria migrations específicas: jobs e failed_jobs)
+&gt Atualizar BD: php artisan migrate:fresh
+&gt&gt Testar, no Browser, se carregamento da página ficou mais rápido(http://localhost/projetos/laravel/projeto14/public/envio-email) (Cntrl+c para parar)
+<i>(Execuções de emails salvos na table jobs)</i>
+&gt Executar fila: php artisan queue:work
+
+Criar agendamentos/programações de tarefas(Jobs):
+&gt Criar objeto job: php artisan make:job newLaravelTips
+<i>(Em app, cria-se diretório 'jobs', com classes dentro)</i>
+&gt web.php, alterar método queue por send() novamente, e recortar linha da classe job newLaravelTips, método handle
+&gt web.php, informar dispatch()
+&gt Classe job newLaravelTips, popular método construct, criar atributo acima
+&gt Executar fila: php artisan queue:work
+&gt&gt Testar, no Browser, submissão(http://localhost/projetos/laravel/projeto14/public/envio-email)
+<i>(Após delay, no caso 15seg, jobs são processados e, se der falha, tenta, no caso, faz até 3 tentativas no total)</i>
 </code></pre></small>
         </div>
     </div>
