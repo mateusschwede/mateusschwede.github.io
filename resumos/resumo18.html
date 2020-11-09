@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" width="30px" height="auto"/> UB Social.ca</a>
+                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" width="30px" height="auto"/>UB Social.ca</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -152,6 +152,7 @@
                 <li><b>Projeto10:</b> Bootstrap local no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto10" target="_blank">Ver Github</a></li>
                 <br><h5>Tips</h5>
                 <li><b>Projeto11:</b> Uploads automatizados no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto11" target="_blank">Ver Github</a></li>
+                <li><b>Projeto12:</b> Ajax no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto12" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
@@ -702,6 +703,33 @@ npm run watch (Lê arquivos e assite-os. Qualquer modificação nos arquivos, o 
 &gt Em .env, APP_URL, informar url do projeto(http://localhost/projetos/laravel/projeto11/public)
 &gt Atualizar Laravel url de storage à Public: php artisan storage:link
 &gt&gt Testar, no Browser, url(http://localhost/projetos/laravel/projeto11/public/produtos/4)
+
+
+<h6><b>--- AULA13 ---</b></h6>
+<b>Projeto12: Ajax no Laravel</b>
+<i>(Baseado no Projeto7, Laravel6 login)</i>
+
+Pré-Requisitos:
+&gt Resetar BD: php artisan migrate:fresh
+&gt Inserir user: INSERT INTO users(name,email,password) VALUES ("mateus","mateus@gmail.com",1234567800);
+
+&gt Atualizar jQuery, informando link na view 'formLogin', inserir tbm arquivo Ajax(https://github.com/jquery-form/form), informando link CDN
+&gt No final do código, informar área de código(&ltscript&gt) com função Ajax, com alert teste
+&gt Testar no Browser(http://localhost/projetos/laravel/projeto12/public/admin/login)
+&gt Remover method e action do form, e informar name no &ltform&gt
+&gt Inserir função de submissão, com alert teste2 e testar, no Browser, submissão
+&gt Inserir vars do form e testar, no Browser, submissões com os alerts
+&gt Comentar vars, inserir função $.ajax
+
+&gt Controller AuthController, alterar if de feedback de validação de email
+&gt Da mesma forma, informar no if Auth::attempt e abaixo, fora, dele
+&gt&gt Testar, no Browser, informando email inválido e dados inválidos(Verificar console se json fora informado)
+
+&gt View formLogin, alterar, na $.ajax, console por resposta
+&gt Remover blocos @if e @foreach, bloco {{$error}} também. Alterar class da &ltdiv&gt
+&gt Função $.ajax, abaixo do else para erro, informar messageBox
+&gt&gt Testar, no Browser, informando dados inválidos(verificar se mensagem &ltdiv&gt aparecerá)
+&gt&gt Testar, no Browser, informando dados corretos(verificar se será redirecionado)
 </code></pre></small>
         </div>
     </div>
