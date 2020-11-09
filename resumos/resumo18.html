@@ -160,6 +160,7 @@
                 <li><b>Projeto12:</b> Ajax no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto12" target="_blank">Ver Github</a></li>
                 <li><b>Projeto13:</b> Enviando emails no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto13" target="_blank">Ver Github</a></li>
                 <li><b>Projeto14:</b> Fila e Processamento Assíncrono no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto14" target="_blank">Ver Github</a></li>
+                <li><b>Projeto15:</b> Autenticação com Socialite(Google,Facebook) no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto15" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
@@ -808,6 +809,47 @@ Criar agendamentos/programações de tarefas(Jobs):
 &gt Executar fila: php artisan queue:work
 &gt&gt Testar, no Browser, submissão(http://localhost/projetos/laravel/projeto14/public/envio-email)
 <i>(Após delay, no caso 15seg, jobs são processados e, se der falha, tenta, no caso, faz até 3 tentativas no total)</i>
+
+
+<h6><b>--- AULA16 ---</b></h6>
+<b>Projeto15: Autenticação com Socialite(Google,Facebook) no Laravel</b>
+
+Pacote para autenticação com outros servidores(Google, Facebook...). Os processos tendem a ser iguais, com excessão das nomeoclaturas
+O ideal, além disso, é criar, após isso, uma regra de negócios para salvar a autenticação em BD, para então não depender somente dos dados terceiros e sessões fictícias
+
+Pré-Requisitos:
+&gt Pesquisar na documentação o Laravel Socialite
+&gt Facebook for Developers
+&gt Google Integrating
+&gt Instalar componente Socialite: composer require laravel/socialite
+
+Configurar Socialite:
+&gt Diretório config, services.php, inserir trecho de configuração 'facebook'
+&gt Arquivo .env, informar todas as chaves do trecho de configuração 'facebook', no final do arquivo(Valores serão informados em breve)
+
+<i>FACEBOOK</i>
+Página Facebook Developers:
+&gt Meus Apps / Criar novo: Pegar id do app gerado e colá-lo no FACEBOOK_CLIENT_ID
+&gt Configurar, na página, em Facebook Login / Web, infrmar url(http://localhost/projetos/laravel/projeto15/public/), avançar até finalizar as etapas(Nada mais será necessário, somente avançar)
+&gt Em configurações/basico, copiar chave secreta e colá-la no FACEBOOK_CLIENT_SECRET, informar domínio(localhost) e url's de privacidade e termos de uso(da sua aplicação/github como exemplo), tipo de uso comercial(Apoia minha própria empresa) e salvar alterações
+
+Criar routes:
+&gt Criar controller SocialiteController: php artisan make:controller SocialiteController
+&gt Em SocialiteController, informar métodos(Informar 'use' tbm)
+&gt Em routes 'web.php', informar routes(Informar 'use' tbm)
+&gt&gt Testar login, no Browser, informando url(http://localhost/projetos/laravel/projeto15/public/login/facebook), clicar em 'continuar', e um erro 404 de feedback aparecerá
+&gt Em .env, alterar APP_URL com url informada(http://localhost/projetos/laravel/projeto15/public)
+&gt&gt Testar login, no Browser, novamente(http://localhost/projetos/laravel/projeto15/public/login/facebook), cairá em uma página em branco
+
+<i>GOOGLE</i>
+&gt Diretório config, services.php, inserir trecho de configuração 'google'
+&gt Arquivo .env, informar todas as chaves do trecho de configuração 'google', no final do arquivo(Valores serão informados em breve)
+&gt Em SocialiteController, informar métodos Google
+&gt web.php, informar routes google
+Página Google Developers Console:
+Credenciais / Criar Credenciais / ID do Cliente OAuth / Tipo de Aplicativo(App da web) / Nome(Laravel Socialite) / Origens JS autorizadas(http://localhost) / URLs de Redirecionamento Autorizados(http://localhost/projetos/laravel/projeto15/public/login/google)(http://localhost/projetos/laravel/projeto15/public/login/google/callback) / Create
+&gt Copiar id e chave, colá-los no .env do Google
+&gt&gt Testar login, no Browser, informando url(http://localhost/projetos/laravel/projeto15/public/login/google)
 </code></pre></small>
         </div>
     </div>
