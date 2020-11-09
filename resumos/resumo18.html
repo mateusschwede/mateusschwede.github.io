@@ -126,6 +126,8 @@
                         <li><b>Instalar dependências:</b> npm install nomeDependencia</li>
                         <li><b>Executar modificações com dependências/mimificaçõesMix:</b> npm run dev(produtcion)</li>
                         <li><b>Manter execução de dependências:</b> npm run watch</li>
+                        <li><b>Criar objeto(Mail):</b> php artisan make:mail newLaravelTips</li>
+                        <li><b>Importar templates markdown(Email):</b> php artisan vendor:publish --tag=laravel-mail</li>
                     </ul>
                 </li>
             </ul>
@@ -153,6 +155,7 @@
                 <br><h5>Tips</h5>
                 <li><b>Projeto11:</b> Uploads automatizados no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto11" target="_blank">Ver Github</a></li>
                 <li><b>Projeto12:</b> Ajax no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto12" target="_blank">Ver Github</a></li>
+                <li><b>Projeto13:</b> Enviando emails no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto13" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
@@ -711,7 +714,7 @@ npm run watch (Lê arquivos e assite-os. Qualquer modificação nos arquivos, o 
 
 Pré-Requisitos:
 &gt Resetar BD: php artisan migrate:fresh
-&gt Inserir user: INSERT INTO users(name,email,password) VALUES ("mateus","mateus@gmail.com",1234567800);
+&gt Inserir user no Register
 
 &gt Atualizar jQuery, informando link na view 'formLogin', inserir tbm arquivo Ajax(https://github.com/jquery-form/form), informando link CDN
 &gt No final do código, informar área de código(&ltscript&gt) com função Ajax, com alert teste
@@ -730,6 +733,49 @@ Pré-Requisitos:
 &gt Função $.ajax, abaixo do else para erro, informar messageBox
 &gt&gt Testar, no Browser, informando dados inválidos(verificar se mensagem &ltdiv&gt aparecerá)
 &gt&gt Testar, no Browser, informando dados corretos(verificar se será redirecionado)
+
+
+<h6><b>--- AULA14 ---</b></h6>
+<b>Projeto13: Enviando emails no Laravel</b>
+
+Pré-Requisitos:
+&gt Arquivo .env, parte de mail, configurar autenticação com servidor(Recomendável servidor de hospedagem/compartilhado premium para que o email não caia em span)
+&gt Se seu remetente for Gmail, ative a opção de segurança 'Acesso a app menos seguro', nas configurações de sua conta Gmail
+
+&gt Criar objeto de email: php artisan make:mail newLaravelTips(nomeClasse)(No diretório app, cria-se diretório Mail)
+&gt Em routes 'web.php', informar route 'envio-email'
+
+Criar views de teste template de email:
+&gt Em 'views', criar diretório 'mail', com view 'newLaravelTips' e populá-la
+&gt Em classe newLaravelTips, método build, alterar nome da view de retorno
+&gt&gt Testar, no Browser, url (http://localhost/projetos/laravel/projeto13/public/envio-email)
+
+&gt Classe newLaravelTips, popular método build com parâmetros
+&gt Views 'web.php' popular view 'envio-email' com objeto std e parâmetros
+&gt Classe newLaravelTips, informar parâmetro $user no método construct, populá-lo, e atributos acima dele
+
+Disparar email teste:
+&gt View newLaravelTips, informar vars{{}}
+&gt&gt Testar, no Browser, se variáveis foram informadas, url(http://localhost/projetos/laravel/projeto13/public/envio-email)
+&gt web.php, comentar return new, e informar Facade Mail
+&gt&gt Testar, no Browser, se variáveis foram informadas, url(http://localhost/projetos/laravel/projeto13/public/envio-email)
+<i>(Verificar caixa de entrada e span no email destinatário)</i>
+
+Criar template markdown de Email:
+Importar templates markdown personalizáveis de email do Laravel: php artisan vendor:publish --tag=laravel-mail
+<i>(Em resources/views cria-se diretório 'vendor/mail' com temas e configuráveis)</i>
+&gt web.php, comentar linha de Mail send() e descomentar linha acima, de return
+&gt&gt Testar, no Browser, recarregar págnina, se view é mostrada novamente(http://localhost/projetos/laravel/projeto13/public/envio-email)
+
+&gt Classe newLaravelTips, alterar return this-&gtview para markdown(Comentei linha antiga e informei nova abaixo)
+&gt&gt Testar, no Browser, se layout mudou(http://localhost/projetos/laravel/projeto13/public/envio-email)
+&gt View newLaravelTips, informar @component e @endcomponent
+&gt&gt Testar, no Browser, se layout mudou(http://localhost/projetos/laravel/projeto13/public/envio-email)
+
+Disparar email pronto:
+&gt web.php, comentar return e descomentar Mail send()
+&gt&gt Testar, no Browser, envio do email(http://localhost/projetos/laravel/projeto13/public/envio-email)
+<i>(Verificar na caixa de email/span do email destinatário)</i>
 </code></pre></small>
         </div>
     </div>
