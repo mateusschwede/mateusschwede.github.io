@@ -161,6 +161,7 @@
                 <li><b>Projeto13:</b> Enviando emails no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto13" target="_blank">Ver Github</a></li>
                 <li><b>Projeto14:</b> Fila e Processamento Assíncrono no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto14" target="_blank">Ver Github</a></li>
                 <li><b>Projeto15:</b> Autenticação com Socialite(Google,Facebook) no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto15" target="_blank">Ver Github</a></li>
+                <li><b>Projeto16:</b> Sessões com Helper e Facade no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto16" target="_blank">Ver Github</a></li>
             </ol>
         </div>
     </div>
@@ -850,6 +851,23 @@ Página Google Developers Console:
 Credenciais / Criar Credenciais / ID do Cliente OAuth / Tipo de Aplicativo(App da web) / Nome(Laravel Socialite) / Origens JS autorizadas(http://localhost) / URLs de Redirecionamento Autorizados(http://localhost/projetos/laravel/projeto15/public/login/google)(http://localhost/projetos/laravel/projeto15/public/login/google/callback) / Create
 &gt Copiar id e chave, colá-los no .env do Google
 &gt&gt Testar login, no Browser, informando url(http://localhost/projetos/laravel/projeto15/public/login/google)
+
+
+<h6><b>--- AULA17 ---</b></h6>
+<b>Projeto16: Sessões com Helper e Facade no Laravel</b>
+
+Configurar sessão:
+&gt Em config/session.php e .env alterar SESSION_DRIVER de 'file' para 'cookie'
+
+&gt Criar controller SessionController: php artisan make:controller SessionController
+&gt SessionController, criar método session(Informar 'use' tbm) com somente dd()
+&gt Em routes 'web.php', criar route session(Informar 'use' tbm)
+&gt&gt Testar, no Browser, se route funciona(http://localhost/projetos/laravel/projeto16/public/session)
+
+Gravar dados na sessão:
+&gt SessionController, método session, popular método e testar, no Browser, mesma url
+&gt&gt Testar, no Browser, echos de sessão(http://localhost/projetos/laravel/projeto16/public/session)
+(1ª vez confira flash, comente a Session::flash, depois recarregue a página novamente(ainda à exibirá), depois novamente(sumirá))
 </code></pre></small>
         </div>
     </div>
