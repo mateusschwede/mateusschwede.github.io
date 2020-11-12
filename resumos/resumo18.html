@@ -162,6 +162,8 @@
                 <li><b>Projeto14:</b> Fila e Processamento Assíncrono no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto14" target="_blank">Ver Github</a></li>
                 <li><b>Projeto15:</b> Autenticação com Socialite(Google,Facebook) no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto15" target="_blank">Ver Github</a></li>
                 <li><b>Projeto16:</b> Sessões com Helper e Facade no Laravel<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto16" target="_blank">Ver Github</a></li>
+                <li><b>Projeto17:</b> Autenticação em API Rest com JWT<a class="btn btn-link" href="https://github.com/mateusschwede/laravel/tree/main/projeto17" target="_blank">Ver Github</a></li>
+                <br><h5>Deploy</h5>
             </ol>
         </div>
     </div>
@@ -868,6 +870,43 @@ Gravar dados na sessão:
 &gt SessionController, método session, popular método e testar, no Browser, mesma url
 &gt&gt Testar, no Browser, echos de sessão(http://localhost/projetos/laravel/projeto16/public/session)
 (1ª vez confira flash, comente a Session::flash, depois recarregue a página novamente(ainda à exibirá), depois novamente(sumirá))
+
+
+<h6><b>--- AULA18 ---</b></h6>
+<b>Projeto17: Autenticação em API Rest com JWT</b>
+<i>(JWT Json Web Token)</i>
+
+A diferença é que as routes serão criadas no arquivo 'api.php'
+Visar reuso das Models, tanto pra aplicação, quanto pra API
+
+Pré-Requisitos:
+&gt Resetar BD: php artisan migrate:fresh
+&gt&gt Inserir 1 user na table Users
+
+Criar exemplo de saída em json:
+&gt Criar controller Api\UserController: php artisan make:controller Api\UserController --api(Cria métodos de Api)
+&gt Controller UserController, popular méotodo index(Informar 'use' tbm)
+
+&gt Em routes 'api.php', comentar primeira route, criar route 'users'(Informar 'use' tbm)
+&gt&gt Testar, no Browser, se route funciona e retornar json(http://localhost/projetos/laravel/projeto17/public/api/users)
+
+EndPoint é público, precisa autentacá-lo para protegê-lo(Proteção de routes):
+&gt Instalar componente JWT-Auth: composer require tymon/jwt-auth 1.0.1
+&gt Em config/app.php, inserir linha em 'providers'
+&gt Publicar configurações: php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+&gt Gerar Secret Key: php artisan jwt:secret (Key estará no final do .env)
+&gt Atualizar Mode User, informando 'implements'(Informar 'use' tbm) e métodos
+&gt Em config/auth.php, inserir 'defaults' e 'guards'
+&gt Criar controller AuthController(Populá-lo após criá-lo): php artisan make:controller Api\AuthController
+&gt Em routes 'api.php', informar route 'login'(Informar 'use' tbm)
+
+&gt Em routes 'api.php', informar route '/home'
+&gt Criar view 'home'
+&gt Criar middleware apiProtectedRoute(pouplá-lo tbm, informar 'use'): php artisan make:middleware apiProtectedRoute
+&gt Em Controllers/kernel.php, informar apelido do middleware
+&gt Em routes 'api.php', informar route group, colocar route 'users' dentro dela
+&gt&gt Testar, no Browser, se route funciona e retornar json(http://localhost/projetos/laravel/projeto17/public/api/users), informando token bear, que será válido por 1hora(3600seg)
+<i>(Nos casos de Laravel8, será necessário adaptar o código conforme pesquisas...)</i>
 </code></pre></small>
         </div>
     </div>
