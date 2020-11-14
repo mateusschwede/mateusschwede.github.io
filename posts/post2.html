@@ -46,6 +46,7 @@
             <br><br>
             <h4>api.php</h4>
 <small><pre><code>
+<h6><b>Modo Estrutural</b></h6>
 &lt?php
 $url = "https://api.hgbrasil.com/weather?key=651bb186&user_ip=remote";
 $weather = json_decode(file_get_contents($url));
@@ -56,6 +57,88 @@ foreach($weather->results->forecast as $r2) {
     echo " Min: ".$r2->min."°C | Max: ".$r2->max."°C ";
     echo $r2->description." ".$r2->condition."&ltbr&gt";
 }
+
+<h6><b>Modo Padronizado</b></h6>
+<b>index.php</b>
+&lt?php
+/* API HG Cotações
+1- No site oficial, criar conta, então chave de autenticação
+2- Minha chave: Não use a mesma! 811ec71b (Ex: https://api.hgbrasil.com/finance/quotations?key=811ec71b)*/
+
+require_once 'app/config/config.php';
+require_once 'app/modules/hg-api.php';
+
+$hg = new HG_API(HG_API_KEY);
+$dolar = $hg-&gtdolar_quotation();
+var_dump($dolar);
+echo("&ltbr&gt".$dolar['buy']);
+
+if($hg-&gtis_error() == false) {
+    $variation = ($dolar['variation']&lt0) ? 'Variação negativa' : 'Variação positiva';
+}
+?&gt
+
+&lth1&gtCotação dolar&lt/h1&gt
+&lt?php if($hg-&gtis_error()==false): ?&gt
+    &ltp&gtU$D: &lt?= $dolar['buy'] ?&gt&lt/p&gt
+    &ltp&gt&lt?= $variation."(".$dolar['variation'].")" ?&gt&lt/p&gt
+&lt?php else: ?&gt
+    &ltp&gtErro de serviço&lt/p&gt
+&lt?php endif; ?&gt
+
+<i><b>Pasta app</b></i>
+<i><b>Subpasta config</b></i>
+<b>config.php</b>
+&lt?php
+    define('HG_API_KEY','811ec71b');
+?&gt
+
+<i><b>Subpasta modules</b></i>
+<b>hg-api.php</b>
+&lt?php
+class HG_API {
+    
+    private $key = null;
+    private $error = false;
+
+    function __contruct($key = null) {
+        if(!empty($key)) $this-&gtkey = $key;
+    }
+
+    function request($endpoint = '', $params = array()) {
+        $uri = "https://api.hgbrasil.com/".$endpoint."?key=".$this-&gtkey."&format=json";
+
+        if(is_array($params)) {
+            foreach($params as $key =&gt $value) {
+                if(empty($value)) continue;
+                $uri .= $key . '=' . urlencode($value) . '&';
+            }
+            $uri = substr($uri,0,-1);
+            $response = @file_get_contents($uri);
+            $this-&gterror = false;
+            return json_decode($response,true);
+        } else {
+            $this-&gterror = true;
+            return false;
+        }
+    }
+
+    function is_error() {
+        return $this-&gterror;
+    }
+
+    function dolar_quotation() {
+        $data = $this-&gtrequest('finance/quotations');
+        if(!empty($data) && is_array($data['results']['currencies']['USD'])) {
+            $this-&gterror = false;
+            return $data['results']['currencies']['USD'];
+        } else {
+            $this-&gterror = true;
+            return false;
+        }
+    }
+}
+?&gt
 </code></pre></small>
         </div>
         <div class="col-sm-12" id="msgm">
