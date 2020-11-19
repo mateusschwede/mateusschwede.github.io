@@ -290,6 +290,24 @@ Instalar npm:
             <br>
             <h4>Anotações</h4>
 <small><pre><code>
+<h6><b>Iniciando projeto Larave</b></h6>
+<i>Pré-Requisitos</i>
+- Xampp Apache e Php executando
+- Composer e npm instalados
+
+1. Instalação do projeto
+2. Configuração BD no '.env'
+3. Opcional:
+	3.1(Ideal). Criar model, migration e controller simples(php artisan make:model nomeModel -mcr)
+	3.2. Criar controller crud e model, então depois criar migration(php artisan make:controller nomeController --resource --model=nomeModel) (php artisan make:migration comando_nomeTable_table --create=nomeTable)
+4. Parametrizar model e migration
+5. Executar migrations(php artisan migrate)
+6. Definir route
+7. Criar view
+8. Programa método do controller, vinculado à view na route
+9. Testar acesso com Browser
+
+
 <h6><b>Projeto3: Automatizando com artisan e resource</b></h6>
 &gt Criar controller com metodos à determinada view automaticamente:
 php artisan make:controller Form\TestController --resource --model=User
