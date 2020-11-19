@@ -297,10 +297,8 @@ Instalar npm:
 
 1. Instalação do projeto
 2. Configuração BD no '.env'
-3. Opcional:
-	3.1(Ideal). Criar model, migration e controller simples(php artisan make:model nomeModel -mcr)
-	3.2. Criar controller crud e model, então depois criar migration(php artisan make:controller nomeController --resource --model=nomeModel) (php artisan make:migration comando_nomeTable_table --create=nomeTable)
-4. Parametrizar model e migration
+3. Criar model, migration e controller simples(php artisan make:model nomeModel -mcr)
+4. Parametrizar migration, então model
 5. Executar migrations(php artisan migrate)
 6. Definir route
 7. Programar método(s) do controller vinculado à route
