@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
 </head>
-<body>
+<body id="fundo">
 <div class="container-fluid">
 
 
@@ -32,117 +32,84 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <h1>Consumindo Api com Php</h1>
-            <h6><strong>Leitura de dados de Api com Php</strong></h6>
+            <h1>Crud Php MySQL MYSQLi</h1>
+            <h6><strong>Crud simples com Php MYSQLi e MySQL</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>O que é Api?</h4>
-            <p id="textoPost">Application Programming Interface é uma forma de comunicação(troca de dados) entre sistemas paralelos, realizada através de um meio de comunicação(Json,Http(Url),Xml...) na qual ambos sistemas conseguem interpretar os dados em questão(um sistema emite o código, o outro recebe e o interpreta). Já imaginou seu sistema se comunicar, de forma perfeita, com um sistema, tecnicamente totalmente diferente do seu, hospedado do outro lado do mundo? Esse processo, na prática, é o consumo de Api, na qual um sistema X envia um conjunto de dados em códigos para um sistema Y, onde ambos conseguem se comunicar 100%.</p>
+            <h4>Pré-requisitos</h4>
+            <p id="textoPost">Xampp instalado e executando, criar um diretório no <i>htdocs</i> para inserir os arquivos abaixo. 1º executar o arquivo bd.sql no <i>Phpmyadmin</i>.</p>
             <br>
-            <h4>Consumindo Api na prática</h4>
-            <p id="textoPost">Agora, faremos a comunicação e consumo, em Php, com um sistema de Api que envia dados em código Json sobre a previsão do tempo. Além disso, o próprio sistema pega a geolocalização via IP da máquina receptora, na própria url. Basta inserir o código do arquivo abaixo no <i>htdocs</i> do seu Xampp executando, ou no diretório do seu usuário para Php 'raíz' executando, em localhost. Esse pequeno trecho de código faz toda a mágica acontecer, sempre de forma atualizada. Este é o link da Api, que possui também dados financeiros(moeda) e de geolocalização(leia a documentação[bem simples e rápida] para maiores instruções quanto à url compartilhada pela api):</p>
-            <a href="https://hgbrasil.com/status/weather" target="_blank" class="btn btn-link">Api HG Brasil</a>
+            <h4>bd.sql</h4>
 <small><pre><code>
-<h6><b>Modo Estrutural</b></h6>
-&lt?php
-$url = "https://api.hgbrasil.com/weather?key=651bb186&user_ip=remote";
-$weather = json_decode(file_get_contents($url));
-
-echo "Previsão do tempo ".$weather->results->city."&ltbr&gt";
-foreach($weather->results->forecast as $r2) {
-    echo $r2->date." ".$r2->weekday;
-    echo " Min: ".$r2->min."°C | Max: ".$r2->max."°C ";
-    echo $r2->description." ".$r2->condition."&ltbr&gt";
-}
-
-<h6><b>Modo Padronizado</b></h6>
-<b>index.php</b>
-&lt?php
-/* API HG Cotações
-1- No site oficial, criar conta, então chave de autenticação
-2- Minha chave: Não use a mesma! 811ec71b (Ex: https://api.hgbrasil.com/finance/quotations?key=811ec71b)*/
-
-require_once 'app/config/config.php';
-require_once 'app/modules/hg-api.php';
-
-$hg = new HG_API(HG_API_KEY);
-$dolar = $hg-&gtdolar_quotation();
-var_dump($dolar);
-echo("&ltbr&gt".$dolar['buy']);
-
-if($hg-&gtis_error() == false) {
-    $variation = ($dolar['variation']&lt0) ? 'Variação negativa' : 'Variação positiva';
-}
-?&gt
-
-&lth1&gtCotação dolar&lt/h1&gt
-&lt?php if($hg-&gtis_error()==false): ?&gt
-    &ltp&gtU$D: &lt?= $dolar['buy'] ?&gt&lt/p&gt
-    &ltp&gt&lt?= $variation."(".$dolar['variation'].")" ?&gt&lt/p&gt
-&lt?php else: ?&gt
-    &ltp&gtErro de serviço&lt/p&gt
-&lt?php endif; ?&gt
-
-<i><b>Pasta app</b></i>
-<i><b>Subpasta config</b></i>
-<b>config.php</b>
-&lt?php
-    define('HG_API_KEY','811ec71b');
-?&gt
-
-<i><b>Subpasta modules</b></i>
-<b>hg-api.php</b>
-&lt?php
-class HG_API {
-    
-    private $key = null;
-    private $error = false;
-
-    function __contruct($key = null) {
-        if(!empty($key)) $this-&gtkey = $key;
-    }
-
-    function request($endpoint = '', $params = array()) {
-        $uri = "https://api.hgbrasil.com/".$endpoint."?key=".$this-&gtkey."&format=json";
-
-        if(is_array($params)) {
-            foreach($params as $key =&gt $value) {
-                if(empty($value)) continue;
-                $uri .= $key . '=' . urlencode($value) . '&';
-            }
-            $uri = substr($uri,0,-1);
-            $response = @file_get_contents($uri);
-            $this-&gterror = false;
-            return json_decode($response,true);
-        } else {
-            $this-&gterror = true;
-            return false;
-        }
-    }
-
-    function is_error() {
-        return $this-&gterror;
-    }
-
-    function dolar_quotation() {
-        $data = $this-&gtrequest('finance/quotations');
-        if(!empty($data) && is_array($data['results']['currencies']['USD'])) {
-            $this-&gterror = false;
-            return $data['results']['currencies']['USD'];
-        } else {
-            $this-&gterror = true;
-            return false;
-        }
-    }
+CREATE DATABASE agenda;
+USE agenda;
+CREATE TABLE pessoa (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL
+);
+INSERT INTO pessoa(nome) VALUES ("mateus"),("mateusa");
+</code></pre></small><br>
+            <h4>con.php</h4>
+<small><pre><code>
+&lt?
+$c = mysqli_connect("localhost","root","","agenda");
+if(!$c){echo "Erro conexão: ".mysqli_connect_error();}
+</code></pre></small><br>
+            <h4>add.php</h4>
+<small><pre><code>
+&lt?
+require 'con.php';
+$nome = $_POST['nome'];
+mysqli_query($c,"INSERT INTO pessoa(nome) VALUES ('$nome')");
+header("location: index.php");
+</code></pre></small><br>
+            <h4>ed.php</h4>
+<small><pre><code>
+&lt?
+require 'con.php';
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $d = mysqli_query($c,"SELECT * FROM pessoa WHERE id='$id'");
+    $r = mysqli_fetch_assoc($d);
 }
 ?&gt
+&ltform action="" method="post"&gt
+    &ltinput type="text" name="nome" placeholder="Nome" value="&lt?=$r['nome']?&gt" required&gt
+    &ltinput type="submit" value="Atualizar"&gt
+&lt/form&gt
+&lt?
+if(isset($_POST['nome'])) {
+    $nome = $_POST['nome'];
+    mysqli_query($c,"UPDATE pessoa SET nome='$nome' WHERE id=$id");
+    header("location: index.php");
+}
+?&gt
+</code></pre></small><br>
+            <h4>del.php</h4>
+<small><pre><code>
+&lt?
+require 'con.php';
+$id = $_GET['id'];
+mysqli_query($c,"DELETE FROM pessoa WHERE id='$id'");
+header("location: index.php");
+</code></pre></small><br>
+            <h4>index.php</h4>
+<small><pre><code>
+&lt?
+require 'con.php';
+    $d = mysqli_query($c,"SELECT * FROM pessoa");
+    while($r = mysqli_fetch_assoc($d)){
+        echo $r['id']."- ".$r['nome']."
+        &lta href='ed.php?id=".$r['id']."'&gtEditar&lt/a&gt
+        &lta href='del.php?id=".$r['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
+    }
+?&gt
+&ltform action="add.php" method="post"&gt
+    &ltinput type="text" name="nome" placeholder="Nome" required&gt
+    &ltinput type="submit" value="Inserir"&gt
+&lt/form&gt
 </code></pre></small>
-        </div>
-        <div class="col-sm-12" id="msgm">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Cuidados com Apis!</strong><br>Nunca compartilhe <strong>dados pessoais</strong> valiosos via url com Apis desconhecidas (nunca saberemos o que o sistema em paralelo irá processar do outro lado)<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
         </div>
     </div>
 

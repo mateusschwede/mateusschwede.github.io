@@ -32,243 +32,67 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <h1>Carrinho de compras Php Mysql</h1>
-            <h6><strong>Código de carrinho de compras Php e Mysql</strong></h6>
+            <h1>Upload Php e Mysql</h1>
+            <h6><strong>Upload de quaisquer arquivos usando Php e Mysql</strong></h6>
         </div>
 
         <div class="col-sm-12">
             <h4>Pré-requisitos</h4>
-            <p id="textoPost">Xampp executando, criar diretório no <i>htdocs</i> para armazenar os arquivos. 1º execute o .sql no <i>Phpmyadmin</i>, após isso, utilize os códigos informados abaixo.</p>
-            <small class="text-muted">Neste caso, simplifiquei os códigos sql e alguns casos php, com o objetivo de trazer um código mais limpo e focado. Entretanto, SEMPRE utilize das boas práticas de programação: Nos casos sql, utilize chaves primárias e estrangeiras, assim como a limitação dos tipos primitivos. A relação entre os dados e a organização do código são pontos fundamentais para a integridade do sistema!</small>
-            <br><br>
+            <p id="textoPost">Necessário ter o Xampp executando, criar diretório no <i>htdocs</i> para armazenar os códigos. Após, crie, neste diretório, a pasta <b>uploads</b>, onde os arquivos de upload ficarão armazenados. Em seguida, execute o arquivo sql no <i>phpmyadmin</i>. Por fim, execute os códigos abaixo. Mantenha a atenção com o tamanho do arquivo em upload, pois, em alguns casos, pode ser necessária realocação de maior espaço no banco de dados.</p>
+            <br>
             <h4>banco.sql</h4>
 <small><pre><code>
-CREATE DATABASE carrinho;
-CREATE TABLE item (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome TEXT NOT NULL,
-    preco FLOAT NOT NULL
+CREATE DATABASE phpimg;
+CREATE TABLE arquivo (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    arquivo VARCHAR(100) NOT NULL,
+    dt DATETIME NOT NULL
 );
-CREATE TABLE pedido (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    dia DATETIME NOT NULL DEFAULT NOW(),
-    cpf TEXT,
-    endereco TEXT,
-    precoTotal FLOAT,
-    finalizado BOOLEAN NOT NULL DEFAULT 0
-);
-CREATE TABLE item_pedido (
-    idPedido INT,
-    idItem INT,
-    qtd INT NOT NULL
-);
-INSERT INTO item(nome,preco) VALUES ("item1",29.90),("item2",90),("item3",10.65);
 </code></pre></small><br>
-            <h4>conect.php</h4>
+            <h4>upload.php</h4>
 <small><pre><code>
 &lt?php
-$db = new PDO('mysql:host=localhost;dbname=carrinho;charset=utf8','root','');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-</code></pre></small><br>
-            <h4>itensPedido.php</h4>
-<small><pre><code>
-&lta href="addItem.php"&gtAdicionar item&lt/a&gt
-&lt?php
-    require_once 'conect.php';
-    session_start();
-    $totPedido = 0;
+    $db = new PDO('mysql:host=localhost;dbname=phpimg;charset=utf8','root','');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Itens do pedido
-    $r = $db->prepare("SELECT * FROM item_pedido WHERE idPedido=?");
-    $r->execute(array($_SESSION['id']));
-    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-    foreach($linhas as $l) {
-        $r2 = $db->prepare("SELECT * FROM item WHERE id=?");
-        $r2->execute(array($l['idItem']));
-        $linhas2 = $r2->fetchAll(PDO::FETCH_ASSOC);
-        foreach($linhas2 as $l2) {
-            $totItem = $l['qtd']*$l2['preco'];
-            $totPedido += $totItem;
-            echo "
-                &ltbr&gt
-                ".$l2['nome']."- ".$l['qtd']."(R$ ".$l2['preco']."un) - R$ ".$totItem."
-                &lta href='edItem.php?item=".$l['idItem']."'&gtEditar&lta&gt
-                &lta href='remItem.php?item=".$l['idItem']."'&gtExcluir&lta&gt
-            ";
-        }
-        $_SESSION['totPedido'] = $totPedido;
-    }
+    if(!empty($_FILES['arquivo'])) {
+        $ext = pathinfo($_FILES['arquivo']['name'],PATHINFO_EXTENSION);
+        $nNome = uniqid($_FILES['arquivo']['name']).".".$ext;
+        $dir = "uploads/";
+        move_uploaded_file($_FILES['arquivo']['tmp_name'],$dir.$nNome);
 
-    // Dados do pedido
-    $r = $db->prepare("SELECT * FROM pedido WHERE id=?");
-    $r->execute(array($_SESSION['id']));
-    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-    foreach($linhas as $l) {
-        echo "&ltbr&gt&lthr&gtPedido ".$l['id']."&ltbr&gtData: ".$l['dia']."&ltbr&gtCpf: ".$l['cpf']."&ltbr&gtTotal: R$ ".$totPedido."&ltbr&gtEndereço: ".$l['endereco'];
+        $r = $db->prepare("INSERT INTO arquivo(arquivo,dt) VALUES (?,now())");
+        $r->execute(array($nNome));
     }
 ?&gt
 
-&ltform action="canPedido.php" method="post"&gt
-    &ltinput type="hidden" name="can" value="1"&gt
-    &ltinput type="submit" value="Cancelar Pedido"&gt
-&lt/form&gt
-&ltform action="fimPedido.php" method="post"&gt
-    &ltinput type="hidden" name="fim" value="1"&gt
-    &ltinput type="submit" value="Confirmar Pedido"&gt
+&ltform action="upload.php"  method="post" enctype="multipart/form-data"&gt
+    &ltinput type="file" name="arquivo"&gt
+    &ltinput type="submit" value="Enviar"&gt
 &lt/form&gt
 </code></pre></small><br>
-            <h4>addItem.php</h4>
+            <h4>Upload sem conexão com BD</h4>
+            <p id="textoPost">Caso precise somente realizar upload, sem a necessidade de gravar em base de dados, segue outro exemplo de código, <b>upload.php</b>, envolvendo a mesma arquitetura de diretórios.</p>
 <small><pre><code>
 &lt?php
-    require_once 'conect.php';
-    session_start();
+    $name = $_FILES['arquivo']['name'];
+    $size = $_FILES['arquivo']['size'];
+    $type = $_FILES['arquivo']['type'];
+    $temp = $_FILES['arquivo']['tmp_name'];
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
 
-    if((!empty($_POST['item'])) and (!empty($_POST['qtd']))) {
-        $r = $db->prepare("INSERT INTO item_pedido(idItem,idPedido,qtd) VALUES (?,?,?)");
-        $r->execute(array($_POST['item'],$_SESSION['id'],$_POST['qtd']));
-        header("location: itensPedido.php");
+    if ((!empty($name)) && (!empty($name))) {
+    	$nNome = uniqid($name).'.'.$ext;
+    	$dir = 'uploads/'.$nNome;
+    	if (move_uploaded_file($temp,$dir)) {echo 'Upload  concluido.';}
+    	else {echo 'Erro no upload.';}
     }
+
 ?&gt
-
-&ltform action="addItem.php" method="post"&gt
-    Adicionar item:
-    &ltselect required name="item"&gt
-        &lt?php
-            $r = $db->query("SELECT * FROM item");
-            $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-            foreach($linhas as $l) {
-                $r = $db->prepare("SELECT * FROM item_pedido WHERE idItem=? AND idPedido=?");
-                $r->execute(array($l['id'],$_SESSION['id']));
-                if($r->rowCount()==0) {echo "&ltoption value=".$l['id']."&gt".$l['nome']."&lt/option&gt";}
-            }
-        ?&gt
-    &lt/select&gt
-    &ltinput type="number" required name="qtd" min=1 max=99 placeholder="Qtd"&gt
-    &lta href="itensPedido.php"&gtCancelar&lt/a&gt
-    &ltinput type="submit" value="Adicionar"&gt
+&ltform action="upload.php"  method="post" enctype="multipart/form-data"&gt
+    &ltp&gt&ltinput type="file" name="arquivo"&gt&lt/p&gt
+    &ltp&gt&ltinput type="submit" value="Enviar"&gt&lt/p&gt
 &lt/form&gt
-</code></pre></small><br>
-            <h4>remItem.php</h4>
-<small><pre><code>
-&lt?php
-require_once 'conect.php';
-session_start();
-$r = $db->prepare("DELETE FROM item_pedido WHERE idItem=? AND idPedido=?");
-$r->execute(array($_GET['item'],$_SESSION['id']));
-header("location: itensPedido.php");
-</code></pre></small><br>
-            <h4>edItem.php</h4>
-<small><pre><code>
-&lt?php
-    require_once 'conect.php';
-    session_start();
-
-    if(!empty($_GET['item'])) {
-        $r = $db->prepare("SELECT qtd FROM item_pedido WHERE idItem=? AND idPedido=?");
-        $r->execute(array($_GET['item'],$_SESSION['id']));
-        $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-        foreach($linhas as $l) {$qtd = $l['qtd'];}
-    }
-
-    if((!empty($_GET['idNovo'])) and (!empty($_POST['qtd']))) {
-        $r = $db->prepare("UPDATE item_pedido SET qtd=? WHERE idItem=? AND idPedido=?");
-        $r->execute(array($_POST['qtd'],$_GET['idNovo'],$_SESSION['id']));
-        header("location: itensPedido.php");
-    }
-
-    $r = $db->prepare("SELECT nome FROM item WHERE id=?");
-    $r->execute(array($_GET['item']));
-    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-    foreach($linhas as $l) {echo "Editar ".$l['nome'];}
-?&gt
-
-&ltform action="edItem.php?idNovo=&lt?=$_GET['item']?&gt" method="post"&gt
-    &ltinput type="number" name="qtd" placeholder="Qtd" required min=1 max=99 value="&gt?=$qtd?&gt"&gt
-    &lta href="itensPedido.php"&gtCancelar&lt/a&gt
-    &ltinput type="submit" value="Atualizar"&gt
-&lt/form&gt
-</code></pre></small><br>
-            <h4>canPedido.php</h4>
-<small><pre><code>
-&lt?php
-require_once 'conect.php';
-session_start();
-
-$r = $db->prepare("DELETE FROM item_pedido WHERE idPedido=?");
-$r->execute(array($_SESSION['id']));
-$r = $db->prepare("DELETE FROM pedido WHERE id=?");
-$r->execute(array($_SESSION['id']));
-unset($_SESSION['id']);
-unset($_SESSION['totPedido']);
-header("location: index.php");
-</code></pre></small><br>
-            <h4>fimPedido.php</h4>
-<small><pre><code>
-&lt?php
-require_once 'conect.php';
-session_start();
-
-$r = $db->prepare("SELECT count(idItem) FROM item_pedido WHERE idPedido=?");
-$r->execute(array($_SESSION['id']));
-$linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-foreach($linhas as $l) {
-    if($l['count(idItem)']>0) {
-        // Pedido com itens adicionados finaliza
-        $r = $db->prepare("UPDATE pedido SET dia=now(),precoTotal=?,finalizado=1 WHERE id=?");
-        $r->execute(array($_SESSION['totPedido'],$_SESSION['id']));
-        unset($_SESSION['id']);
-        unset($_SESSION['totPedido']);
-        header("location: index.php");
-    } else {header("location: itensPedido.php");}
-}
-</code></pre></small><br>
-            <h4>index.php</h4>
-<small><pre><code>
-&lt?php
-    require_once 'conect.php';
-    session_start();
-
-    if((!empty($_POST['cpf'])) and (!empty($_POST['endereco']))) {
-        $r = $db->prepare("INSERT INTO pedido(cpf,endereco) VALUES (?,?)");
-        $r->execute(array($_POST['cpf'],$_POST['endereco']));
-
-        $r = $db->query("SELECT id,cpf FROM pedido WHERE finalizado IS FALSE");
-        $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-        foreach($linhas as $l) {
-            $_SESSION['id'] = $l['id'];
-            $_SESSION['cpf'] = $l['cpfCliente'];
-        }
-        header("location: itensPedido.php");
-    }
-?&gt
-
-&ltform action="index.php" method="post"&gt
-    Novo pedido
-    &ltinput type="text" name="cpf" placeholder="Cpf(xxx.xxx.xxx-xx)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"&gt
-    &ltinput type="text" name="endereco" placeholder="Endereço"&gt
-    &ltinput type="submit" value="Avançar"&gt
-&lt/form&gt
-
-&lth1&gtPedidos&lt/h1&gt
-&lt?php
-    $r = $db->query("SELECT * FROM pedido");
-    $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-    foreach($linhas as $l) {
-        echo "&ltbr&gt--- Pedido ".$l['id']." (".$l['dia'].") ---&ltbr&gt";
-        echo "Cpf: ".$l['cpf']." Endereço: ".$l['endereco']." Total: R$ ".$l['precoTotal']."&ltbr&gt";
-        $r = $db->prepare("SELECT * FROM item_pedido WHERE idPedido=?");
-        $r->execute(array($l['id']));
-        $linhas2 = $r->fetchAll(PDO::FETCH_ASSOC);
-        foreach($linhas2 as $l2) {
-            $r = $db->prepare("SELECT * FROM item WHERE id=?");
-            $r->execute(array($l2['idItem']));
-            $linhas3 = $r->fetchAll(PDO::FETCH_ASSOC);
-            foreach($linhas3 as $l3) {
-                echo "Item ".$l3['nome']."- ".$l2['qtd']."(R$ ".$l3['preco'].") - R$ ".($l3['preco']*$l2['qtd'])."&ltbr&gt";
-            }
-        }
-    }
-?>
 </code></pre></small>
         </div>
     </div>

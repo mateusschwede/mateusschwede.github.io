@@ -32,239 +32,127 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <h1>Java</h1>
-            <h6><strong>Sintaxe Java8</strong></h6>
+            <h1>Markdown</h1>
+            <h6><strong>Conceitos e sintaxe da linguagem Markdown</strong></h6>
         </div>
 
         <div class="col-sm-12">
-            <h4>Arquivos</h4>
-            <p id="textoPost">Faça o download, no link abaixo(Mega), dos arquivos de sintaxe Java8 base, OOP e GUI. Os arquivos compõem-se de slides com conteúdo e códigos de exemplo. A parte GUI foi desenvolvida com o Eclipse WindowBuilder.</p>
-            <a class="btn btn-link" href="https://mega.nz/file/bZwh0AzD#yglXrdJe24plaMyBNPhObl6JGrw5nN7FTrBeKqnxWjA" target="_blank">Java8 conteúdo</a>
+            <h4>O que é?</h4>
+            <p id="textoPost">Linguagem de marcação, convertida pra Html, muito utilizada para escrever documentação web. Devido à sintaxe 'populosa' do Html e sua difícil interpretação quando aplicada à escrita de documentação web, fora necessária a criação de uma linguagem de marcação com sintaxe mais limpa e focada ao texto, dando origem à Markdown. Você encontrará Markdown principalmente nos arquivos '<strong>readme.md</strong>', utilizados como um breve manual para determinado software/projeto. Toda a documentação online da Microsoft também é escrita com auxílio da linguagem. Arquivos Markdown possuem extensão '<strong>.md</strong>'. Mais informações e resumo de sintaxe, acesse abaixo.</p>
+            <a href="https://www.markdownguide.org" target="_blank" class="btn btn-link">Markdown Oficial</a>
             <br><br>
-            <h4>Java URI</h4>
+            <p id="textoPost">Segue opção de download de uma oficina que ministrei sobre Markdown, através do IFRS Campus Feliz, no projeto de extensão Informática Fácil - Promovendo a Inclusão Digital no Vale do Caí. A oficina é prática, tratando o uso da Markdown na construção de um arquivo 'readme.md', onde, ao mesmo tempo, serão discutidos os conceitos e sintaxe da linguagem e arquivos 'readme.md'.</p>
+            <a href="https://mega.nz/folder/PJoX2S5A#jLUfuZYiApl2uojMD_MbfQ" target="_blank" class="btn btn-link">Oficina Markdown</a>
+            <br><br>
+            <h4>Títulos</h4>
 <small><pre><code>
-// O 'package' deve ser removido e devem ser inseridos os imports abaixo
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+quebra de linha(deixa-se 1 linha em branco)
+paragrafo comum
+</code></pre></small><br>
+            <h4>Texto</h4>
+<small><pre><code>
+**negrito**
+*italico*
+***negrito e italico***
+~~taxada(riscada)~~
+:joy: (emoji 'joy')
+</code></pre></small><br>
+            <h4>Bloco de Citação</h4>
+<small><pre><code>
+&gt blockquote(bloco de citação)
+&gt&gt bloco aninhado
+</code></pre></small><br>
+            <h4>Lista Ordenada</h4>
+<small><pre><code>
+1. First item
+    1.1 First.first item
+2. Second item
+3. Third item
+</code></pre></small><br>
+            <h4>Lista Não Ordenada</h4>
+<small><pre><code>
+- First item
+    - First.first item
+- Second item
+- Third item
+</code></pre></small><br>
+            <h4>Código Inline</h4>
+<small><pre><code>
+`code`(entre tags &ltcode&gt)
+``Use `code` in your Markdown file.``(caso precise usar a pontuação como texto)
+</code></pre></small><br>
+            <h4>Linha Horizontal</h4>
+<small><pre><code>
+---
+</code></pre></small><br>
+            <h4>Link</h4>
+<small><pre><code>
+[title](https://www.example.com)
+[Duck Duck Go](https://duckduckgo.com "The best search engine for privacy") (link com texto 'alt')
+&ltfake@example.com&gt (link de email)
+http://www.example.com (url comum)
+`http://www.example.com` (url desativada)
+</code></pre></small><br>
+            <h4>Imagem</h4>
+<small><pre><code>
+![alt text](image.jpg)
+![Philadelphia's Magic Gardens.](/assets/images/philly-magic-gardens.jpg "Philadelphia's Magic Gardens")
+[![Pedra no deserto](/assets/images/shiprock.jpg "Shiprock, New Mexico")](https://google.com) (img com link)
+</code></pre></small><br>
+            <h4>Mostrar caracter de função como texto</h4>
+<small><pre><code>
+\* Mostra o asterisco, sem a barra representaria itálico
+</code></pre></small><br>
+            <h4>Tabela</h4>
+<small><pre><code>
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
-public class Main { //classe SEMPRE com nome 'Main'
-    public static void main(String[] args) throws IOException { //sempre colocar o IOException
-
-//O URI lê o Java como um arquivo, ou seja, Strings, portanto, no momento da submissão, sempre realize as conversões, printf e leitura conforme arquivo
-        InputStreamReader ir = new InputStreamReader(System.in);
-        BufferedReader in = new BufferedReader(ir);
-
-        int A, B, X;
-        A = Integer.parseInt(in.readLine());
-        B = Integer.parseInt(in.readLine());
-        X = A + B;        
-        System.out.printf("X = %d\n", X);
-    }
+(abaixo com alinhamento)
+| Syntax      | Description | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
+</code></pre></small><br>
+            <h4>Bloco de Código</h4>
+<small><pre><code>
+(informe a linguagem pra colorir conforme)
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
 }
+```
+</code></pre></small><br>
+            <h4>Footnote <small>(Nota de rodapé)</small></h4>
+<small><pre><code>
+Here's a sentence with a footnote. [^1]
 
-
-========== CONVERTER VARIAVEL ==========
-int i = 10;
-double i2 = (double) i;
-
-
-========== FUNÇÕES MATEMÁTICAS ==========
-Math.abs(x); // Valor absoluto
-Math.ceil(x); // Arredonda para cima
-Math.floor(x); // Arredonda para baixo
-Math.max(x,y); // Retorna o maior
-Math.min(x,y); // Retorna o menor
-Math.pow(x,y); // Potencia: x elevado a y
-Math.sqrt(x); // Raiz quadrada
-
-NUMEROS ALEATORIOS
-Random r = new Random();
-for(int i = 0; i &lt 30; i++) {
-    int num = r.nextInt(6); //nº inteiro entre 0 e 5
-}
-
-
-========== FUNÇÕES STRINGS ==========
-String cidade = "Feliz";
-System.out.println(cidade.charAt(0)); //letra 'F'
-int tamanho = cidade.length(); //tamanho da cidade
-cidade.equals("Feliz"); //comparar strings
-cidade.equalsIgnoreCase("FELIZ"); //idem, ignora maiúsculas e minúsculas
-System.out.println(cidade.toLowerCase()); //tudo minusculo
-System.out.println(cidade.toUpperCase()); //tudo maiusculo
-String cidade = " IFRS-Campus-Feliz ";
-System.out.println(cidade.trim()); //remove espaços em branco
-String cidade = "IFRS-Campus-Feliz";
-System.out.println(cidade.endsWith("eliz")); //verifica se termina com (retorna boolean)
-System.out.println(cidade.startsWith("IFRS-Cam")); //verifica se começa com (retorna boolean)
-System.out.println(cidade.startsWith("Campus",5));
-
-STRING FORMAT:
-String t1 = String.format("%15s %15s %15s","Coluna 1","Coluna 2","Coluna 3");
-String t3 = String.format("%-15s %-15s %-15s","Coluna 1","Coluna 2","Coluna 3");
-// -(menos) = a esquerda | 15 - nº caracteres | s - string/f - nº
-String t2 = String.format("%-15.3f %-15.8f", 666.23429837482,9.99);
-
-PERCORRER STRING:
-String banda = "Black Sabbath";
-for(int i=0; i &lt banda.length(); i++) {
-    System.out.println(banda.charAt(i));
-}
-
-CONVERTER STRING PRA ARRAY DE CHAR:
-String cidade = "Feliz";
-char[] cidadeCharArray = cidade.toCharArray();
-for (int i = 0; i &lt cidadeCharArray.length; i++) {
-    System.out.println("Caracter: " + cidadeCharArray[i]);
-}
-for(char c : cidadeCharArray){
-    System.out.println("Caracter: " + c);
-}
-
-SPLIT:
-String teste = "IFRS-Campus-Feliz";
-String[] splitArray = teste.split("-");
-for (int i = 0; i &lt splitArray.length; i++) {
-    System.out.println("Elemento: " + splitArray[i]);
-}
-
-SUBSTRING (retorna parte especifica de sting):
-String teste = "Programacao em Java";
-System.out.println(teste.substring(0,5)); //entre indice 0 e 5
-
-
-========== ARRAYS ==========
-int[] valores = {44,12,23,12,17,81,4,9};
-System.out.println(valores[0]);
-int[] valores = new int[3]; // cria array vazio
-valores[0] = 666;
-System.out.println(nomes.length); // tamanho array
-
-PERCORRER ARRAY:
-for (int i = 0; i &lt valores.length; i++) {
-    System.out.println(valores[i]);
-}
-
-SORT (ordena arrays):
-double[] doubleArray = {8.4, 9.3, 0.2, 7.9, 3.4};
-Arrays.sort(doubleArray);
-for(double valor : doubleArray) {
-    System.out.println(valor + " ");
-}
-
-BINARY SEARCH (busca elemento no array ordenado):
-int[] intArray = {1, 2, 5, 67, 800, 2112};
-int posicao1 = Arrays.binarySearch(intArray, 80); //retorna index do elemento
-
-
-========== PILHAS (Last In, First Out) ==========
-push(...) | pop() | empty()
-Stack&ltLivro&gt pilha = new Stack&ltLivro&gt();
-Livro l1 = new Livro();
-l1.setAutor("Fulano");
-l1.setTitulo("Java in 21 days");
-pilha.push(l1);
-while(!pilha.empty()) {
-    Livro temp = pilha.pop();
-    System.out.println(temp.getAutor() + " " + temp.getTitulo());
-}
-
-
-========== FILAS (First In, First Out) ==========
-add(...) | pool() | isEmpty()
-Queue&ltPessoa&gt fila = new LinkedList&ltPessoa&gt();
-Pessoa p1 = new Pessoa();
-p1.setNome("Maria");
-p1.setIdade(30);
-fila.add(p1);
-Pessoa temp = fila.poll();
-
-
-========== DIRETORIOS ==========
-File dir = new File("NovaPasta");
-dir.mkdir(); //cria diretorio
-dir.delete(); //apaga diretorio
-File dir2 = new File("NovaPasta/OutraAqui");
-dir2.mkdir(); //cria subdiretorio
-
-
-========== ARQUIVOS ==========
-File arquivo = new File("NovaPasta/Texto1.txt");
-try {
-    arquivo.createNewFile();
-    FileWriter escritor = new FileWriter(arquivo,true);
-    BufferedWriter buffer = new BufferedWriter(escritor);
-    for (int i = 0; i &lt 10; i++) { //escreve no arquivo
-        buffer.write("¡Buenos dias! \n");
-    }
-    FileReader leitor = new FileReader(arquivo);
-    BufferedReader buffer = new BufferedReader(leitor);
-    String linha = null;
-    while ((linha = buffer.readLine()) != null) { //ler arquivo
-        System.out.println(linha);
-    }
-    buffer.close();
-    escritor.close();
-    arquivo.delete(); //apaga arquivo
-} catch (IOException e) {e.printStackTrace();}
-
-
-========== /* RESOLUÇÃO PARCIAL 1131-Grenais */ ==========
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        InputStreamReader ir = new InputStreamReader(System.in);
-        BufferedReader in = new BufferedReader(ir);
-        int c;
-        do {
-            // leitura placar (3 2)
-            String linhaPlacar = in.readLine();
-            String[] linhaPlacarDividido = linhaPlacar.split(" ");
-            int golsInter = Integer.parseInt(linhaPlacarDividido[0]);
-            int golsGremio = Integer.parseInt(linhaPlacarDividido[1]);
-            // leitura da condição
-            String linhaCondicao = in.readLine();
-            c = Integer.parseInt(linhaCondicao);
-            // programação
-            System.out.printf("Novo grenal (1-sim 2-nao)\n");
-        } while (c == 1); 
-        // impressao dados restantes
-    }
-}
-
-
-======================== EXEMPLOS ========================
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        
-        InputStreamReader ir = new InputStreamReader(System.in); //inserir manualmente no console pra testar ou colar do uri
-        BufferedReader in = new BufferedReader(ir); //inserir manualmente no console pra testar ou colar do uri       
-
-        int A = Integer.parseInt(in.readLine()); //leitura de linha inteira - ideal pra 1nº só
-        int B = Integer.parseInt(in.readLine());
-        int X = A + B;      
-
-        System.out.printf("X = %d\n", X); //%d - substituido por digito
-        //System.out.printf("X = %d %d %d\n", X, X+1, X+2); - saida com mais valores 1ªlinha
-        //System.out.printf("X = %d %d\n", X+3, X+4); - saida com mais valores 2ªlinha      
-
-        double A = Double.parseDouble(in.readLine());
-        double B = Double.parseDouble(in.readLine());
-        double X = A + B;
-        System.out.printf("X = %f\n", X);
-        /*%s - string | %d - digito | %f - decimal
-        %.2f - 2 casas decimais
-        Obs: Não esquecer do ultimo 'enter', ao copiar e colar do URI no Console (pd fazer arquivo txt personalizado pra copiar e colar)*/
-    }
-}
+[^1]: This is the footnote.
+</code></pre></small><br>
+            <h4>Heading ID <small>(Id de cabeçalho)</small></h4>
+<small><pre><code>
+### My Great Heading {#custom-id}
+</code></pre></small><br>
+            <h4>Definição de Termo</h4>
+<small><pre><code>
+term
+: definition
+</code></pre></small><br>
+            <h4>Lista de Tarefas</h4>
+<small><pre><code>
+- [x] Item pré-selecionado
+- [ ] Item
+- [ ] Item2
 </code></pre></small>
         </div>
     </div>

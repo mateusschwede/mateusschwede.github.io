@@ -32,67 +32,26 @@
 
     <div class="row">
         <div class="col-sm-12" id="titulo1">
-            <h1>Upload Php e Mysql</h1>
-            <h6><strong>Upload de quaisquer arquivos usando Php e Mysql</strong></h6>
+            <h1>Converter Csv em Json com Php</h1>
+            <h6><strong>Código Php para conversão de Csv em Json</strong></h6>
         </div>
 
         <div class="col-sm-12">
             <h4>Pré-requisitos</h4>
-            <p id="textoPost">Necessário ter o Xampp executando, criar diretório no <i>htdocs</i> para armazenar os códigos. Após, crie, neste diretório, a pasta <b>uploads</b>, onde os arquivos de upload ficarão armazenados. Em seguida, execute o arquivo sql no <i>phpmyadmin</i>. Por fim, execute os códigos abaixo. Mantenha a atenção com o tamanho do arquivo em upload, pois, em alguns casos, pode ser necessária realocação de maior espaço no banco de dados.</p>
-            <br>
-            <h4>banco.sql</h4>
-<small><pre><code>
-CREATE DATABASE phpimg;
-CREATE TABLE arquivo (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    arquivo VARCHAR(100) NOT NULL,
-    dt DATETIME NOT NULL
-);
-</code></pre></small><br>
-            <h4>upload.php</h4>
+            <p id="textoPost">Necessário Xampp executando, criar diretório no <i>htdocs</i> para armazenar os arquivos de código e csv. Após, baixe o arquivo <i>.csv</i>, nomeando-o <b>planilha.csv</b> no mesmo diretório do <i>.php</i>. Caso pretendes modificar o nome do .csv, atualize-o também no .php. Precisa de inspiração pra baixar arquivos .csv? O governo federal dispõe dados públicos, nesse formato. Acesse abaixo.</p>
+            <a href="http://www.dados.gov.br/dataset" target="_blank" class="btn btn-link">Dados públicos</a>
 <small><pre><code>
 &lt?php
-    $db = new PDO('mysql:host=localhost;dbname=phpimg;charset=utf8','root','');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    if(!empty($_FILES['arquivo'])) {
-        $ext = pathinfo($_FILES['arquivo']['name'],PATHINFO_EXTENSION);
-        $nNome = uniqid($_FILES['arquivo']['name']).".".$ext;
-        $dir = "uploads/";
-        move_uploaded_file($_FILES['arquivo']['tmp_name'],$dir.$nNome);
-
-        $r = $db->prepare("INSERT INTO arquivo(arquivo,dt) VALUES (?,now())");
-        $r->execute(array($nNome));
-    }
-?&gt
-
-&ltform action="upload.php"  method="post" enctype="multipart/form-data"&gt
-    &ltinput type="file" name="arquivo"&gt
-    &ltinput type="submit" value="Enviar"&gt
-&lt/form&gt
-</code></pre></small><br>
-            <h4>Upload sem conexão com BD</h4>
-            <p id="textoPost">Caso precise somente realizar upload, sem a necessidade de gravar em base de dados, segue outro exemplo de código, <b>upload.php</b>, envolvendo a mesma arquitetura de diretórios.</p>
-<small><pre><code>
-&lt?php
-    $name = $_FILES['arquivo']['name'];
-    $size = $_FILES['arquivo']['size'];
-    $type = $_FILES['arquivo']['type'];
-    $temp = $_FILES['arquivo']['tmp_name'];
-    $ext = pathinfo($name,PATHINFO_EXTENSION);
-
-    if ((!empty($name)) && (!empty($name))) {
-    	$nNome = uniqid($name).'.'.$ext;
-    	$dir = 'uploads/'.$nNome;
-    	if (move_uploaded_file($temp,$dir)) {echo 'Upload  concluido.';}
-    	else {echo 'Erro no upload.';}
-    }
-
-?&gt
-&ltform action="upload.php"  method="post" enctype="multipart/form-data"&gt
-    &ltp&gt&ltinput type="file" name="arquivo"&gt&lt/p&gt
-    &ltp&gt&ltinput type="submit" value="Enviar"&gt&lt/p&gt
-&lt/form&gt
+function csvToJson($file) {
+    if (!($fp = fopen($file,'r'))) {die("Não abriu");}
+    $key = fgetcsv($fp,"1024",",");    
+    $json = array();
+    while ($row = fgetcsv($fp,"1024",",")) {$json[] = array_combine($key,$row);}
+    fclose($fp);
+    return json_encode($json);
+}
+header('Content-Type: application/json');
+print(csvToJson("planilha.csv"));
 </code></pre></small>
         </div>
     </div>
