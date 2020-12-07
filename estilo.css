@@ -11,10 +11,5 @@
 #cardMD {text-align: center;background: linear-gradient(90deg, #d53369 0%, #daae51 100%); padding: 20px 10px 20px 10px; border-radius: 30px 30px 0px 0px;}
 
 /* Doar */
-#fundoDoar {background-color: #ffee54;}
-#cardDoarAlimentos {background-color: #548dff; color: white;}
-#cardDoarHospital {background-color: #502f82; color: white;}
-#cardDoarAacd {background-color: rgb(255, 74, 135); color: white;}
-#cardDoarApae {background-color: rgb(14, 14, 133); color: white;}
 #doarRodape {background-color: white; padding: 35px 0px 35px 0px;}
 #frase {font-family: 'Caveat', cursive;}
