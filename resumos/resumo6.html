@@ -1463,9 +1463,9 @@ INSERT INTO Pessoa (nome,sobrenome) VALUES ('Carlos','Garcia'),('Maria','Antunes
         private $sobrenome;
 
         public function info() {
-            $r = '#'.$this->id;
-            $r .= ':'.$this->nome;
-            $r .= ' '.$this->sobrenome;
+            $r = '#'.$this-&gtid;
+            $r .= ':'.$this-&gtnome;
+            $r .= ' '.$this-&gtsobrenome;
             return $r;
         }
     }
@@ -1475,9 +1475,9 @@ O nome dos atributos da classe deve coincidir com o nome dos campos da tabela!
 &lt?php
     $db = new PDO('mysql:host=localhost;dbname=aula16;charset=utf8','root','');
     $query = "SELECT id, nome, sobrenome FROM Pessoa";
-    $r = $db->query($query);
-    $r->setFetchMode(PDO::FETCH_CLASS,'Pessoa');
-    while($pessoa = $r->fetch()) {echo $pessoa->info()."&ltbr&gt\n";}
+    $r = $db-&gtquery($query);
+    $r-&gtsetFetchMode(PDO::FETCH_CLASS,'Pessoa');
+    while($pessoa = $r-&gtfetch()) {echo $pessoa-&gtinfo()."&ltbr&gt\n";}
 ?&gt
 
 
@@ -1504,11 +1504,11 @@ create table atleta (
 &lt?php
     class Equipe {
         private $id, $nome, $cidade, $atletas;
-        public function getId() {return $this->id;}
-        public function getNome() {return $this->nome;}
-        public function getCidade() {return $this->cidade;}
-        public function getAtletas() {return $this->atletas;}
-        public function addAtleta(Atleta $atleta) {$this->atletas[] = $atleta;}
+        public function getId() {return $this-&gtid;}
+        public function getNome() {return $this-&gtnome;}
+        public function getCidade() {return $this-&gtcidade;}
+        public function getAtletas() {return $this-&gtatletas;}
+        public function addAtleta(Atleta $atleta) {$this-&gtatletas[] = $atleta;}
     }
 ?&gt
 //$atletas: Atributo array para manter com a tabela 'atletas'
@@ -1517,11 +1517,11 @@ create table atleta (
 &lt?php
     class Atleta {
         private $id, $nome, $sobrenome, $posicao, $equipe_id;
-        public function getId() {return $this ->id;}
-        public function getNome() {return $this ->nome;}
-        public function getSobrenome() {return $this ->sobrenome;}
-        public function getPosicao() {return $this ->posicao;}
-        public function getEquipeID() {return $this ->equipe_id;}
+        public function getId() {return $this -&gtid;}
+        public function getNome() {return $this -&gtnome;}
+        public function getSobrenome() {return $this -&gtsobrenome;}
+        public function getPosicao() {return $this -&gtposicao;}
+        public function getEquipeID() {return $this -&gtequipe_id;}
     }
 ?&gt
 
@@ -1530,15 +1530,15 @@ create table atleta (
     $equipes = array();
     $db = new PDO('mysql:host=localhost;dbname=aula18','root','');
     $select1 = 'SELECT id, nome, cidade FROM Equipe';
-    $r1 = $db->query($select1);
-    $r1->setFetchMode(PDO::FETCH_CLASS,'Equipe');
+    $r1 = $db-&gtquery($select1);
+    $r1-&gtsetFetchMode(PDO::FETCH_CLASS,'Equipe');
     $select2 = 'SELECT id, nome, sobrenome, posicao FROM Atleta WHERE equipe_id = :id';
-    $r2 = $db->prepare($select2);
-    while ($equipe = $r1->fetch()) {
-        $r2->bindValue(':id',$equipe->getId(),PDO::PARAM_INT);
-        $r2->execute();
-        $r2->setFetchMode(PDO::FETCH_CLASS,'Atleta');
-        while ($atleta = $r2->fetch()) {$equipe->addAtleta($atleta);}
+    $r2 = $db-&gtprepare($select2);
+    while ($equipe = $r1-&gtfetch()) {
+        $r2-&gtbindValue(':id',$equipe-&gtgetId(),PDO::PARAM_INT);
+        $r2-&gtexecute();
+        $r2-&gtsetFetchMode(PDO::FETCH_CLASS,'Atleta');
+        while ($atleta = $r2-&gtfetch()) {$equipe-&gtaddAtleta($atleta);}
         $equipes[] = $equipe;
     }
 ?&gt
@@ -1555,10 +1555,10 @@ create table atleta (
 
     if(isset($acao) && $acao == 'login'){
         $controller = new Controller();
-        $controller->login();
+        $controller-&gtlogin();
     } else {
         $view = new View();
-        $view->login(); 
+        $view-&gtlogin(); 
     }
 ?&gt
 
@@ -1590,7 +1590,7 @@ create table atleta (
             $user = $_POST['usuario'];
             $pass = $_POST['senha'];
             $model = new Model();
-            $validacao = $model->validaDados($user,$pass);
+            $validacao = $model-&gtvalidaDados($user,$pass);
             $view = new View();
             $view-&gtlogin($validacao); 
         }
@@ -1607,6 +1607,288 @@ create table atleta (
         }
     }
 ?&gt
+</code></pre></small><br>
+            <h4>Php8</h4>
+<small><pre><code>
+<b>--- Construct Promotion ---</b>
+Criar __construct passando atributos e relacionando-os diretamente dentro do método
+
+-- Antes:
+class Carro {
+    private string $marca;
+    private string $modelo;
+    private float $motor;
+
+    public function __construct($marca,$modelo,$motor=1.4) {
+        $this-&gtmarca = $marca;
+        $this-&gtmodelo = $modelo;
+        $this-&gtmotor = $motor;
+    }
+}
+
+-- Depois:
+class carro {
+    public fuction __construct(private string $marca, private string $modelo, private float motor=1.4){}
+}
+
+
+<b>--- Named Arguments ---</b>
+Somente argumentos necessários são informados, em qualquer ordem, inclusive à funções nativas.
+
+-- Antes:
+function desconto ($idCliente, $pSaude=false, $vRefeicao=false, vTransporte=false){}
+
+$descCli1 = desconto(1,false,true);
+$descCli2 = desconto(2,false,false,true);
+
+-- Depois:
+function desconto ($idCliente, $pSaude=false, $vRefeicao=false, vTransporte=false){}
+
+$descCli1 = desconto(idCliente:1, vRefeicao:true);
+$descCli2 = desconto(idCliente:2, vTransporte:true);
+$setcookie(name:'testing', expires:time()+60*60*10); //Argumento value não foi informado
+
+
+<b>--- Union Types ----</b>
+União de tipos especificada previamente pela linguagem
+
+-- Antes:
+class Numero {
+    /** @var int|float */
+    private $num;
+    /** @param float|int $num */
+    public function __construct($num) {
+        $this-&gtnum = $num;
+    }
+}
+new Numero('NaN'); //Ok
+
+-- Depois:
+class Numero {
+    public function __construct(private int|float $num){}
+}
+new Numero('NaN'); //TypeError
+
+
+<b>--- Mixed Types ---</b>
+Engloba todos os tipos possíveis de Union Types para a passagem de argumentos e retorno de funções.
+
+-- Antes:
+function addValor($val){}
+
+-- Depois:
+//Union Types
+function addValor(array|bool|callable|int|float|null|object|resource|string $val){}
+
+//Mixed Types
+function addValor(mixed $val){}
+
+
+<b>--- Atributes ---</b>
+Substitui o phpDoc por referência nativa na linguagem para routes, validações e propriedades de tableBD
+
+-- Antes:
+class UserController {
+    /**
+    * @Route("/usuarios/{id}", methods={"GET"})
+    */
+    public function get($id){}
+}
+
+-- Depois:
+class UserController {
+    #[Route("usuarios/{id}", methods:["GET"])] //Métadados estruturados
+    public function get($id){}
+}
+
+
+<b>--- Operador NullSafe ---</b>
+Verificação de objetos nulos de forma simplificada.
+
+-- Antes:
+if($sessao !== null) {
+    $user = $sessao-&gtuser;
+    if($user !== null) {
+        $pais = $user-&gtgetPais();
+        if($pais !== null) {
+            $estado = $pais-&gtgetEstado();
+        }
+    }
+}
+
+-- Depois:
+$estado = $sessao?-&gtuser?-&gtgetPais()?-&gtgetEstado();
+
+
+<b>--- Match Expressions ---</b>
+-- Antes:
+switch($status) {
+    case 200:
+    case 300:
+        $msg = null;
+        break;
+    case 400:
+        $msg = 'Não encontrado ou não permitido';
+        break;
+    case 500:
+        $msg = 'Erro de servidor';
+        break;
+    default:
+        $msg = 'Erro desconhecido';
+        break;
+}
+
+-- Depois:
+$msg = match($status) {
+    200,300 =&gt null,
+    400 =&gt 'Não encontrado ou não permitido',
+    500 =&gt 'Erro de servidor',
+    default =&gt 'Erro desconhecido',
+};
+
+
+<b>--- Comparação entre strings e números ---</b>
+-- Antes: 0 == 'zero' //true
+-- Depois: 0 == 'zero' //false
+
+
+<b>--- Funções ---</b>
+- <i>str_contains(string $v1, string $v2):bool</i> //buscas dentro de string, verica se v2 encontra-se em v1
+- <i>str_starts_with(string $v1, string $v2):bool</i> //Se v1 inicia com v2
+- <i>str_ends_with(string $v1, string $v2):bool</i> //Se v1 finaliza com v2
+- <i>get_debug_type()</i> //Similar à gettype(), retorna tipo de var, mais ágil
+- <i>fdiv(4.5,2.8)</i> //Divisão por float com resultado decimal preciso
+
+
+<b>--- Arrays com índices negativos ---</b>
+$carros = array_fill(-5,7,"Ferrari");
+
+
+<b>--- Exception sem variável catch ---</b>
+-- Antes:
+try {
+    multicar(2,3);
+} catch(Exception $error) {
+    echo "Erro na multiplicação";
+}
+
+-- Depois:
+try {
+    multiplicar(2,3);
+} catch(Exception) {
+    echo "Erro na multiplicação";
+}
+
+
+<b>--- Throw Exception em Operador Ternário ---</b>
+$show_error = fn($error) =&gt throw new Exception($error);
+$show_error("Erro no PHP!!!");
+
+$result = call_api();
+return $result ?? throw new Exception("Erro na chamada da API");
+
+
+<b>--- Concatenações ---</b>
+Não há mais erro de concatenações de valores numéricos com strings.
+$n1 = 10;
+$n2 = 15;
+echo "Resultado: ".($n1+$n2);
+
+
+<b>--- Métodos com retorno Static ---</b>
+class First {
+    public static function class_name() {
+        return __CLASS__;
+    }
+    public static function show() {
+        return self::class_name(); //Ao trocar 'self' por 'static', a resposta se tornará 'Second'
+    }
+}
+
+class Second extends First {
+    public static function class_name() {
+        return __CLASS__;
+    }
+}
+echo Second::show(); //Exibirá 'first'
+
+
+<b>--- Classe WeakMaps ---</b>
+Cria referência ao objeto, e ao removê-lo será também removida sua referência.
+$anos = new WeakMap;
+$k = (object)"ano";
+$anos[$k] = 1969;
+var_dump($anos);
+echo "&ltbr&gt";
+unset($k);
+var_dump($anos);
+
+
+<b>--- ::class em objetos ---</b>
+Para saber o nome da classe referente.
+class Company {
+    public function index() {
+        return 'UB Social.ca';
+    }
+}
+$res = new Company();
+
+-- Antes: var_dump(get_class($res));
+-- Depois: var_dump($res::class);
+
+
+<b>--- Vírgula no último parâmetro ---</b>
+new Address("Avenida Paulista", 260, "São Paulo", "SP", "Brasil",);
+
+
+<b>--- Outras ---</b>
+- Operador @ não silencia mais os erros fatais
+
+
+<b>--- Herança de Métodos Privados ---</b>
+class A {
+    function callYourPrivate() {
+        $this-&gtmyPrivate();
+    }
+    function notOverriden_callYourPrivate() {
+        $this-&gtmyPrivate();
+    }
+    final private function myPrivate() {
+        echo __METHOD__ . PHP_EOL;
+    }
+}
+class B extends A {
+    function callYourPrivate() {
+        $this-&gtmyPrivate();
+    } 
+    private function myPrivate() {
+        echo __METHOD__ . PHP_EOL;
+    }
+}
+
+$a = new A();
+$a-&gtcallYourPrivate();
+$a-&gtnotOverriden_callYourPrivate();
+$b = new B();
+$b-&gtcallYourPrivate();
+$b-&gtnotOverriden_callYourPrivate();
+
+
+<b>--- Sintaxes de variáveis ---</b>
+- <i>Array:</i> $foo[$bar], $foo{$bar}
+- <i>Object:</i> $foo-&gtbar, $foo-&gtbar()
+- <i>Static:</i> Foo::$bar, Foo::bar(), Foo::BAR
+- <i>Call:</i> foo()
+
+
+<b>--- Interface Stringable ---</b>
+interface Stringable {
+    public function __toString(): string;
+}
+
+
+<b>--- Mais códigos ---</b>
+Site oficial Php8: <a href="https://www.php.net/releases/8.0/pt_BR.php" target="_blank">Acesse aqui</a>
 </code></pre></small>
         </div>
     </div>
