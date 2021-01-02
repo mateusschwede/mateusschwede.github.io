@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -47,7 +47,7 @@
             <h3 class="text-muted">Diretório 'ajax'</h3>
             <h4>addRecord.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 if(!empty($_POST['first_name'])) {
     include("db_connection.php");
     $r = $db->prepare("INSERT INTO users(first_name) VALUES (?)");
@@ -56,13 +56,13 @@ if(!empty($_POST['first_name'])) {
 </code></pre></small><br>
             <h4>db_connection.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </code></pre></small><br>
             <h4>deleteUser.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 if(!empty($_POST['id'])) {
     include("db_connection.php");
     $r = $db->prepare("DELETE FROM users WHERE id=?");
@@ -71,15 +71,15 @@ if(!empty($_POST['id'])) {
 </code></pre></small><br>
             <h4>readRecords.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 include("db_connection.php");
 $r = $db->query("SELECT * FROM users");
 $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
-foreach($linhas as $l) {echo $l['id']." ".$l['first_name']." &lta onclick='GetUserDetails(".$l['id'].")'&gtEditar&lt/a&gt &lta onclick='DeleteUser(".$l['id'].")'&gtExcluir&lt/a&gt&ltbr&gt";}
+foreach($linhas as $l) {echo $l['id']." ".$l['first_name']." &lt;a onclick='GetUserDetails(".$l['id'].")'&gt;Editar&lt;/a&gt; &lt;a onclick='DeleteUser(".$l['id'].")'&gt;Excluir&lt;/a&gt;&lt;br&gt;";}
 </code></pre></small><br>
             <h4>readUserDetails.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 include("db_connection.php");
 if(!empty($_POST['id'])) {
     $r = $db->prepare("SELECT * FROM users WHERE id=?");
@@ -99,7 +99,7 @@ if(!empty($_POST['id'])) {
 </code></pre></small><br>
             <h4>updateUserDetails.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 include("db_connection.php");
 if(!empty($_POST)) {
     $r = $db->prepare("UPDATE users SET first_name=? WHERE id=?");
@@ -148,38 +148,38 @@ INSERT INTO users(first_name) VALUES ("mateus"),("mara");
 </code></pre></small><br>
             <h4>index.php</h4>
 <small><pre><code>
-&ltscript type="text/javascript" src="js/jquery-1.11.3.min.js"&gt&lt/script&gt
-&ltscript type="text/javascript" src="js/script.js"&gt&lt/script&gt
-&ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt
-&ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"&gt
-&ltscript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"&gt&lt/script&gt
+&lt;script type="text/javascript" src="js/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/script.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"&gt;&lt;/script&gt;
 
-&lth1&gtCRUD Php Mysql e Ajax&lt/h1&gt
-&lta data-toggle="modal" data-target="#addModal"&gtAdicionar&lt/a&gt
-&ltdiv class="records_content"&gt&lt/div&gt
+&lt;h1&gt;CRUD Php Mysql e Ajax&lt;/h1&gt;
+&lt;a data-toggle="modal" data-target="#addModal"&gt;Adicionar&lt;/a&gt;
+&lt;div class="records_content"&gt;&lt;/div&gt;
 
-&ltdiv class="modal fade" id="addModal" role="dialog"&gt
-    &ltdiv class="modal-dialog" role="document"&gt
-        &ltdiv class="modal-content"&gt
-            &lth4&gtAdicionar&lt/h4&gt
-            &ltinput type="text" id="first_name" placeholder="Nome"&gt
-            &lta data-dismiss="modal"&gtCancelar&lt/a&gt
-            &lta onclick="addRecord()"&gtAdicionar&lt/a&gt
-        &lt/div&gt
-    &lt/div&gt
-&lt/div&gt
+&lt;div class="modal fade" id="addModal" role="dialog"&gt;
+    &lt;div class="modal-dialog" role="document"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;h4&gt;Adicionar&lt;/h4&gt;
+            &lt;input type="text" id="first_name" placeholder="Nome"&gt;
+            &lt;a data-dismiss="modal"&gt;Cancelar&lt;/a&gt;
+            &lt;a onclick="addRecord()"&gt;Adicionar&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-&ltdiv class="modal fade" id="upModal" role="dialog"&gt
-    &ltdiv class="modal-dialog" role="document"&gt
-        &ltdiv class="modal-content"&gt
-            &lth4&gtAtualizar&lt/h4&gt
-            &ltinput type="text" id="update_first_name" placeholder="Nome"&gt
-            &lta data-dismiss="modal"&gtCancelar&lt/a&gt
-            &lta onclick="UpdateUserDetails()"&gtAtualizar&lt/a&gt
-            &ltinput type="hidden" id="hidden_user_id"&gt
-        &lt/div&gt
-    &lt/div&gt
-&lt/div&gt
+&lt;div class="modal fade" id="upModal" role="dialog"&gt;
+    &lt;div class="modal-dialog" role="document"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;h4&gt;Atualizar&lt;/h4&gt;
+            &lt;input type="text" id="update_first_name" placeholder="Nome"&gt;
+            &lt;a data-dismiss="modal"&gt;Cancelar&lt;/a&gt;
+            &lt;a onclick="UpdateUserDetails()"&gt;Atualizar&lt;/a&gt;
+            &lt;input type="hidden" id="hidden_user_id"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </code></pre></small>
         </div>
     </div>

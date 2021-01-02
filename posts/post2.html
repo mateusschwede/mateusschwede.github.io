@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -53,13 +53,13 @@ INSERT INTO pessoa(nome) VALUES ("mateus"),("mateusa");
 </code></pre></small><br>
             <h4>con.php</h4>
 <small><pre><code>
-&lt?
+&lt;?
 $c = mysqli_connect("localhost","root","","agenda");
 if(!$c){echo "Erro conexão: ".mysqli_connect_error();}
 </code></pre></small><br>
             <h4>add.php</h4>
 <small><pre><code>
-&lt?
+&lt;?
 require 'con.php';
 $nome = $_POST['nome'];
 mysqli_query($c,"INSERT INTO pessoa(nome) VALUES ('$nome')");
@@ -67,29 +67,29 @@ header("location: index.php");
 </code></pre></small><br>
             <h4>ed.php</h4>
 <small><pre><code>
-&lt?
+&lt;?
 require 'con.php';
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $d = mysqli_query($c,"SELECT * FROM pessoa WHERE id='$id'");
     $r = mysqli_fetch_assoc($d);
 }
-?&gt
-&ltform action="" method="post"&gt
-    &ltinput type="text" name="nome" placeholder="Nome" value="&lt?=$r['nome']?&gt" required&gt
-    &ltinput type="submit" value="Atualizar"&gt
-&lt/form&gt
-&lt?
+?&gt;
+&lt;form action="" method="post"&gt;
+    &lt;input type="text" name="nome" placeholder="Nome" value="&lt;?=$r['nome']?&gt;" required&gt;
+    &lt;input type="submit" value="Atualizar"&gt;
+&lt;/form&gt;
+&lt;?
 if(isset($_POST['nome'])) {
     $nome = $_POST['nome'];
     mysqli_query($c,"UPDATE pessoa SET nome='$nome' WHERE id=$id");
     header("location: index.php");
 }
-?&gt
+?&gt;
 </code></pre></small><br>
             <h4>del.php</h4>
 <small><pre><code>
-&lt?
+&lt;?
 require 'con.php';
 $id = $_GET['id'];
 mysqli_query($c,"DELETE FROM pessoa WHERE id='$id'");
@@ -97,19 +97,19 @@ header("location: index.php");
 </code></pre></small><br>
             <h4>index.php</h4>
 <small><pre><code>
-&lt?
+&lt;?
 require 'con.php';
     $d = mysqli_query($c,"SELECT * FROM pessoa");
     while($r = mysqli_fetch_assoc($d)){
         echo $r['id']."- ".$r['nome']."
-        &lta href='ed.php?id=".$r['id']."'&gtEditar&lt/a&gt
-        &lta href='del.php?id=".$r['id']."'&gtExcluir&lt/a&gt&ltbr&gt";
+        &lt;a href='ed.php?id=".$r['id']."'&gt;Editar&lt;/a&gt;
+        &lt;a href='del.php?id=".$r['id']."'&gt;Excluir&lt;/a&gt;&lt;br&gt;";
     }
-?&gt
-&ltform action="add.php" method="post"&gt
-    &ltinput type="text" name="nome" placeholder="Nome" required&gt
-    &ltinput type="submit" value="Inserir"&gt
-&lt/form&gt
+?&gt;
+&lt;form action="add.php" method="post"&gt;
+    &lt;input type="text" name="nome" placeholder="Nome" required&gt;
+    &lt;input type="submit" value="Inserir"&gt;
+&lt;/form&gt;
 </code></pre></small>
         </div>
     </div>

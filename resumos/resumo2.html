@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -973,9 +973,9 @@ $accent: #e1d7d2;
 @debug radial-gradient($primary, $accent); // radial-gradient(#f2ece4, #e1d7d2)
 
 <b>=== @EXTEND ===</b>
-&ltdiv class="error error--serious"&gt
+&lt;div class="error error--serious"&gt;
     Oh no! You've been hacked!
-&lt/div&gt
+&lt;/div&gt;
 
 .error {
     border: 1px #f00;
@@ -1010,7 +1010,7 @@ $accent: #e1d7d2;
 p.info {
     background-color: #dee9fc;
 }
-// There's no way to know whether '&ltdiv class="guide"&gt' will be inside or outside '&ltdiv class="content"&gt', so Sass generates both to be safe.
+// There's no way to know whether '&lt;div class="guide"&gt;' will be inside or outside '&lt;div class="content"&gt;', so Sass generates both to be safe.
 .guide .info {
     border: 1px solid rgba(#000, 0.8);
     border-radius: 2px;
@@ -1044,17 +1044,17 @@ header .warning li {
     font-weight: bold;
 }
 aside .notice dd {
-    // Sass doesn't generate CSS to match the &ltdd&gt in
+    // Sass doesn't generate CSS to match the &lt;dd&gt; in
     //
-    // &ltheader&gt
-    //   &ltaside&gt
-    //     &ltdiv class="warning"&gt
-    //       &ltdiv class="notice"&gt
-    //         &ltdd&gt...&lt/dd&gt
-    //       &lt/div&gt
-    //     &lt/div&gt
-    //   &lt/aside&gt
-    // &lt/header&gt
+    // &lt;header&gt;
+    //   &lt;aside&gt;
+    //     &lt;div class="warning"&gt;
+    //       &lt;div class="notice"&gt;
+    //         &lt;dd&gt;...&lt;/dd&gt;
+    //       &lt;/div&gt;
+    //     &lt;/div&gt;
+    //   &lt;/aside&gt;
+    // &lt;/header&gt;
     //
     // because matching all elements like that would require us to generate nine
     // new selectors instead of just two.
@@ -1552,7 +1552,7 @@ $prefixes-by-browser: ("firefox": moz, "safari": webkit, "ie": ms);
 @use "sass:math";
 @debug 1px == 2px; // false
 @debug 1px == 1px; // true
-@debug 10px &lt 3px; // false
+@debug 10px &lt; 3px; // false
 @debug math.comparable(100px, 3in); // true
 
 @debug true and true; // true
@@ -1661,14 +1661,14 @@ $theme: ("venus": #998099, "nebula": #d2e1dd);
 @debug get-function("rgba") != get-function("hsla"); // true
 
 <b>==== RELACIONAIS ====</b>
-@debug 100 &gt 50; // true
-@debug 10px &lt 17px; // true
-@debug 96px &gt= 1in; // true
-@debug 1000ms &lt= 1s; // true
-@debug 100 &gt 50px; // true
-@debug 10px &lt 17; // true
+@debug 100 &gt; 50; // true
+@debug 10px &lt; 17px; // true
+@debug 96px &gt;= 1in; // true
+@debug 1000ms &lt;= 1s; // true
+@debug 100 &gt; 50px; // true
+@debug 10px &lt; 17; // true
 
-@debug 100px &gt 10s;
+@debug 100px &gt; 10s;
 //     ^^^^^^^^^^^
 // Error: Incompatible units px and s.
 
@@ -1760,12 +1760,12 @@ color.adjust($color,
     $hue: null, $saturation: null, $lightness: null,
     $whiteness: null, $blackness: null,
     $alpha: null)
-adjust-color(...) //=&gt color 
+adjust-color(...) //=&gt; color 
 @debug color.adjust(#6b717f, $red: 15); // #7a717f
 @debug color.adjust(#d2e1dd, $red: -10, $blue: 10); // #c8e1e7
 @debug color.adjust(#998099, $lightness: -30%, $alpha: -0.4); // rgba(71, 57, 71, 0.6)
 
-adjust-hue($color, $degrees) //=&gt color 
+adjust-hue($color, $degrees) //=&gt; color 
 // Hue 222deg becomes 282deg.
 @debug adjust-hue(#6b717f, 60deg); // #796b7f
 // Hue 164deg becomes 104deg.
@@ -1775,18 +1775,18 @@ adjust-hue($color, $degrees) //=&gt color
 
 color.alpha($color)
 alpha($color)
-opacity($color) //=&gt number
+opacity($color) //=&gt; number
 @debug color.alpha(#e1d7d2); // 1
 @debug color.opacity(rgb(210, 225, 221, 0.4)); // 0.4
 @debug alpha(opacity=20); // alpha(opacity=20)
 
-color.blackness($color) //=&gt number 
+color.blackness($color) //=&gt; number 
 @debug color.blackness(#e1d7d2); // 11.7647058824%
 @debug color.blackness(white); // 0%
 @debug color.blackness(black); // 100%
 
 color.blue($color)
-blue($color) //=&gt number 
+blue($color) //=&gt; number 
 @debug color.blue(#e1d7d2); // 210
 @debug color.blue(white); // 255
 @debug color.blue(black); // 0
@@ -1796,13 +1796,13 @@ color.change($color,
     $hue: null, $saturation: null, $lightness: null,
     $whiteness: null, $blackness: null,
     $alpha: null)
-change-color(...) //=&gt color 
+change-color(...) //=&gt; color 
 @debug color.change(#6b717f, $red: 100); // #64717f
 @debug color.change(#d2e1dd, $red: 100, $blue: 50); // #64e132
 @debug color.change(#998099, $lightness: 30%, $alpha: 0.5); // rgba(85, 68, 85, 0.5)
 
 color.complement($color)
-complement($color) //=&gt color
+complement($color) //=&gt; color
 // Hue 222deg becomes 42deg.
 @debug color.complement(#6b717f); // #7f796b
 // Hue 164deg becomes 344deg.
@@ -1810,7 +1810,7 @@ complement($color) //=&gt color
 // Hue 210deg becomes 30deg.
 @debug color.complement(#036); // #663300
 
-darken($color, $amount) //=&gt color
+darken($color, $amount) //=&gt; color
 // Lightness 92% becomes 72%.
 @debug darken(#b37399, 20%); // #7c4465
 // Lightness 85% becomes 45%.
@@ -1818,7 +1818,7 @@ darken($color, $amount) //=&gt color
 // Lightness 20% becomes 0%.
 @debug darken(#036, 30%); // black
 
-desaturate($color, $amount) //=&gt color
+desaturate($color, $amount) //=&gt; color
 // Saturation 100% becomes 80%.
 @debug desaturate(#036, 20%); // #0a335c
 // Saturation 35% becomes 15%.
@@ -1827,43 +1827,43 @@ desaturate($color, $amount) //=&gt color
 @debug desaturate(#d2e1dd, 30%); // #dadada
 
 color.grayscale($color)
-grayscale($color) //=&gt color
+grayscale($color) //=&gt; color
 @debug color.grayscale(#6b717f); // #757575
 @debug color.grayscale(#d2e1dd); // #dadada
 @debug color.grayscale(#036); // #333333
 
 color.green($color)
-green($color) //=&gt number
+green($color) //=&gt; number
 @debug color.green(#e1d7d2); // 215
 @debug color.green(white); // 255
 @debug color.green(black); // 0
 
 color.hue($color)
-hue($color) //=&gt number
+hue($color) //=&gt; number
 @debug color.hue(#e1d7d2); // 20deg
 @debug color.hue(#f2ece4); // 34.2857142857deg
 @debug color.hue(#dadbdf); // 228deg
 
 hwb($hue $whiteness $blackness)
 hwb($hue $whiteness $blackness / $alpha)
-hwb($hue, $whiteness, $blackness, $alpha: 1) //=&gt color
+hwb($hue, $whiteness, $blackness, $alpha: 1) //=&gt; color
 @debug hwb(210, 0%, 60%); // #036
 @debug hwb(34, 89%, 5%); // #f2ece4
 @debug hwb(210 0% 60% / 0.5); // rgba(0, 51, 102, 0.5)
 
 color.ie-hex-str($color)
-ie-hex-str($color) //=&gt unquoted string
+ie-hex-str($color) //=&gt; unquoted string
 @debug color.ie-hex-str(#b37399); // #FFB37399
 @debug color.ie-hex-str(#808c99); // #FF808C99
 @debug color.ie-hex-str(rgba(242, 236, 228, 0.6)); // #99F2ECE
 
 color.invert($color, $weight: 100%)
-invert($color, $weight: 100%) //=&gt color
+invert($color, $weight: 100%) //=&gt; color
 @debug color.invert(#b37399); // #4c8c66
 @debug color.invert(black); // white
 @debug color.invert(#550e0c, 20%); // #663b3a
 
-lighten($color, $amount) //=&gt color
+lighten($color, $amount) //=&gt; color
 // Lightness 46% becomes 66%.
 @debug lighten(#6b717f, 20%); // #a1a5af
 // Lightness 20% becomes 80%.
@@ -1872,32 +1872,32 @@ lighten($color, $amount) //=&gt color
 @debug lighten(#e1d7d2, 30%); // white
 
 color.lightness($color)
-lightness($color) //=&gt number
+lightness($color) //=&gt; number
 @debug color.lightness(#e1d7d2); // 85.2941176471%
 @debug color.lightness(#f2ece4); // 92.1568627451%
 @debug color.lightness(#dadbdf); // 86.4705882353%
 
 color.mix($color1, $color2, $weight: 50%)
-mix($color1, $color2, $weight: 50%) //=&gt color
+mix($color1, $color2, $weight: 50%) //=&gt; color
 @debug color.mix(#036, #d2e1dd); // #698aa2
 @debug color.mix(#036, #d2e1dd, 75%); // #355f84
 @debug color.mix(#036, #d2e1dd, 25%); // #9eb6bf
 @debug color.mix(rgba(242, 236, 228, 0.5), #6b717f); // rgba(141, 144, 152, 0.75)
 
 opacify($color, $amount)
-fade-in($color, $amount) //=&gt color
+fade-in($color, $amount) //=&gt; color
 @debug opacify(rgba(#6b717f, 0.5), 0.2); // rgba(107, 113, 127, 0.7)
 @debug fade-in(rgba(#e1d7d2, 0.5), 0.4); // rgba(225, 215, 210, 0.9)
 @debug opacify(rgba(#036, 0.7), 0.3); // #036
 
 color.red($color)
-red($color) //=&gt number
+red($color) //=&gt; number
 @debug color.red(#e1d7d2); // 225
 @debug color.red(white); // 255
 @debug color.red(black); // 0
 
 saturate($color, $amount)
-saturate($color, $amount) //=&gt color
+saturate($color, $amount) //=&gt; color
 // Saturation 50% becomes 70%.
 @debug saturate(#c69, 20%); // #e05299
 // Saturation 35% becomes 85%.
@@ -1906,7 +1906,7 @@ saturate($color, $amount) //=&gt color
 @debug saturate(#0e4982, 30%)  // #004990
 
 color.saturation($color)
-saturation($color) //=&gt number
+saturation($color) //=&gt; number
 @debug color.saturation(#e1d7d2); // 20%
 @debug color.saturation(#f2ece4); // 30%
 @debug color.saturation(#dadbdf); // 7.2463768116%
@@ -1916,25 +1916,25 @@ color.scale($color,
     $saturation: null, $lightness: null,
     $whiteness: null, $blackness: null,
     $alpha: null)
-scale-color(...) //=&gt color
+scale-color(...) //=&gt; color
 @debug color.scale(#6b717f, $red: 15%); // #81717f
 @debug color.scale(#d2e1dd, $lightness: -10%, $saturation: 10%); // #b3d4cb
 @debug color.scale(#998099, $alpha: -40%); // rgba(153, 128, 153, 0.6)
 
 transparentize($color, $amount)
-fade-out($color, $amount) //=&gt color
+fade-out($color, $amount) //=&gt; color
 @debug transparentize(rgba(#6b717f, 0.5), 0.2)  // rgba(107, 113, 127, 0.3)
 @debug fade-out(rgba(#e1d7d2, 0.5), 0.4)  // rgba(225, 215, 210, 0.1)
 @debug transparentize(rgba(#036, 0.3), 0.3)  // rgba(0, 51, 102, 0)
 
-color.whiteness($color) //=&gt number
+color.whiteness($color) //=&gt; number
 @debug color.whiteness(#e1d7d2); // 82.3529411765%
 @debug color.whiteness(white); // 100%
 @debug color.whiteness(black); // 0%
 
 <b>==== SASS:LIST ====</b>
 list.append($list, $val, $separator: auto)
-append($list, $val, $separator: auto) //=&gt list
+append($list, $val, $separator: auto) //=&gt; list
 @debug list.append(10px 20px, 30px); // 10px 20px 30px
 @debug list.append((blue, red), green); // blue, red, green
 @debug list.append(10px 20px, 30px 40px); // 10px 20px (30px 40px)
@@ -1942,18 +1942,18 @@ append($list, $val, $separator: auto) //=&gt list
 @debug list.append((blue, red), green, $separator: space); // blue red green
 
 list.index($list, $value)
-index($list, $value) //=&gt number | null
+index($list, $value) //=&gt; number | null
 @debug list.index(1px solid red, 1px); // 1
 @debug list.index(1px solid red, solid); // 2
 @debug list.index(1px solid red, dashed); // null
 
 list.is-bracketed($list)
-is-bracketed($list) //=&gt boolean
+is-bracketed($list) //=&gt; boolean
 @debug list.is-bracketed(1px 2px 3px); // false
 @debug list.is-bracketed([1px, 2px, 3px]); // true
 
 list.join($list1, $list2, $separator: auto, $bracketed: auto)
-join($list1, $list2, $separator: auto, $bracketed: auto) //=&gt list
+join($list1, $list2, $separator: auto, $bracketed: auto) //=&gt; list
 @debug list.join(10px 20px, 30px 40px); // 10px 20px 30px 40px
 @debug list.join((blue, red), (#abc, #def)); // blue, red, #abc, #def
 @debug list.join(10px, 20px); // 10px 20px
@@ -1963,13 +1963,13 @@ join($list1, $list2, $separator: auto, $bracketed: auto) //=&gt list
 @debug list.join(10px, 20px, $bracketed: true); // [10px 20px]
 
 list.length($list)
-length($list) //=&gt number
+length($list) //=&gt; number
 @debug list.length(10px); // 1
 @debug list.length(10px 20px 30px); // 3
 @debug list.length((width: 10px, height: 20px)); // 2
 
 list.separator($list)
-list-separator($list) //=&gt unquoted string
+list-separator($list) //=&gt; unquoted string
 @debug list.separator(1px 2px 3px); // space
 @debug list.separator(1px, 2px, 3px); // comma
 @debug list.separator('Helvetica'); // space
@@ -1981,18 +1981,18 @@ nth($list, $n)
 @debug list.nth([line1, line2, line3], -1); // line3
 
 list.set-nth($list, $n, $value)
-set-nth($list, $n, $value) //=&gt list
+set-nth($list, $n, $value) //=&gt; list
 @debug list.set-nth(10px 20px 30px, 1, 2em); // 2em 20px 30px
 @debug list.set-nth(10px 20px 30px, -1, 8em); // 10px, 20px, 8em
 @debug list.set-nth((Helvetica, Arial, sans-serif), 3, Roboto); // Helvetica, Arial, Roboto
 
 list.zip($lists...)
-zip($lists...) //=&gt list
+zip($lists...) //=&gt; list
 @debug list.zip(10px 50px 100px, short mid long); // 10px short, 50px mid, 100px long
 @debug list.zip(10px 50px 100px, short mid); // 10px short, 50px mid
 
 <b>==== SASS:MAP ====</b>
-map.deep-merge($map1, $map2) //=&gt map
+map.deep-merge($map1, $map2) //=&gt; map
 $helvetica-light: (
     "weights": (
     "lightest": 100,
@@ -2022,7 +2022,7 @@ $helvetica-heavy: (
 //   )
 // )
 
-map.deep-remove($map, $key, $keys...) //=&gt map
+map.deep-remove($map, $key, $keys...) //=&gt; map
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.deep-remove($font-weights, "regular");
 // ("medium": 500, "bold": 700)
@@ -2063,7 +2063,7 @@ $fonts: (
 @debug map.get($fonts, "Helvetica", "colors"); // null
 
 map.has-key($map, $key, $keys...)
-map-has-key($map, $key, $keys...) //=&gt boolean
+map-has-key($map, $key, $keys...) //=&gt; boolean
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.has-key($font-weights, "regular"); // true
 @debug map.has-key($font-weights, "bolder"); // false
@@ -2080,13 +2080,13 @@ $fonts: (
 @debug map.has-key($fonts, "Helvetica", "colors"); // false
 
 map.keys($map)
-map-keys($map) //=&gt list
+map-keys($map) //=&gt; list
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.keys($font-weights); // "regular", "medium", "bold"
 map.merge($map1, $map2)
 map-merge($map1, $map2)
 map.merge($map1, $keys..., $map2)
-map-merge($map1, $keys..., $map2) //=&gt map
+map-merge($map1, $keys..., $map2) //=&gt; map
 $light-weights: ("lightest": 100, "light": 300);
 $heavy-weights: ("medium": 500, "bold": 700);
 @debug map.merge($light-weights, $heavy-weights);
@@ -2113,7 +2113,7 @@ $heavy-weights: ("medium": 500, "bold": 700);
 // )
 
 map.remove($map, $keys...)
-map-remove($map, $keys...) //=&gt map
+map-remove($map, $keys...) //=&gt; map
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.remove($font-weights, "regular"); // ("medium": 500, "bold": 700)
 @debug map.remove($font-weights, "regular", "bold"); // ("medium": 500)
@@ -2121,7 +2121,7 @@ $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 // ("regular": 400, "medium": 500, "bold": 700)
 
 map.set($map, $key, $value)
-map.set($map, $keys..., $key, $value) //=&gt map
+map.set($map, $keys..., $key, $value) //=&gt; map
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.set($font-weights, "regular", 300);
 // ("regular": 300, "medium": 500, "bold": 700)
@@ -2146,7 +2146,7 @@ $fonts: (
 // )
 
 map.values($map)
-map-values($map) //=&gt list
+map-values($map) //=&gt; list
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 @debug map.values($font-weights); // 400, 500, 700
 
@@ -2160,110 +2160,110 @@ math.$pi
 
 <b>=== Arredondamentos ===</b>
 math.ceil($number)
-ceil($number) //=&gt number
+ceil($number) //=&gt; number
 @debug math.ceil(4); // 4
 @debug math.ceil(4.2); // 5
 @debug math.ceil(4.9); // 5
 
-math.clamp($min, $number, $max) //=&gt number
+math.clamp($min, $number, $max) //=&gt; number
 @debug math.clamp(-1, 0, 1); // 0
 @debug math.clamp(1px, -1px, 10px); // 1px
 @debug math.clamp(-1in, 1cm, 10mm); // 10mm
 
 math.floor($number)
-floor($number) //=&gt number
+floor($number) //=&gt; number
 @debug math.floor(4); // 4
 @debug math.floor(4.2); // 4
 @debug math.floor(4.9); // 4
 
 math.max($number...)
-max($number...) //=&gt number
+max($number...) //=&gt; number
 @debug math.max(1px, 4px); // 4px
 $widths: 50px, 30px, 100px;
 @debug math.max($widths...); // 100px
 
 math.min($number...)
-min($number...) //=&gt number
+min($number...) //=&gt; number
 @debug math.min(1px, 4px); // 1px
 $widths: 50px, 30px, 100px;
 @debug math.min($widths...); // 30px
 
 math.round($number)
-round($number) //=&gt number
+round($number) //=&gt; number
 @debug math.round(4); // 4
 @debug math.round(4.2); // 4
 @debug math.round(4.9); // 5
 
 <b>=== Distância ===</b>
 math.abs($number)
-abs($number) //=&gt number
+abs($number) //=&gt; number
 @debug math.abs(10px); // 10px
 @debug math.abs(-10px); // 10px
 
-math.hypot($number...) //=&gt number
+math.hypot($number...) //=&gt; number
 @debug math.hypot(3, 4); // 5
 $lengths: 1in, 10cm, 50px;
 @debug math.hypot($lengths...); // 4.0952775683in
 
 <b>=== Exponencial ===</b>
-math.log($number, $base: null) //=&gt number
+math.log($number, $base: null) //=&gt; number
 @debug math.log(10); // 2.302585093
 @debug math.log(10, 10); // 1
 
-math.pow($base, $exponent) //=&gt number
+math.pow($base, $exponent) //=&gt; number
 @debug math.pow(10, 2); // 100
 @debug math.pow(100, 1/3); // 4.6415888336
 @debug math.pow(5, -2); // 0.04
 
-math.sqrt($number) //=&gt number
+math.sqrt($number) //=&gt; number
 @debug math.sqrt(100); // 10
 @debug math.sqrt(1/3); // 0.5773502692
 @debug math.sqrt(-1); // NaN
 
 <b>=== Trigonometria ===</b>
-math.cos($number) //=&gt number
+math.cos($number) //=&gt; number
 @debug math.cos(100deg); // -0.1736481777
 @debug math.cos(1rad); // 0.5403023059
 @debug math.cos(1); // 0.5403023059
 
-math.sin($number) //=&gt number
+math.sin($number) //=&gt; number
 @debug math.sin(100deg); // 0.984807753
 @debug math.sin(1rad); // 0.8414709848
 @debug math.sin(1); // 0.8414709848
 
-math.tan($number) //=&gt number
+math.tan($number) //=&gt; number
 @debug math.tan(100deg); // -5.6712818196
 @debug math.tan(1rad); // 1.5574077247
 @debug math.tan(1); // 1.5574077247
 
-math.acos($number) //=&gt number
+math.acos($number) //=&gt; number
 @debug math.acos(0.5); // 60deg
 @debug math.acos(2); // NaNdeg
 
-math.asin($number) //=&gt number
+math.asin($number) //=&gt; number
 @debug math.asin(0.5); // 30deg
 @debug math.asin(2); // NaNdeg
 
-math.atan($number) //=&gt number
+math.atan($number) //=&gt; number
 @debug math.atan(10); // 84.2894068625deg
 
-math.atan2($y, $x) //=&gt number
+math.atan2($y, $x) //=&gt; number
 @debug math.atan2(-1, 1); // 135deg
 
 <b>=== Unidade ===</b>
 math.compatible($number1, $number2)
-comparable($number1, $number2) //=&gt boolean
+comparable($number1, $number2) //=&gt; boolean
 @debug math.compatible(2px, 1px); // true
 @debug math.compatible(100px, 3em); // false
 @debug math.compatible(10cm, 3mm); // true
 
 math.is-unitless($number)
-unitless($number) //=&gt boolean
+unitless($number) //=&gt; boolean
 @debug math.is-unitless(100); // true
 @debug math.is-unitless(100px); // false
 
 math.unit($number)
-unit($number) //=&gt quoted string
+unit($number) //=&gt; quoted string
 @debug math.unit(100); // ""
 @debug math.unit(100px); // "px"
 @debug math.unit(5px * 10px); // "px*px"
@@ -2271,12 +2271,12 @@ unit($number) //=&gt quoted string
 
 <b>=== Outras ===</b>
 math.percentage($number)
-percentage($number) //=&gt number
+percentage($number) //=&gt; number
 @debug math.percentage(0.2); // 20%
 @debug math.percentage(100px / 50px); // 200%
 
 math.random($limit: null)
-random($limit: null) //=&gt number
+random($limit: null) //=&gt; number
 @debug math.random(); // 0.2821251858
 @debug math.random(); // 0.6221325814
 @debug math.random(10); // 4
@@ -2327,7 +2327,7 @@ content {
 }
 
 meta.content-exists()
-content-exists() //=&gt boolean
+content-exists() //=&gt; boolean
 @mixin debug-content-exists {
     @debug meta.content-exists();
     @content;
@@ -2338,12 +2338,12 @@ content-exists() //=&gt boolean
 }
 
 meta.feature-exists($feature)
-feature-exists($feature) //=&gt boolean
+feature-exists($feature) //=&gt; boolean
 @debug meta.feature-exists("at-error"); // true
 @debug meta.feature-exists("unrecognized"); // false
 
 meta.function-exists($name)
-function-exists($name) //=&gt boolean
+function-exists($name) //=&gt; boolean
 @debug meta.function-exists("scale-color"); // true
 @debug meta.function-exists("add"); // false
 @function add($num1, $num2) {
@@ -2352,7 +2352,7 @@ function-exists($name) //=&gt boolean
 @debug meta.function-exists("add"); // true
 
 meta.get-function($name, $css: false, $module: null)
-get-function($name, $css: false, $module: null) //=&gt function
+get-function($name, $css: false, $module: null) //=&gt; function
 @use "sass:list";
 @use "sass:meta";
 @use "sass:string";
@@ -2376,7 +2376,7 @@ content {
 }
 
 meta.global-variable-exists($name, $module: null)
-global-variable-exists($name, $module: null) //=&gt boolean
+global-variable-exists($name, $module: null) //=&gt; boolean
 @debug meta.global-variable-exists("var1"); // false
 $var1: value;
 @debug meta.global-variable-exists("var1"); // true
@@ -2387,14 +2387,14 @@ h1 {
 }
 
 meta.inspect($value)
-inspect($value) //=&gt unquoted string
+inspect($value) //=&gt; unquoted string
 @debug meta.inspect(10px 20px 30px); // unquote("10px 20px 30px")
 @debug meta.inspect(("width": 200px)); // unquote('("width": 200px)')
 @debug meta.inspect(null); // unquote("null")
 @debug meta.inspect("Helvetica"); // unquote('"Helvetica"')
 
 meta.keywords($args)
-keywords($args) //=&gt map
+keywords($args) //=&gt; map
 @use "sass:meta";
 @mixin syntax-colors($args...) {
     @debug meta.keywords($args);
@@ -2412,14 +2412,14 @@ keywords($args) //=&gt map
 )
 
 meta.mixin-exists($name, $module: null)
-mixin-exists($name, $module: null) //=&gt boolean
+mixin-exists($name, $module: null) //=&gt; boolean
 @debug meta.mixin-exists("shadow-none"); // false
 @mixin shadow-none {
     box-shadow: none;
 }
 @debug meta.mixin-exists("shadow-none"); // true
 
-meta.module-functions($module) //=&gt map
+meta.module-functions($module) //=&gt; map
 // _functions.scss
 @function pow($base, $exponent) {
     $result: 1;
@@ -2434,7 +2434,7 @@ meta.module-functions($module) //=&gt map
 @debug meta.module-functions("functions"); // ("pow": get-function("pow"))
 @debug meta.call(map.get(meta.module-variables("functions"), "pow"), 3, 4); // 16
 
-meta.module-variables($module) //=&gt map
+meta.module-variables($module) //=&gt; map
 // _variables.scss
 $hopbush: #c69;
 $midnight-blue: #036;
@@ -2449,13 +2449,13 @@ $wafer: #e1d7d2;
 // )
 
 meta.type-of($value)
-type-of($value) //=&gt unquoted string
+type-of($value) //=&gt; unquoted string
 @debug meta.type-of(10px); // number
 @debug meta.type-of(10px 20px 30px); // list
 @debug meta.type-of(()); // list
 
 meta.variable-exists($name)
-variable-exists($name) //=&gt boolean
+variable-exists($name) //=&gt; boolean
 @debug meta.variable-exists("var1"); // false
 $var1: value;
 @debug meta.variable-exists("var1"); // true
@@ -2472,7 +2472,7 @@ h1 {
 // .main aside:hover, .sidebar p
 
 selector.is-superselector($super, $sub)
-is-superselector($super, $sub) //=&gt boolean
+is-superselector($super, $sub) //=&gt; boolean
 @debug selector.is-superselector("a", "a.disabled"); // true
 @debug selector.is-superselector("a.disabled", "a"); // false
 @debug selector.is-superselector("a", "sidebar a"); // true
@@ -2480,14 +2480,14 @@ is-superselector($super, $sub) //=&gt boolean
 @debug selector.is-superselector("a", "a"); // true
 
 selector.append($selectors...)
-selector-append($selectors...) //=&gt selector
+selector-append($selectors...) //=&gt; selector
 @debug selector.append("a", ".disabled"); // a.disabled
 @debug selector.append(".accordion", "__copy"); // .accordion__copy
 @debug selector.append(".accordion", "__copy, __image");
 // .accordion__copy, .accordion__image
 
 selector.extend($selector, $extendee, $extender)
-selector-extend($selector, $extendee, $extender) //=&gt selector
+selector-extend($selector, $extendee, $extender) //=&gt; selector
 #{$extender} {
     @extend #{$extendee};
 }
@@ -2497,84 +2497,84 @@ selector-extend($selector, $extendee, $extender) //=&gt selector
 // .guide .info, .guide .content nav.sidebar, .content .guide nav.sidebar
 
 selector.nest($selectors...)
-selector-nest($selectors...) //=&gt selector
+selector-nest($selectors...) //=&gt; selector
 @debug selector.nest("ul", "li"); // ul li
 @debug selector.nest(".alert, .warning", "p"); // .alert p, .warning p
 @debug selector.nest(".alert", "&:hover"); // .alert:hover
 @debug selector.nest(".accordion", "&__copy"); // .accordion__copy
 
 selector.parse($selector)
-selector-parse($selector) //=&gt selector
+selector-parse($selector) //=&gt; selector
 @debug selector.parse(".main aside:hover, .sidebar p");
 // ((unquote(".main") unquote("aside:hover")),
 //  (unquote(".sidebar") unquote("p")))
 
 selector.replace($selector, $original, $replacement)
-selector-replace($selector, $original, $replacement) //=&gt selector
+selector-replace($selector, $original, $replacement) //=&gt; selector
 @debug selector.replace("a.disabled", "a", ".link"); // .link.disabled
 @debug selector.replace("a.disabled", "h1", "h2"); // a.disabled
 @debug selector.replace(".guide .info", ".info", ".content nav.sidebar");
 // .guide .content nav.sidebar, .content .guide nav.sidebar
 
 selector.unify($selector1, $selector2)
-selector-unify($selector1, $selector2) //=&gt selector | null
+selector-unify($selector1, $selector2) //=&gt; selector | null
 @debug selector.unify("a", ".disabled"); // a.disabled
 @debug selector.unify("a.disabled", "a.outgoing"); // a.disabled.outgoing
 @debug selector.unify("a", "h1"); // null
 @debug selector.unify(".warning a", "main a"); // .warning main a, main .warning a
 
 selector.simple-selectors($selector)
-simple-selectors($selector) //=&gt list
+simple-selectors($selector) //=&gt; list
 @debug selector.simple-selectors("a.disabled"); // a, .disabled
 @debug selector.simple-selectors("main.blog:after"); // main, .blog, :after
 
 <b>==== SASS:STRING ====</b>
 string.quote($string)
-quote($string) //=&gt string
+quote($string) //=&gt; string
 @debug string.quote(Helvetica); // "Helvetica"
 @debug string.quote("Helvetica"); // "Helvetica"
 
 string.index($string, $substring)
-str-index($string, $substring) //=&gt number
+str-index($string, $substring) //=&gt; number
 @debug string.index("Helvetica Neue", "Helvetica"); // 1
 @debug string.index("Helvetica Neue", "Neue"); // 11
 
 string.insert($string, $insert, $index)
-str-insert($string, $insert, $index) //=&gt string
+str-insert($string, $insert, $index) //=&gt; string
 @debug string.insert("Roboto Bold", " Mono", 7); // "Roboto Mono Bold"
 @debug string.insert("Roboto Bold", " Mono", -6); // "Roboto Mono Bold"
 @debug string.insert("Roboto", " Bold", 100); // "Roboto Bold"
 @debug string.insert("Bold", "Roboto ", -100); // "Roboto Bold"
 
 string.length($string)
-str-length($string) //=&gt number
+str-length($string) //=&gt; number
 @debug string.length("Helvetica Neue"); // 14
 @debug string.length(bold); // 4
 @debug string.index(""); // 0
 
 string.slice($string, $start-at, $end-at: -1)
-str-slice($string, $start-at, $end-at: -1) //=&gt string
+str-slice($string, $start-at, $end-at: -1) //=&gt; string
 @debug string.slice("Helvetica Neue", 11); // "Neue"
 @debug string.slice("Helvetica Neue", 1, 3); // "Hel"
 @debug string.slice("Helvetica Neue", 1, -6); // "Helvetica"
 
 string.to-upper-case($string)
-to-upper-case($string) //=&gt string
+to-upper-case($string) //=&gt; string
 @debug string.to-upper-case("Bold"); // "BOLD"
 @debug string.to-upper-case(sans-serif); // SANS-SERIF
 
 string.to-lower-case($string)
-to-lower-case($string) //=&gt string
+to-lower-case($string) //=&gt; string
 @debug string.to-lower-case("Bold"); // "bold"
 @debug string.to-lower-case(SANS-SERIF); // sans-serif
 
 string.unique-id()
-unique-id() //=&gt string
+unique-id() //=&gt; string
 @debug string.unique-id(); // uabtrnzug
 @debug string.unique-id(); // u6w1b1def
 
 string.unquote($string)
-unquote($string) //=&gt string
+unquote($string) //=&gt; string
 @debug string.unquote("Helvetica"); // Helvetica
 @debug string.unquote(".widget:hover"); // .widget:hover
 

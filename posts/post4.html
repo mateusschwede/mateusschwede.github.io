@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -67,14 +67,14 @@ INSERT INTO item(nome,preco) VALUES ("item1",29.90),("item2",90),("item3",10.65)
 </code></pre></small><br>
             <h4>conect.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 $db = new PDO('mysql:host=localhost;dbname=carrinho;charset=utf8','root','');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </code></pre></small><br>
             <h4>itensPedido.php</h4>
 <small><pre><code>
-&lta href="addItem.php"&gtAdicionar item&lt/a&gt
-&lt?php
+&lt;a href="addItem.php"&gt;Adicionar item&lt;/a&gt;
+&lt;?php
     require_once 'conect.php';
     session_start();
     $totPedido = 0;
@@ -91,10 +91,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $totItem = $l['qtd']*$l2['preco'];
             $totPedido += $totItem;
             echo "
-                &ltbr&gt
+                &lt;br&gt;
                 ".$l2['nome']."- ".$l['qtd']."(R$ ".$l2['preco']."un) - R$ ".$totItem."
-                &lta href='edItem.php?item=".$l['idItem']."'&gtEditar&lta&gt
-                &lta href='remItem.php?item=".$l['idItem']."'&gtExcluir&lta&gt
+                &lt;a href='edItem.php?item=".$l['idItem']."'&gt;Editar&lt;a&gt;
+                &lt;a href='remItem.php?item=".$l['idItem']."'&gt;Excluir&lt;a&gt;
             ";
         }
         $_SESSION['totPedido'] = $totPedido;
@@ -105,22 +105,22 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $r->execute(array($_SESSION['id']));
     $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
     foreach($linhas as $l) {
-        echo "&ltbr&gt&lthr&gtPedido ".$l['id']."&ltbr&gtData: ".$l['dia']."&ltbr&gtCpf: ".$l['cpf']."&ltbr&gtTotal: R$ ".$totPedido."&ltbr&gtEndereço: ".$l['endereco'];
+        echo "&lt;br&gt;&lt;hr&gt;Pedido ".$l['id']."&lt;br&gt;Data: ".$l['dia']."&lt;br&gt;Cpf: ".$l['cpf']."&lt;br&gt;Total: R$ ".$totPedido."&lt;br&gt;Endereço: ".$l['endereco'];
     }
-?&gt
+?&gt;
 
-&ltform action="canPedido.php" method="post"&gt
-    &ltinput type="hidden" name="can" value="1"&gt
-    &ltinput type="submit" value="Cancelar Pedido"&gt
-&lt/form&gt
-&ltform action="fimPedido.php" method="post"&gt
-    &ltinput type="hidden" name="fim" value="1"&gt
-    &ltinput type="submit" value="Confirmar Pedido"&gt
-&lt/form&gt
+&lt;form action="canPedido.php" method="post"&gt;
+    &lt;input type="hidden" name="can" value="1"&gt;
+    &lt;input type="submit" value="Cancelar Pedido"&gt;
+&lt;/form&gt;
+&lt;form action="fimPedido.php" method="post"&gt;
+    &lt;input type="hidden" name="fim" value="1"&gt;
+    &lt;input type="submit" value="Confirmar Pedido"&gt;
+&lt;/form&gt;
 </code></pre></small><br>
             <h4>addItem.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
     require_once 'conect.php';
     session_start();
 
@@ -129,29 +129,29 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $r->execute(array($_POST['item'],$_SESSION['id'],$_POST['qtd']));
         header("location: itensPedido.php");
     }
-?&gt
+?&gt;
 
-&ltform action="addItem.php" method="post"&gt
+&lt;form action="addItem.php" method="post"&gt;
     Adicionar item:
-    &ltselect required name="item"&gt
-        &lt?php
+    &lt;select required name="item"&gt;
+        &lt;?php
             $r = $db->query("SELECT * FROM item");
             $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
             foreach($linhas as $l) {
                 $r = $db->prepare("SELECT * FROM item_pedido WHERE idItem=? AND idPedido=?");
                 $r->execute(array($l['id'],$_SESSION['id']));
-                if($r->rowCount()==0) {echo "&ltoption value=".$l['id']."&gt".$l['nome']."&lt/option&gt";}
+                if($r->rowCount()==0) {echo "&lt;option value=".$l['id']."&gt;".$l['nome']."&lt;/option&gt;";}
             }
-        ?&gt
-    &lt/select&gt
-    &ltinput type="number" required name="qtd" min=1 max=99 placeholder="Qtd"&gt
-    &lta href="itensPedido.php"&gtCancelar&lt/a&gt
-    &ltinput type="submit" value="Adicionar"&gt
-&lt/form&gt
+        ?&gt;
+    &lt;/select&gt;
+    &lt;input type="number" required name="qtd" min=1 max=99 placeholder="Qtd"&gt;
+    &lt;a href="itensPedido.php"&gt;Cancelar&lt;/a&gt;
+    &lt;input type="submit" value="Adicionar"&gt;
+&lt;/form&gt;
 </code></pre></small><br>
             <h4>remItem.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 require_once 'conect.php';
 session_start();
 $r = $db->prepare("DELETE FROM item_pedido WHERE idItem=? AND idPedido=?");
@@ -160,7 +160,7 @@ header("location: itensPedido.php");
 </code></pre></small><br>
             <h4>edItem.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
     require_once 'conect.php';
     session_start();
 
@@ -181,17 +181,17 @@ header("location: itensPedido.php");
     $r->execute(array($_GET['item']));
     $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
     foreach($linhas as $l) {echo "Editar ".$l['nome'];}
-?&gt
+?&gt;
 
-&ltform action="edItem.php?idNovo=&lt?=$_GET['item']?&gt" method="post"&gt
-    &ltinput type="number" name="qtd" placeholder="Qtd" required min=1 max=99 value="&gt?=$qtd?&gt"&gt
-    &lta href="itensPedido.php"&gtCancelar&lt/a&gt
-    &ltinput type="submit" value="Atualizar"&gt
-&lt/form&gt
+&lt;form action="edItem.php?idNovo=&lt;?=$_GET['item']?&gt;" method="post"&gt;
+    &lt;input type="number" name="qtd" placeholder="Qtd" required min=1 max=99 value="&gt;?=$qtd?&gt;"&gt;
+    &lt;a href="itensPedido.php"&gt;Cancelar&lt;/a&gt;
+    &lt;input type="submit" value="Atualizar"&gt;
+&lt;/form&gt;
 </code></pre></small><br>
             <h4>canPedido.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 require_once 'conect.php';
 session_start();
 
@@ -205,7 +205,7 @@ header("location: index.php");
 </code></pre></small><br>
             <h4>fimPedido.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
 require_once 'conect.php';
 session_start();
 
@@ -225,7 +225,7 @@ foreach($linhas as $l) {
 </code></pre></small><br>
             <h4>index.php</h4>
 <small><pre><code>
-&lt?php
+&lt;?php
     require_once 'conect.php';
     session_start();
 
@@ -241,22 +241,22 @@ foreach($linhas as $l) {
         }
         header("location: itensPedido.php");
     }
-?&gt
+?&gt;
 
-&ltform action="index.php" method="post"&gt
+&lt;form action="index.php" method="post"&gt;
     Novo pedido
-    &ltinput type="text" name="cpf" placeholder="Cpf(xxx.xxx.xxx-xx)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"&gt
-    &ltinput type="text" name="endereco" placeholder="Endereço"&gt
-    &ltinput type="submit" value="Avançar"&gt
-&lt/form&gt
+    &lt;input type="text" name="cpf" placeholder="Cpf(xxx.xxx.xxx-xx)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"&gt;
+    &lt;input type="text" name="endereco" placeholder="Endereço"&gt;
+    &lt;input type="submit" value="Avançar"&gt;
+&lt;/form&gt;
 
-&lth1&gtPedidos&lt/h1&gt
-&lt?php
+&lt;h1&gt;Pedidos&lt;/h1&gt;
+&lt;?php
     $r = $db->query("SELECT * FROM pedido");
     $linhas = $r->fetchAll(PDO::FETCH_ASSOC);
     foreach($linhas as $l) {
-        echo "&ltbr&gt--- Pedido ".$l['id']." (".$l['dia'].") ---&ltbr&gt";
-        echo "Cpf: ".$l['cpf']." Endereço: ".$l['endereco']." Total: R$ ".$l['precoTotal']."&ltbr&gt";
+        echo "&lt;br&gt;--- Pedido ".$l['id']." (".$l['dia'].") ---&lt;br&gt;";
+        echo "Cpf: ".$l['cpf']." Endereço: ".$l['endereco']." Total: R$ ".$l['precoTotal']."&lt;br&gt;";
         $r = $db->prepare("SELECT * FROM item_pedido WHERE idPedido=?");
         $r->execute(array($l['id']));
         $linhas2 = $r->fetchAll(PDO::FETCH_ASSOC);
@@ -265,7 +265,7 @@ foreach($linhas as $l) {
             $r->execute(array($l2['idItem']));
             $linhas3 = $r->fetchAll(PDO::FETCH_ASSOC);
             foreach($linhas3 as $l3) {
-                echo "Item ".$l3['nome']."- ".$l2['qtd']."(R$ ".$l3['preco'].") - R$ ".($l3['preco']*$l2['qtd'])."&ltbr&gt";
+                echo "Item ".$l3['nome']."- ".$l2['qtd']."(R$ ".$l3['preco'].") - R$ ".($l3['preco']*$l2['qtd'])."&lt;br&gt;";
             }
         }
     }

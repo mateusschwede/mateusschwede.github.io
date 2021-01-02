@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -81,7 +81,7 @@ Math.sqrt(x); // Raiz quadrada
 
 NUMEROS ALEATORIOS
 Random r = new Random();
-for(int i = 0; i &lt 30; i++) {
+for(int i = 0; i &lt; 30; i++) {
     int num = r.nextInt(6); //nº inteiro entre 0 e 5
 }
 
@@ -109,14 +109,14 @@ String t2 = String.format("%-15.3f %-15.8f", 666.23429837482,9.99);
 
 PERCORRER STRING:
 String banda = "Black Sabbath";
-for(int i=0; i &lt banda.length(); i++) {
+for(int i=0; i &lt; banda.length(); i++) {
     System.out.println(banda.charAt(i));
 }
 
 CONVERTER STRING PRA ARRAY DE CHAR:
 String cidade = "Feliz";
 char[] cidadeCharArray = cidade.toCharArray();
-for (int i = 0; i &lt cidadeCharArray.length; i++) {
+for (int i = 0; i &lt; cidadeCharArray.length; i++) {
     System.out.println("Caracter: " + cidadeCharArray[i]);
 }
 for(char c : cidadeCharArray){
@@ -126,7 +126,7 @@ for(char c : cidadeCharArray){
 SPLIT:
 String teste = "IFRS-Campus-Feliz";
 String[] splitArray = teste.split("-");
-for (int i = 0; i &lt splitArray.length; i++) {
+for (int i = 0; i &lt; splitArray.length; i++) {
     System.out.println("Elemento: " + splitArray[i]);
 }
 
@@ -143,7 +143,7 @@ valores[0] = 666;
 System.out.println(nomes.length); // tamanho array
 
 PERCORRER ARRAY:
-for (int i = 0; i &lt valores.length; i++) {
+for (int i = 0; i &lt; valores.length; i++) {
     System.out.println(valores[i]);
 }
 
@@ -161,7 +161,7 @@ int posicao1 = Arrays.binarySearch(intArray, 80); //retorna index do elemento
 
 ========== PILHAS (Last In, First Out) ==========
 push(...) | pop() | empty()
-Stack&ltLivro&gt pilha = new Stack&ltLivro&gt();
+Stack&lt;Livro&gt; pilha = new Stack&lt;Livro&gt;();
 Livro l1 = new Livro();
 l1.setAutor("Fulano");
 l1.setTitulo("Java in 21 days");
@@ -174,7 +174,7 @@ while(!pilha.empty()) {
 
 ========== FILAS (First In, First Out) ==========
 add(...) | pool() | isEmpty()
-Queue&ltPessoa&gt fila = new LinkedList&ltPessoa&gt();
+Queue&lt;Pessoa&gt; fila = new LinkedList&lt;Pessoa&gt;();
 Pessoa p1 = new Pessoa();
 p1.setNome("Maria");
 p1.setIdade(30);
@@ -196,7 +196,7 @@ try {
     arquivo.createNewFile();
     FileWriter escritor = new FileWriter(arquivo,true);
     BufferedWriter buffer = new BufferedWriter(escritor);
-    for (int i = 0; i &lt 10; i++) { //escreve no arquivo
+    for (int i = 0; i &lt; 10; i++) { //escreve no arquivo
         buffer.write("¡Buenos dias! \n");
     }
     FileReader leitor = new FileReader(arquivo);

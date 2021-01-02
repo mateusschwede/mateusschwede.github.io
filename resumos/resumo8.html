@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -93,12 +93,12 @@ var r = (sexo=='M')?"Masc":"Fem";
 
 
 ========== REPETIÇÃO ==========
-for (var i=0; i&lt=100; i++) {
+for (var i=0; i&lt;=100; i++) {
     console.log(i);
 }
 
 var j=200000;
-while (j&gt=100) {
+while (j&gt;=100) {
     console.log(j);
     j/=5;
 }
@@ -112,13 +112,13 @@ setTimeout(exibeAlgo,5000); //executa apenas 1vez, delay 5seg
 
 ========== EVENTOS INLINE ==========
 function mostraAlerta() {alert("Botão clicado");}
-&ltbutton onclick="mostraAlerta()"&gtAperte&lt/button&gt
-&ltbutton onmouseover="mostraAlerta()"&gtAperte&lt/button&gt
+&lt;button onclick="mostraAlerta()"&gt;Aperte&lt;/button&gt;
+&lt;button onmouseover="mostraAlerta()"&gt;Aperte&lt;/button&gt;
 
 
 ========== REFERENCIAÇÃO DOM ==========
-&ltinput type="text" name="nome" id="nome"/&gt
-&ltbutton class="botao"&gtAdicionar&lt/button&gt
+&lt;input type="text" name="nome" id="nome"/&gt;
+&lt;button class="botao"&gt;Adicionar&lt;/button&gt;
 var inputElement = document.getElementById("nome");
 var inputElement2 = document.getElementsByTagName("input")[0];
 var inputElement3 = document.getElementsByClassName("botao")[0];
@@ -136,7 +136,7 @@ btnElement.onclick = function() {
 
 
 ========== MANIPULAÇÃO DOM ==========
-&ltdiv id="app"&gt&ltinput id="nome"/&gt&lt/div&gt
+&lt;div id="app"&gt;&lt;input id="nome"/&gt;&lt;/div&gt;
 var linkElement = document.createElement('a');
 linkElement.setAttribute('href','https://google.com');
 var textElement = document.createTextNode('Acesse!');
@@ -150,7 +150,7 @@ containerElement.removeChild(inputElement);
 
 
 ========== ALTERANDO ESTILOS ==========
-&ltdiv class="box"&gt&lt/div&gt
+&lt;div class="box"&gt;&lt;/div&gt;
 var boxElement = document.querySelector('.box');
 boxElement.style.width = 100;
 boxElement.style.height = 100;
@@ -170,18 +170,18 @@ boxElement.style.backgroundColor = '#f00';
             <h4>jquery.js</h4>
 <small><pre><code>
 Fazer chamada jQuery(<u>ex:</u> versão 3.3.1):
-&ltscript src="pasta/jquery-3.3.1.js">&lt/script&gt
-&ltscript&gtCódigos aqui...&lt/script&gt
+&lt;script src="pasta/jquery-3.3.1.js">&lt;/script&gt;
+&lt;script&gt;Códigos aqui...&lt;/script&gt;
 
 
 SELETORES
-&ltp class="p1"&gtLorem2.&lt/p&gt
-&ltp&gtLorem.&lt/p&gt
-&ltp id="p2"&gt&lt/p&gt
-&ltp data-aula="p3"&gt&lt/p&gt
+&lt;p class="p1"&gt;Lorem2.&lt;/p&gt;
+&lt;p&gt;Lorem.&lt;/p&gt;
+&lt;p id="p2"&gt;&lt;/p&gt;
+&lt;p data-aula="p3"&gt;&lt;/p&gt;
 
-&ltscript src="pasta/jquery-3.3.1.js"&gt&lt/script&gt
-&ltscript&gt
+&lt;script src="pasta/jquery-3.3.1.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     // Javascript
     var p1 = document.querySelector(".p1");
 
@@ -194,41 +194,41 @@ SELETORES
     var p1 = $('.p1').remove(); //apaga o elemento
     var p1 = $('.p1').get(0); //acessar item índice
     var p1 = $('.p1')[0]; //idem acima
-&lt/script&gt
+&lt;/script&gt;
 
 
 EFEITOS
-&ltstyle&gt
+&lt;style&gt;
     body {background-color: #efefef;}
     .box {position:relative; left:0; width:100px; height:100px; background-color:pink;}
-&lt/style&gt
+&lt;/style&gt;
 
-&ltdiv class="box"&gt&lt/div&gt
-&lthr&gt
+&lt;div class="box"&gt;&lt;/div&gt;
+&lt;hr&gt;
 
-&ltscript src="pasta/jquery-3.3.1.js"&gt&lt/script&gt
-&ltscript&gt
+&lt;script src="pasta/jquery-3.3.1.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     var box = $('.box');
     box.animate({width:"200px", height:"200px"},1000) //estilo,tempo de animação(em milisegundos)
     box.show();
     box.hide();
     box.fadeIn(1000); //aparecer(tempo)
     box.fadeOut(2000); //desaparecer(tempo)
-&lt/script&gt
+&lt;/script&gt;
 
 
 EVENTOS
-&ltstyle&gt
+&lt;style&gt;
     body {background-color: #efefef;}
     .box {position:relative; left:0; width:100px; height:100px; background-color:pink;}
-&lt/style&gt
+&lt;/style&gt;
 
-&ltdiv class="box"&gt&lt/div&gt
-&lthr&gt
-&ltbutton id="starting"&gtGo!&lt/button&gt
+&lt;div class="box"&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;button id="starting"&gt;Go!&lt;/button&gt;
 
-&ltscript src="pasta/jquery-3.3.1.js"&gt&lt/script&gt
-&ltscript&gt
+&lt;script src="pasta/jquery-3.3.1.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     var box = $('.box');
     var starting = $('#starting');
 
@@ -251,35 +251,35 @@ EVENTOS
             left: "800"
         }, 1500);
     });
-&lt/script&gt
+&lt;/script&gt;
 
 
 DELAY
 exemplo clicar no botão e esconder a mensagem com delay
-&ltbutton&gtClick&lt/button&gt
-&ltdiv class="mensagem"&gtOlá!&lt/div&gt
+&lt;button&gt;Click&lt;/button&gt;
+&lt;div class="mensagem"&gt;Olá!&lt;/div&gt;
 
-&ltscript&gt
+&lt;script&gt;
     var button = $("button");
     var mensagem = $(".mensagem");
 
     button.on("click", function() {
         mensagem.delay("slow").fadeOut(); //ou "fast" ou 1000 milisegundos
     });
-&lt/script&gt
+&lt;/script&gt;
 
 
 ADDCLASS & REMOVECLASS
 Remover todos os links actives existentes e ativar active no link que cliquei. Suponhamos, para o exemplo, um css com classe .active
 
-&ltul&gt
-    &ltli&gt&lta class="link active" href="#"&gtHome&lt/a&gt&lt/li&gt
-    &ltli&gt&lta class="link" href="#"&gtEmpresa&lt/a&gt&lt/li&gt
-    &ltli&gt&lta class="link" href="#"&gtprojetos&lt/a&gt&lt/li&gt
-    &ltli&gt&lta class="link" href="#"&gtContato&lt/a&gt&lt/li&gt
-&lt/ul&gt
+&lt;ul&gt;
+    &lt;li&gt;&lt;a class="link active" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="link" href="#"&gt;Empresa&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="link" href="#"&gt;projetos&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="link" href="#"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&ltscript&gt
+&lt;script&gt;
     var link = $(".link");
 
     link.on("click", function(){
@@ -289,23 +289,23 @@ Remover todos os links actives existentes e ativar active no link que cliquei. S
         //adicionar a .active no link que cliquei
         $(this).addClass("active");
     });
-&lt/script&gt
+&lt;/script&gt;
 
 
 SERIALIZE & SERIALIZEARRAY
 Serializar dados: toda vez que preenche fomulário de Ajax, precisamos dizer quais as informações ao servidor. Enviar dados Serializados, 'em formato get, no metodo post'
 ex: cep = 0330 & logradouro = Rua x
 
-&ltform action="#"&gt
-    &ltlabel for="cep"&gtCEP&lt/label&gt
-    &ltinput type="text" name="cep"&gt
-    &ltlabel for="logradouro"&gtLogradouro&lt/label&gt
-    &ltinput type="text" name="logradouro"&gt
-    &ltbutton&gtSubmit&lt/button&gt
-&lt/form&gt
-&ltdiv class="resultado"&gt&lt/div&gt
+&lt;form action="#"&gt;
+    &lt;label for="cep"&gt;CEP&lt;/label&gt;
+    &lt;input type="text" name="cep"&gt;
+    &lt;label for="logradouro"&gt;Logradouro&lt;/label&gt;
+    &lt;input type="text" name="logradouro"&gt;
+    &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+&lt;div class="resultado"&gt;&lt;/div&gt;
 
-&ltscript&gt
+&lt;script&gt;
     var form = $("form");
     var resultado = $(".resultado");
 
@@ -321,18 +321,18 @@ ex: cep = 0330 & logradouro = Rua x
         var data = $(this).serializeArray();
         console.log(data);
     });
-&lt/script&gt
+&lt;/script&gt;
 
 
 POSITION & OFFSET
 Intentificar coordenadas de posicionamento.
 ex: saber o espaço entre um container e um item / relação entre ele e tela inteira
 
-&ltdiv class="container"&gt
-    &ltdiv class="item"&gt&lt/div&gt
-&lt/div&gt
+&lt;div class="container"&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;
 
-&ltscript&gt
+&lt;script&gt;
     var container = $(".container");
     var item = $(".item");
 
@@ -343,31 +343,31 @@ ex: saber o espaço entre um container e um item / relação entre ele e tela in
     //espaço entre item e tela toda (geralmente usado com drag & drop)
     var posicao = item.offset();
     console.log(posicao.left, posicao.top);
-&lt/script&gt
+&lt;/script&gt;
 
 
 SCROLL & SCROLLTOP
 Cliques com rolagem mais suave. Ex: voltar ao topo, de forma suave.
 Obs: No caso do exemplo, abstrairemos o conteudo css, deixando somente o Html!
 
-&ltul class="menu"&gt
-    &ltli&gt&lta href="#empresa"&gtEmpresa&lt/a&gt&lt/li&gt
-    &ltli&gt&lta href="#projetos"&gtProjetos&lt/a&gt&lt/li&gt
-    &ltli&gt&lta href="#contato"&gtContato&lt/a&gt&lt/li&gt
-&lt/ul&gt
+&lt;ul class="menu"&gt;
+    &lt;li&gt;&lt;a href="#empresa"&gt;Empresa&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#projetos"&gt;Projetos&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&ltdiv class="item"&gt
-    &lth2 id="empresa"&gtEmpresa&lt/h2&gt
-&lt/div&gt
-&ltdiv class="item"&gt
-    &lth2 id="projetos"&gtprojetos&lt/h2&gt
-&lt/div&gt
-&ltdiv class="item"&gt
-    &lth2 id="contato"&gtContato&lt/h2&gt
-&lt/div&gt
-&ltbutton class="btn"&gtSubir&lt/button&gt
+&lt;div class="item"&gt;
+    &lt;h2 id="empresa"&gt;Empresa&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="item"&gt;
+    &lt;h2 id="projetos"&gt;projetos&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="item"&gt;
+    &lt;h2 id="contato"&gt;Contato&lt;/h2&gt;
+&lt;/div&gt;
+&lt;button class="btn"&gt;Subir&lt;/button&gt;
 
-&ltscript&gt
+&lt;script&gt;
     //realizar scroll clicando no menu
     var link = $(".menu li a");
     var subir = $(".btn");
@@ -376,7 +376,7 @@ Obs: No caso do exemplo, abstrairemos o conteudo css, deixando somente o Html!
     $(window).scroll(function {
         //botão subir aparecer somente qndo o menu desaparecer (1200 altura do menu)
         var minhaposicao = $(this).scrollTop();
-        if(minhaposicao &gt= 1200) {
+        if(minhaposicao &gt;= 1200) {
             subir.fadeIn();
         } else {
             subir.fadeOut();
@@ -397,20 +397,20 @@ Obs: No caso do exemplo, abstrairemos o conteudo css, deixando somente o Html!
             $("html, body").animate({scrollTop: 0},500);
         });
     });
-&lt/script&gt
+&lt;/script&gt;
 
 
 ===== jQuery com Ajax =====
 
 --- index.php ---
-&ltscript src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"&gt&lt/script&gt
-&ltform id="login" method="post"&gt
-    &ltinput type="text" placeholder="Nome" name="nome"&gt
-    &ltinput type="password" placeholder="Senha" name="senha" id="senha"&gt
-    &ltinput type="submit" name="loginBtn" value="Login"&gt
-&lt/form&gt
+&lt;script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;form id="login" method="post"&gt;
+    &lt;input type="text" placeholder="Nome" name="nome"&gt;
+    &lt;input type="password" placeholder="Senha" name="senha" id="senha"&gt;
+    &lt;input type="submit" name="loginBtn" value="Login"&gt;
+&lt;/form&gt;
 
-&ltscript&gt
+&lt;script&gt;
 $(document).ready(function() {
     $('#login').submit(function(e) {
         e.preventDefault();
@@ -426,13 +426,13 @@ $(document).ready(function() {
        });
      });
 });
-&lt/script&gt
+&lt;/script&gt;
 
 
 --- login.php ---
-&lt?php
-if ((!empty($_POST['nome'])) and (!empty($_POST['senha']))) {echo json_encode(array('success' =&gt 1));}
-else {echo json_encode(array('success' =&gt 0));}
+&lt;?php
+if ((!empty($_POST['nome'])) and (!empty($_POST['senha']))) {echo json_encode(array('success' =&gt; 1));}
+else {echo json_encode(array('success' =&gt; 0));}
 </code></pre></small>
         </div>
     </div>

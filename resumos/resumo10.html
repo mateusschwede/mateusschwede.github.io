@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
     <link rel="stylesheet" href="../estilo.css">
     <title>UB Social.ca</title>
@@ -18,14 +16,16 @@
     <div class="row">
         <div class="col-sm-12" id="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
-                <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
-                    </ul>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -40,7 +40,7 @@
         <div class="col-sm-12">
             <h4>Resumo (Github)</h4>
 <small><pre><code>
-Database -&gt Conjunto de tables -&gt Conjunto de registros (linhas, tuplas) -&gt Compostas por campos (columns)
+Database -&gt; Conjunto de tables -&gt; Conjunto de registros (linhas, tuplas) -&gt; Compostas por campos (columns)
 
 <b>Modelo Entidade-Relacionamento (ER)</b>
 Entidades: Representam objetos do BD, ex: aluno, lazer...
@@ -87,51 +87,51 @@ Ex: Tabela XY(pk_Pessoa,Idade,Cidade,cep): cria-se uma tabela X(pk_Pessoa,Idade,
 
 
 <b>TIPOS COMUNS DE DADOS MYSQL</b>
-&gt Numéricos Inteiros:
+&gt; Numéricos Inteiros:
 tinyint
 smallint
 int 12 2000
 mediumint
 bigint
 
-&gt Numéricos Reais:
+&gt; Numéricos Reais:
 decimal 999.99
 float
 double -999.00009
 real
 
-&gt Numérico Lógico:
+&gt; Numérico Lógico:
 bit b'11'
 boolean true / false
 
-&gt Data/Tempo:
+&gt; Data/Tempo:
 date 'YYYY-MM-DD' '1000-01-01'
 datetime 'YYYY-MM-DD HH:MM:SS' '9999-12-31 23:59:59'
 timestamp '1970-01-01 00:00:01'
 time 'HH:MM:SS' '838:59:59'
 year '1901' 2018
 
-&gt Literal Caractere:
+&gt; Literal Caractere:
 char char(4)'abcd'
 varchar varchar(4)'abcd'
 
-&gt Literal Texto:
+&gt; Literal Texto:
 tinytext
 text 'This is a test message. This is a test message. This is a test message.'
 mediumtext
 longtext
 
-&gt Literal Binário:
+&gt; Literal Binário:
 tinyblob
 blob '89504E470D0A1A0A0000000D4948' (no caso link da img)
 mediumblob
 longblob
 
-&gt Literal Coleção:
-enum size ENUM('x-small', 'small', 'medium', 'large', 'x-large')-&gt  'small' (pd opções...);
-set col SET('a', 'b', 'c', 'd')-&gt   ('a,d'), ('d,a'), ('a,d,a');
+&gt; Literal Coleção:
+enum size ENUM('x-small', 'small', 'medium', 'large', 'x-large')-&gt;  'small' (pd opções...);
+set col SET('a', 'b', 'c', 'd')-&gt;   ('a,d'), ('d,a'), ('a,d,a');
 
-&gt Espacial:
+&gt; Espacial:
 geometry
 point 'POINT(1 1)'
 polygon 'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))'
@@ -202,16 +202,16 @@ SELECT REPLACE(Nome_cliente ,'Tu', ‘Você’) FROM cliente;
 
 <b>FUNÇÕES DE DATA & HORA</b>
 • Operações com datas:
-timestamp '2001-09-28 01:00' + interval '23 hours' -&gt timestamp '2001-09-29 00:00’
-date '2001-09-28' + interval '1 hour' -&gt timestamp '2001-09-28 01:00’
+timestamp '2001-09-28 01:00' + interval '23 hours' -&gt; timestamp '2001-09-29 00:00’
+date '2001-09-28' + interval '1 hour' -&gt; timestamp '2001-09-28 01:00’
 date '01/01/2006' – date '31/01/2006’
-time '01:00' + interval '3 hours'time -&gt '04:00’
-interval '2 hours' - time '05:00' -&gt time '03:00:00'
+time '01:00' + interval '3 hours'time -&gt; '04:00’
+interval '2 hours' - time '05:00' -&gt; time '03:00:00'
 • Função age (retorna Interval) - Diferença entre datas
 age(timestamp)interval (Subtrai de hoje)
-age(timestamp '1957-06-13') -&gt 43 years 8 mons 3 days
+age(timestamp '1957-06-13') -&gt; 43 years 8 mons 3 days
 age(timestamp, timestamp)interval Subtrai os argumentos
-age('2001-04-10', timestamp '1957-06-13') -&gt 43 years 9 mons 27 days
+age('2001-04-10', timestamp '1957-06-13') -&gt; 43 years 9 mons 27 days
 • Função extract (retorna double) - Extrai parte da data: ano, mês, dia, hora, minuto, segundo.
 select extract(year from age('2001-04-10', timestamp'1957-06-13’))
 select extract(month from age('2001-04-10', timestamp'1957-06-13’))
@@ -239,7 +239,7 @@ Retorna 2001-02-16 00:00:00
 select to_date('1983-07-18', 'YYYY-MM-DD')
 select to_date('19830718', 'YYYYMMDD')
 • Função timeofday (retorna texto)
-select timeofday() -&gt Fri Feb 24 10:07:32.000126 2006 BRT
+select timeofday() -&gt; Fri Feb 24 10:07:32.000126 2006 BRT
 
 <b>FUNÇÕES DE AGRUPAMENTO (Agregação)</b>
 – avg(expressão)
@@ -338,13 +338,13 @@ ALTER TABLE user_customer_permission DROP PRIMARY KEY;
 <b>INSERIR DADOS NA TABELA</b>
 INSERT INTO pessoas (id, nome, nascimento, sexo, peso, altura, nacionalidade) VALUES
 (’1’, ‘Godofredo’, ‘1984-01-02’, ‘M’, ‘78.5’, ‘1.83’, ‘Brasil’);
---&gt DATA: ano-mes-dia
+--&gt; DATA: ano-mes-dia
 
 <b>INSERIR DADOS CRIPTOGRAFADOS (MD5)</b>
 INSERT INTO Usuario (nome,senha) VALUES ("admin",MD5(123));
 
 <b>MODIFICAR LINHAS INCORRETAS</b>
-UPDATE gafanhotos SET cursopreferido = ‘g’ WHERE ID = ‘1’ AND idade &gt 15;
+UPDATE gafanhotos SET cursopreferido = ‘g’ WHERE ID = ‘1’ AND idade &gt; 15;
 
 <b>MODIFICAR LINHAS INCORRETAS</b>
 UPDATE cursos SET nome = ‘HTML5’ WHERE idcurso = ‘1’;
@@ -357,7 +357,7 @@ UPDATE cursos SET nome = ‘Java’, carga = ‘40’, ano = ‘2015’ WHERE id
 DELETE FROM cursos WHERE idcurso = ‘8’;
 OU
 DELETE FROM cursos WHERE ano = ‘2018’ LIMIT 3;
-DELETE FROM medicos WHERE especialidade = 'cardiologia' OR cidade &lt&gt 'Feliz';
+DELETE FROM medicos WHERE especialidade = 'cardiologia' OR cidade &lt;&gt; 'Feliz';
 
 <b>APAGAR TODOS OS DADOS DA TABELA</b>
 TRUNCATE TABLE cursos; OU TRUNCATE cursos;
@@ -382,7 +382,7 @@ SELECT nome, carga, ano FROM cursos ORDER BY nome, ano;
 SELECT * FROM cursos WHERE ano = ‘2016’ ORDER BY nome;
 
 <b>SELECT CONDIÇÃO LINHA ÚNICA</b>
-SELECT nome, descrição, carga FROM cursos WHERE ano &lt= ‘2015’ ORDER BY ano;
+SELECT nome, descrição, carga FROM cursos WHERE ano &lt;= ‘2015’ ORDER BY ano;
 
 <b>SELECT ENTRE CONDIÇÕES</b>
 SELECT * FROM cursos WHERE totaulas BETWEEN ‘20’ AND ‘30’ ORDER BY nome;
@@ -391,9 +391,9 @@ SELECT * FROM cursos WHERE totaulas BETWEEN ‘20’ AND ‘30’ ORDER BY nome;
 SELECT nome, descrição, ano FROM cursos WHERE ano IN(2014, 2016) ORDER BY ano;
 
 <b>SELECT ENTRE CONDIÇÕES</b>
-SELECT * FROM cursos WHERE carga &gt 35 AND totaulas &lt 30 ORDER BY nome;
-IN -&gt Posso usar valores específicos
-BETWEEN -&gt Posso usar a faixa de valores
+SELECT * FROM cursos WHERE carga &gt; 35 AND totaulas &lt; 30 ORDER BY nome;
+IN -&gt; Posso usar valores específicos
+BETWEEN -&gt; Posso usar a faixa de valores
 
 <b>SELECT LIKE</b>
 SELECT * FROM cursos WHERE nome LIKE ‘P%’;
@@ -419,7 +419,7 @@ SELECT DISTINCT carga FROM cursos;
 
 <b>SELECT QTDE TOTAL</b>
 SELECT COUNT(*) FROM cursos;
-SELECT COUNT(*) FROM cursos WHERE carga &gt 40;
+SELECT COUNT(*) FROM cursos WHERE carga &gt; 40;
 
 <b>SELECT MAIOR E MENOR VALOR</b>
 SELECT MAX(totaulas) FROM cursos WHERE ano = ‘2016’;
@@ -434,12 +434,12 @@ SELECT AVG(totaulas) FROM cursos;
 
 <b>SELECT GROUP BY</b>
 SELECT carga FROM cursos GROUP BY carga;
-SELECT carga, COUNT(nome) FROM cursos GROUP BY carga HAVING COUNT(nome) &gt 3;
+SELECT carga, COUNT(nome) FROM cursos GROUP BY carga HAVING COUNT(nome) &gt; 3;
 SELECT c.nome, COUNT(p.quant) AS quantos FROM clientes c, pedidos p WHERE c.codigo = p.cod_cliente GROUP BY (p.cod_cliente);
 /*GROUP BY: Agrupa o resultado dos dados por um ou mais campos de uma tabela. Qndo utilizar group by num campo da lista do SELECT, os demais deverão ser agrupados.*/
 
 <b>SELECT HAVING:</b>
-SELECT cliente, SUM(quant) AS total FROM pedidos GROUP BY cliente HAVING total &gt 50; ou HAVING SUM(quant) &gt 50;
+SELECT cliente, SUM(quant) AS total FROM pedidos GROUP BY cliente HAVING total &gt; 50; ou HAVING SUM(quant) &gt; 50;
 /*Filtra o retorno de GROUP BY. Não altera o resultado, apenas filtra.*/
 
 <b>SELECT ORDER BY</b>
@@ -576,25 +576,25 @@ SELECT * FROM gafanhotos g JOIN gafanhoto_assiste_curso a ON g.id = a.idgafanhot
 Com esse comando, além dele selecionar o código do curso, ele mostrará também todos(*) os outros registros!*/
 
 <b>JOIN MEIO CONJUNTOS</b>
-SELECT &ltfields&gt FROM tableA A INNER JOIN tableB B ON A.key = B.key;
+SELECT &lt;fields&gt; FROM tableA A INNER JOIN tableB B ON A.key = B.key;
 
 <b>JOIN MEIO E ESQUERDO</b>
-SELECT &ltfields&gt FROM tableA A LEFT JOIN tableB B ON A.key = B.key;
+SELECT &lt;fields&gt; FROM tableA A LEFT JOIN tableB B ON A.key = B.key;
 
 <b>JOIN SOMENTE ESQUERDO</b>
-SELECT &ltfields&gt FROM tableA A LEFT JOIN tableB B ON A.key = B.key WHERE B.key IS NULL;
+SELECT &lt;fields&gt; FROM tableA A LEFT JOIN tableB B ON A.key = B.key WHERE B.key IS NULL;
 
 <b>JOIN TOTAL</b>
-SELECT &ltfields&gt FROM tableA A FULL OUTER JOIN tableB B ON A.key = B.key;
+SELECT &lt;fields&gt; FROM tableA A FULL OUTER JOIN tableB B ON A.key = B.key;
 
 <b>JOIN EXTERNO ESQUERDO E DIREITO</b>
-SELECT &ltfields&gt FROM tableA A FULL OUTER JOIN tableB B ON A.key = B.key WHERE A.key IS NULL OR B.key IS NULL;
+SELECT &lt;fields&gt; FROM tableA A FULL OUTER JOIN tableB B ON A.key = B.key WHERE A.key IS NULL OR B.key IS NULL;
 
 <b>JOIN SOMENTE DIREITO</b>
-SELECT &ltfields&gt FROM tableA A RIGHT JOIN tableB B ON A.key = B.key WHERE A.key IS NULL;
+SELECT &lt;fields&gt; FROM tableA A RIGHT JOIN tableB B ON A.key = B.key WHERE A.key IS NULL;
 
 <b>JOIN MEIO E DIREITO</b>
-SELECT &ltfields&gt FROM tableA A RIGHT JOIN tableB B ON A.key = B.key;
+SELECT &lt;fields&gt; FROM tableA A RIGHT JOIN tableB B ON A.key = B.key;
 
 
 <b>CRIPTOGRAFIA</b>
@@ -611,22 +611,22 @@ decrypt(data bytea, key bytea, type text) returns bytea;
 
 <b>VIEWS</b>
 /*Coleção de relações personalizadas que se ajustem melhor às necessidades dos usuários e que levem em conta as questões de segurança. table derivada de outras tables, podendo existir apenas virtualmente, em contraste com as tabelas-base, cujas tuplas estão fisicamente armazenadas no bd.*/
-SINTAXE: CREATE VIEW &ltnome_visão&gt (&ltnomes das colunas&gt) AS &ltexpressão_de_consulta&gt;
+SINTAXE: CREATE VIEW &lt;nome_visão&gt; (&lt;nomes das colunas&gt;) AS &lt;expressão_de_consulta&gt;;
 
 EXEMPLO VIEW:
 CREATE VIEW curso_disciplina (cod_curso, nom_curso, cod_disc, nom_disc) AS
 select r.cod_curso, c.nom_curso, r.cod_disc , d.nom_disc from disciplinas d, cursos c, curriculos r where r.cod_curso = c.cod_curso and r.cod_disc = d.cod_disc;
 
 <b>EXCLUIR VIEWS:</b>
-DROP VIEW &ltnome_visão&gt;
+DROP VIEW &lt;nome_visão&gt;;
 
 
 <b>INDEX:</b>
 /*Um índice ñ necessariamente precisa ser uma chave primária(que ñ permite chaves iguais) e pd ser usado em valores que se repetem.
 TIPOS:
-BTREE&gt Utilizado para indexar colunas que geralmente serão consultadas por intervalo.
+BTREE&gt; Utilizado para indexar colunas que geralmente serão consultadas por intervalo.
 Por exemplo o campo salário, onde geralmente serão buscado as tuplas por um intervalo de valores desse campo.
-HASH&gt Utilizado para indexar colunas que serão consultadas por um valor exato.
+HASH&gt; Utilizado para indexar colunas que serão consultadas por um valor exato.
 Por exemplo o campo RG que apesar de poder repetir, geralmente serão consultado as tuplas usando a condição de igualdade para esse campo.
 Usam o conceito de tabela hash onde a tupla não é pesquisada sequencialmente e sim calculada, ou seja, a posição da tupla no banco de dados é calculado por um algoritmo e a tupla é imediatamente acessada sem precisar percorrer uma a uma procurando pela condição.
 Árvore Binária: Nela as tuplas são distribuídas em forma de árvore, colocando sempre o valor maior a direita e tendo sempre duas opções (nó).*/
