@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../anexos/icons/logoTit.png">
+    <link rel="stylesheet" href="../estilo.css">
+    <title>UB Social.ca</title>
+</head>
+<body>
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-sm-12" id="menu">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../anexos/icons/logo.png" id="logo"> UB Social.ca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../contato.html">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../livros.html">Livros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="titulo1">
+            <h1>Lumen</h1>
+            <h6><strong>Microframework Laravel</strong></h6>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Post em construção!</strong> O post está sendo construído no momento, portanto não está completo.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+            <p id="textoPost">Microframework do ecossistema Laravel, com objetivo de criar pequenos projetos, envolvendo-os em maior baixo nível, capacitando maior desempenho com relação ao Laravel. Muito utilizado para criação de microserviços e APIs.</p>
+            <a class="btnbtn-link" href="https://github.com/mateusschwede/lumen" target="_blank" id="btnLink">Acesse no Github</a>
+        </div>
+
+        <div class="col-sm-12">
+            <br>
+            <h4>Projetos</h4>
+            <ul>
+                <li><b>ProjetoBase:</b> Projeto Lumen base com diretórios padrão<a class="btn btn-link" href="https://github.com/mateusschwede/lumen/tree/main/projetoBase" id="btnLink" target="_blank">Ver Github</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <br>
+            <h4>Anotações</h4>
+<small><pre><code>
+<h6><b>Pré-Requisitos</b></h6>
+- Xampp executando (Php7 ou superior)
+- Composer
+- Nodejs e NPM
+
+<h6><b>Instalação</b></h6>
+<b>Criação:</b> <i>composer create-project --prefer-dist laravel/lumennomeProjeto</i>
+<b>Execução:</b> <i>php -S localhost:8000 -t public</i>
+
+
+<h6><b>Diretórios</b></h6>
+<i>Os diretórios, no geral, seguem a mesma organização e padronização do Laravel</i>
+
+
+<h6><b>Routes (Web.php)</b></h6>
+$router-&gt;get('foo', function () {
+    return'Hello World';
+});
+$router-&gt;get('user/{id}', function ($id) {
+    return'User '.$id;
+});
+
+//Parâmetros opcionais
+$router-&gt;get('user[/{name}]', function ($name = null) {
+    return$name;
+});
+
+//Nomeando route
+$router-&gt;get('profile', ['as'=&gt;'profile', function () {
+    //
+}]);
+
+//Nome relacionado à ação de controller
+$router-&gt;get('profile', [
+    'as'=&gt; 'profile', 'uses'=&gt; 'UserController@showProfile'
+]);
+
+//Routes de Group e Middleware
+$router-&gt;group(['middleware'=&gt;'auth'], function () use ($router) {
+    $router-&gt;get('/', function () {
+        //Uses Auth Middleware
+    });
+
+    $router-&gt;get('user/profile', function () {
+        //Uses Auth Middleware
+    });
+});
+
+<b>Verbos</b>
+$router-&gt;get($uri, $callback); //Inserir/ver
+$router-&gt;post($uri, $callback); //Inserir não visível
+$router-&gt;put($uri, $callback); //Editar
+$router-&gt;patch($uri, $callback); //Aplicar Edição
+$router-&gt;delete($uri, $callback); //Excluir
+$router-&gt;options($uri, $callback); //Opções de comunicação com destino
+
+
+<h6><b>Controllers</b></h6>
+
+<b>Exemplo (UserController)</b>
+&lt;?php
+namespace App\Http\Controllers;
+use App\User;
+
+class UserController extends Controller {
+    public function show($id) {
+        return User::findOrFail($id);
+    }
+}
+?&gt;
+
+//Route de acesso
+$router-&gt;get('user/{id}', 'UserController@show');
+$router-&gt;get('foo', ['uses'=&gt;'FooController@method', 'as'=&gt;'name']); //Com nomeação de route
+
+<b>Exemplo Injeção de dados (Store)</b>
+&lt;?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class UserController extends Controller {
+    public function store(Request $request) {
+        $name = $request-&gt;input('name');
+    }
+}
+?&gt;
+
+<b>Exemplo Atualização de dados (Update)</b>
+&lt;?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class UserController extends Controller {
+    public function update(Request $request, $id) {
+        //Código...
+    }
+}
+?&gt;
+$router-&gt;put('user/{id}', 'UserController@update'); //Route de acesso
+
+
+<h6><b>Requests (Requisições)</b></h6>
+
+<b>Requisição básica</b>
+$uri = $request-&gt;path(); //Retorna a URI da request
+if ($request-&gt;is('admin/*')) {
+    //Código aqui...
+}
+
+$method = $request-&gt;method(); //Retorna o verbo da request
+if ($request-&gt;isMethod('post')) {
+    //Código aqui...
+}
+
+<b>Recuperar dados</b>
+$name = $request-&gt;input('name');
+$name = $request-&gt;input('name', 'Sally'); //Com valor padrão
+$name = $request-&gt;input('products.0.name'); //Multivalores (Arrays...)
+$names = $request-&gt;input('products.*.name'); //Multivalores (Arrays...)
+$input = $request-&gt;all(); //Todos os valores
+$input = $request-&gt;only(['username', 'password']); //Porção de valores 
+$input = $request-&gt;except('credit_card'); //Exceto valores
+
+<b>Determinar existência do valor</b>
+if ($request-&gt;has('name')) {
+    //Código aqui...
+}
+if ($request-&gt;has(['name','email'])) { //Multivalores
+    //Código aqui...
+}
+if ($request-&gt;filled('name')) { //Verifica existência e se não está vazio
+    //Código aqui...
+}
+
+
+<h6><b>Responses (Respostas)</b></h6>
+
+<b>Resposta básica</b>
+$router-&gt;get('/', function () {
+    return'Hello World';
+});
+
+<b>Resposta com objetos</b>
+$router-&gt;get('home', function () {
+    return response($content, $status)
+        -&gt;header('Content-Type', $value);
+});
+
+<b>Anexar headers às respostas</b>
+return response($content)
+    -&gt;withHeaders([
+        'Content-Type' =&gt; $type,
+        'X-Header-One' =&gt; 'Header Value',
+        'X-Header-Two' =&gt; 'Header Value',
+    ]);
+
+<b>Respostas Json</b>
+return response()-&gt;json(['name'=&gt;'Abigail', 'state'=&gt;'CA']);
+return response()-&gt;json(['error'=&gt;'Unauthorized'], 401, ['X-Header-One'=&gt;'Header Value']);
+
+return response()
+    -&gt;json(['name' =&gt; 'Abigail', 'state' =&gt; 'CA'])
+    -&gt;setCallback($request-&gt;input('callback'));
+
+<b>Redirecionamentos</b>
+$router-&gt;get('dashboard', function () {
+    return redirect('home/dashboard');
+});
+
+return redirect()-&gt;route('login'); //Redirecionamento à route com nome
+return redirect()-&gt;route('profile', ['id'=&gt;1]); //Com parâmetros e argumentos
+return redirect()-&gt;route('profile', [$user]); //Com origem de Model Eloquent (parâmetro 'id' passa automaticamente)
+
+
+<b>Autenticação (Base)</b>
+$this-&gt;app['auth']-&gt;viaRequest('api', function ($request) {
+    //Return User or null...
+});
+
+use Illuminate\Auth\GenericUser;
+return new GenericUser(['id'=&gt;1, 'name'=&gt;'Taylor']); //Caso o projeto não use Eloquent
+
+<b>Acessando usuário autenticado</b>
+use Illuminate\Http\Request;
+$router-&gt;get('/post/{id}', ['middleware'=&gt;'auth', function (Request $request, $id) {
+    $user = Auth::user();
+    $user = $request-&gt;user();
+}]);
+
+//Em 'bootstrap/app.php', para usar autenticação, deve-se descomentar esse código
+$app-&gt;routeMiddleware([
+    'auth' =&gt; App\Http\Middleware\Authenticate::class,
+]);
+
+
+<h6><b>Database (Similar ao Laravel)</b></h6>
+<i>Assim como no Laravel, o Lumentambém utiliza, para construção da base de dados, as Migrations. Para saber mais sobre, confira a documentação oficial e meu resumo de Laravel.</i>
+
+<b>Query</b>
+<i>Exemplo completo na documentação oficial do Laravel.</i>
+DB::select("SELECT * FROM users WHERE id=?", [$userId]);
+
+<b>QueryBuilder</b>
+<i>Exemplo completo na documentação oficial do Laravel.</i>
+DB:table('users')
+    -&gt; where('id','=',$userId)
+    -&gt; where('active','=',1)
+    -&gt; get();
+
+<b>ORM (Eloquent)</b>
+<i>Para usar tal modelo, em 'bootstrap/app.php', descomente a linha '$app-&gt;withEloquent()'</i>
+User::findOrFail($userId);
+
+
+<h6><b>Criptografia</b></h6>
+
+<b>Criptografar</b>
+&lt;?php
+namespace App\Http\Controllers;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+
+class UserController extends Controller {
+    public function storeSecret(Request $request, $id) {
+        $user = User::findOrFail($id);
+        $user-&gt;fill([
+            'secret' =&gt; Crypt::encrypt($request-&gt;secret)
+        ])-&gt;save();
+    }
+}
+?&gt;
+
+<b>Descriptografar</b>
+use Illuminate\Contracts\Encryption\DecryptException;
+try {
+    $decrypted = Crypt::decrypt($encryptedValue);
+} catch (DecryptException$e) {
+    //Código aqui...
+}
+
+
+<b>Outros detalhes</b>
+<i>Demais conceitos, como Views com Blade, são similares ao Laravel. Para maiores detalhes, confira a documentação oficial do Lumen, que lhe redirecionará às páginas específicas da documentação do Laravel sobre o assunto.</i>
+</code></pre></small>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
